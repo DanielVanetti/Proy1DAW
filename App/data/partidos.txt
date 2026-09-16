@@ -1,0 +1,4 @@
+P001;Partido Renovación Nacional;PRN;Centro;1998-03-14
+P002;Alianza Progresista;AP;Centro-izquierda;2004-07-22
+P003;Frente Unido Democrático;FUD;Socialdemócrata;1991-11-05
+P004;Movimiento Cívico Independiente;MCI;Independiente;2012-02-18

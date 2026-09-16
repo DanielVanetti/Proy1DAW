@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD de Figuras Públicas</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <nav class="menu-lateral">
+
+            <h2>Política y<br>Figuras Públicas</h2>
+            <p id="usuarioActivo" class="usuario-activo"></p>
+            <hr>
+            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
+            <a href="/partidos/pagina">Partidos Políticos</a>
+            <a href="/figuras/pagina">Figuras Públicas</a>
+            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
+            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
+            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
+            <p class="menu-seccion">Parte 3 - MongoDB</p>
+            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
+            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
+            <hr>
+            <button id="btnSalir">Cerrar sesión</button>
+
+        </nav>
+
+        <main class="contenido">
+
+            <div class="contenedor">
+
+                <h1>CRUD DE FIGURAS PÚBLICAS</h1>
+                <h2>Parte 1 - Semana 2 (archivo .txt)</h2>
+
+                <hr>
+
+                <div class="formulario">
+
+                    <label>Código</label>
+                    <input type="text" id="codigo">
+
+                    <label>Nombre completo</label>
+                    <input type="text" id="nombreCompleto">
+
+                    <label>Cargo actual</label>
+                    <input type="text" id="cargoActual">
+
+                    <label>Partido</label>
+                    <input type="text" id="partido">
+
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" id="fechaNacimiento">
+
+                </div>
+
+                <div class="botones">
+
+                    <button id="btnGuardar">Guardar</button>
+                    <button id="btnModificar">Modificar</button>
+                    <button id="btnEliminar" class="eliminar">Eliminar</button>
+                    <button id="btnConsultar">Consultar</button>
+                    <button id="btnLimpiar" class="limpiar">Limpiar</button>
+
+                </div>
+
+                <hr>
+
+                <h2>Lista de figuras públicas</h2>
+
+                <table id="tablaFiguras">
+
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre completo</th>
+                            <th>Cargo actual</th>
+                            <th>Partido</th>
+                            <th>Fecha nacimiento</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+                <div id="mensaje"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/figuras.js"></script>
+
+</body>
+
+</html>

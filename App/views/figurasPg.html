@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD Figuras y Cargos (PostgreSQL)</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <nav class="menu-lateral">
+
+            <h2>Política y<br>Figuras Públicas</h2>
+            <p id="usuarioActivo" class="usuario-activo"></p>
+            <hr>
+            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
+            <a href="/partidos/pagina">Partidos Políticos</a>
+            <a href="/figuras/pagina">Figuras Públicas</a>
+            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
+            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
+            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
+            <p class="menu-seccion">Parte 3 - MongoDB</p>
+            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
+            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
+            <hr>
+            <button id="btnSalir">Cerrar sesión</button>
+
+        </nav>
+
+        <main class="contenido">
+
+            <div class="contenedor">
+
+                <h1>FIGURAS PÚBLICAS Y CARGOS HISTÓRICOS</h1>
+                <h2>Parte 2 - Semana 4 (PostgreSQL, BDPostgreSQL)</h2>
+                <p><em>Carga Eager: la tabla de cargos históricos se consulta con un único JOIN que trae, de una sola vez, el nombre de la figura relacionada (ver <code>dao/postgres/cargoHistoricoPgDAO.js</code>).</em></p>
+
+                <hr>
+
+                <!-- ========== TABLA 1: FIGURAS PUBLICAS ========== -->
+
+                <h2>Tabla 1: Figuras Públicas</h2>
+
+                <div class="formulario">
+
+                    <input type="hidden" id="figuraId">
+
+                    <label>Nombre completo</label>
+                    <input type="text" id="nombreCompleto">
+
+                    <label>Cargo actual</label>
+                    <input type="text" id="cargoActual">
+
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" id="fechaNacimiento">
+
+                    <label>Nacionalidad</label>
+                    <input type="text" id="nacionalidad">
+
+                    <label>Nivel educativo</label>
+                    <input type="text" id="nivelEducativo">
+
+                    <label>Años de experiencia</label>
+                    <input type="number" id="aniosExperiencia">
+
+                    <label>Biografía</label>
+                    <textarea id="biografia"></textarea>
+
+                    <label>Foto (imagen binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
+                    <input type="file" id="foto" accept="image/*">
+
+                </div>
+
+                <div class="botones">
+
+                    <button id="btnGuardarFigura">Guardar</button>
+                    <button id="btnModificarFigura">Modificar</button>
+                    <button id="btnEliminarFigura" class="eliminar">Eliminar</button>
+                    <button id="btnLimpiarFigura" class="limpiar">Limpiar</button>
+
+                </div>
+
+                <table id="tablaFiguras">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Cargo</th>
+                            <th>Nacionalidad</th>
+                            <th>Experiencia</th>
+                            <th>Foto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+                <hr>
+
+                <!-- ========== TABLA 2: CARGOS HISTORICOS ========== -->
+
+                <h2>Tabla 2: Cargos Históricos (relacionada por figura_id)</h2>
+
+                <div class="formulario">
+
+                    <input type="hidden" id="cargoId">
+
+                    <label>Figura pública</label>
+                    <select id="cargoFiguraId"></select>
+
+                    <label>Cargo</label>
+                    <input type="text" id="cargo">
+
+                    <label>Institución</label>
+                    <input type="text" id="institucion">
+
+                    <label>Fecha de inicio</label>
+                    <input type="date" id="fechaInicio">
+
+                    <label>Fecha de fin</label>
+                    <input type="date" id="fechaFin">
+
+                    <label>Logros</label>
+                    <textarea id="logros"></textarea>
+
+                    <label>Motivo de salida</label>
+                    <input type="text" id="motivoSalida">
+
+                    <label>Región</label>
+                    <input type="text" id="region">
+
+                    <label>Imagen del evento (binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
+                    <input type="file" id="imagenEvento" accept="image/*">
+
+                </div>
+
+                <div class="botones">
+
+                    <button id="btnGuardarCargo">Guardar</button>
+                    <button id="btnModificarCargo">Modificar</button>
+                    <button id="btnEliminarCargo" class="eliminar">Eliminar</button>
+                    <button id="btnLimpiarCargo" class="limpiar">Limpiar</button>
+
+                </div>
+
+                <table id="tablaCargos">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Figura (JOIN)</th>
+                            <th>Cargo</th>
+                            <th>Institución</th>
+                            <th>Región</th>
+                            <th>Imagen</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+                <div id="mensaje"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/figurasPg.js"></script>
+
+</body>
+
+</html>

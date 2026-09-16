@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD Figuras Públicas (MongoDB)</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <nav class="menu-lateral">
+
+            <h2>Política y<br>Figuras Públicas</h2>
+            <p id="usuarioActivo" class="usuario-activo"></p>
+            <hr>
+            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
+            <a href="/partidos/pagina">Partidos Políticos</a>
+            <a href="/figuras/pagina">Figuras Públicas</a>
+            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
+            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
+            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
+            <p class="menu-seccion">Parte 3 - MongoDB</p>
+            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
+            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
+            <hr>
+            <button id="btnSalir">Cerrar sesión</button>
+
+        </nav>
+
+        <main class="contenido">
+
+            <div class="contenedor">
+
+                <h1>FIGURAS PÚBLICAS (MongoDB)</h1>
+                <h2>Parte 3 - Semana 5 (colección CollMongoDB, tipo: "figura", 120 documentos, 25 campos)</h2>
+                <p><em>Carga Lazy: la lista NO trae el campo de imagen (fotoBase64); al presionar "Ver / Editar" se hace una segunda consulta (obtenerPorId) que sí trae el documento completo, incluida la imagen (ver <code>dao/mongo/figuraMongoDAO.js</code>).</em></p>
+
+                <hr>
+
+                <div class="formulario">
+
+                    <input type="hidden" id="mongoId">
+
+                    <label>Nombre completo</label>
+                    <input type="text" id="nombreCompleto">
+
+                    <label>Cargo actual</label>
+                    <input type="text" id="cargoActual">
+
+                    <label>Partido</label>
+                    <input type="text" id="partido">
+
+                    <label>Fecha de nacimiento</label>
+                    <input type="date" id="fechaNacimiento">
+
+                    <label>Nacionalidad</label>
+                    <input type="text" id="nacionalidad">
+
+                    <label>Nivel educativo</label>
+                    <input type="text" id="nivelEducativo">
+
+                    <label>Universidad</label>
+                    <input type="text" id="universidad">
+
+                    <label>Profesión</label>
+                    <input type="text" id="profesion">
+
+                    <label>Años de experiencia</label>
+                    <input type="number" id="aniosExperiencia">
+
+                    <label>Cargos anteriores</label>
+                    <input type="text" id="cargosAnteriores">
+
+                    <label>Propuestas principales</label>
+                    <input type="text" id="propuestasPrincipales">
+
+                    <label>Redes sociales</label>
+                    <input type="text" id="redesSociales">
+
+                    <label>Popularidad estimada (%)</label>
+                    <input type="number" id="popularidadEstimada">
+
+                    <label>Región representada</label>
+                    <input type="text" id="regionRepresentada">
+
+                    <label>Fecha inicio de cargo</label>
+                    <input type="date" id="fechaInicioCargo">
+
+                    <label>Fecha fin de cargo</label>
+                    <input type="date" id="fechaFinCargo">
+
+                    <label>Estado civil</label>
+                    <input type="text" id="estadoCivil">
+
+                    <label>Idiomas</label>
+                    <input type="text" id="idiomas">
+
+                    <label>Premios y reconocimientos</label>
+                    <input type="text" id="premiosReconocimientos">
+
+                    <label>Controversias</label>
+                    <input type="text" id="controversias">
+
+                    <label>Biografía corta</label>
+                    <textarea id="biografiaCorta"></textarea>
+
+                    <label>Sitio web oficial</label>
+                    <input type="text" id="sitioWebOficial">
+
+                    <label>Número de seguidores</label>
+                    <input type="number" id="numeroSeguidores">
+
+                    <label>Afiliaciones</label>
+                    <input type="text" id="afiliaciones">
+
+                    <label>Foto (imagen binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
+                    <input type="file" id="foto" accept="image/*">
+                    <img id="fotoPreview" class="miniatura" style="display:none">
+
+                </div>
+
+                <div class="botones">
+
+                    <button id="btnGuardar">Guardar</button>
+                    <button id="btnModificar">Modificar</button>
+                    <button id="btnEliminar" class="eliminar">Eliminar</button>
+                    <button id="btnLimpiar" class="limpiar">Limpiar</button>
+                </div>
+
+                <table id="tablaFiguras">
+
+                    <thead>
+                        <tr>
+                            <th>Nombre completo</th>
+                            <th>Cargo actual</th>
+                            <th>Partido</th>
+                            <th>Región</th>
+                            <th>Popularidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+                <div id="mensaje"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/figurasMongo.js"></script>
+
+</body>
+
+</html>

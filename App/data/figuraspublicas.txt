@@ -1,0 +1,4 @@
+F001;Marcela Vindas Soto;Diputada;Partido Renovación Nacional;1978-05-12
+F002;Rodrigo Salazar Ureña;Alcalde;Alianza Progresista;1970-09-30
+F003;Ana Lucía Mora Chinchilla;Ministra;Frente Unido Democrático;1982-01-27
+F004;Esteban Quesada Rojas;Diputado;Movimiento Cívico Independiente;1985-06-19

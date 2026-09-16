@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menú Principal</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <nav class="menu-lateral">
+
+            <h2>Política y<br>Figuras Públicas</h2>
+
+            <p id="usuarioActivo" class="usuario-activo"></p>
+
+            <hr>
+
+            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
+            <a href="/partidos/pagina">Partidos Políticos</a>
+            <a href="/figuras/pagina">Figuras Públicas</a>
+
+            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
+            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
+            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
+
+            <p class="menu-seccion">Parte 3 - MongoDB</p>
+            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
+            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
+
+            <hr>
+
+            <button id="btnSalir">Cerrar sesión</button>
+
+        </nav>
+
+        <main class="contenido-bienvenida">
+
+            <h1>Bienvenido</h1>
+            <p>Seleccione una opción del menú para comenzar.</p>
+
+        </main>
+
+    </div>
+
+    <script src="/js/menu.js"></script>
+
+</body>
+
+</html>
