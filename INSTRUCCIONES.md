@@ -55,11 +55,14 @@ Definidos en `App/data/usuarios.txt`:
 
 ## 7. Antes de entregar
 
-- Completar en `App/views/login.html` los nombres completos y cédulas del grupo
-  (hay un comentario `TODO` marcando dónde).
+- Poner los nombres completos y cédulas del grupo en el PDF
+  `Grupo-#-Explicacion.pdf` (el login quedó igual al de PROYECTOESTUDIANTES).
 - Revisar **`PENDIENTES.md`** (en la raíz de este proyecto) y confirmar con el
   profesor los puntos marcados como "propuesta pendiente de confirmar"
   (serialización de imágenes, Carga Eager, Carga Lazy, una sola colección Mongo).
+- Revisar los comentarios `AGREGADO:` y `CAMBIO:` del código: marcan todo lo que
+  no es exactamente igual a PROYECTOESTUDIANTES (Parte 1), S4-SW (Parte 2) y
+  S5-SW (Parte 3).
 - Empacar los 3 ZIP con los nombres exactos que pide el enunciado
   (`ProyectoP4-App-Grupo-#.zip` con el contenido de `App/`,
   `ProyectoP4-PostgreSQL-Grupo-#.zip` con el contenido de `PostgreSQL/`,
