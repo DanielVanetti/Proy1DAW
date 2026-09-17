@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+ 
+    margin: 0;
+ 
+    font-family: Arial, sans-serif;
+ 
+    background-color: #f2f2f2;
+ 
+    color: #333;
+}
+ 
+ 
+.contenedor {
+ 
+    width: 90%;
+ 
+    max-width: 1000px;
+ 
+    margin: 40px auto;
+ 
+    background-color: white;
+ 
+    padding: 30px;
+ 
+    border-radius: 10px;
+ 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+ 
+ 
+h1 {
+ 
+    text-align: center;
+ 
+    margin-bottom: 30px;
+}
+ 
+ 
+h2 {
+ 
+    margin-top: 20px;
+ 
+    border-bottom: 1px solid #ddd;
+ 
+    padding-bottom: 10px;
+}
+ 
+ 
+.formulario {
+ 
+    margin-bottom: 30px;
+}
+ 
+ 
+label {
+ 
+    display: block;
+ 
+    margin-top: 15px;
+ 
+    margin-bottom: 5px;
+ 
+    font-weight: bold;
+}
+ 
+ 
+input {
+ 
+    width: 100%;
+ 
+    padding: 10px;
+ 
+    border: 1px solid #ccc;
+ 
+    border-radius: 5px;
+ 
+    font-size: 16px;
+}
+ 
+ 
+.botones {
+ 
+    margin-top: 20px;
+ 
+    display: flex;
+ 
+    gap: 10px;
+}
+ 
+ 
+button {
+ 
+    padding: 10px 20px;
+ 
+    border: none;
+ 
+    border-radius: 5px;
+ 
+    cursor: pointer;
+ 
+    font-size: 15px;
+}
+ 
+ 
+button[type="submit"] {
+ 
+    background-color: #0df689;
+ 
+    color: white;
+}
+ 
+ 
+#btnCancelar {
+ 
+    background-color: #6c757d;
+ 
+    color: white;
+}
+ 
+ 
+table {
+ 
+    width: 100%;
+ 
+    border-collapse: collapse;
+ 
+    margin-top: 20px;
+}
+ 
+ 
+th,
+td {
+ 
+    border: 1px solid #ddd;
+ 
+    padding: 12px;
+ 
+    text-align: center;
+}
+ 
+ 
+th {
+ 
+    background-color: #64696e;
+ 
+    color: white;
+}
+ 
+ 
+tr:nth-child(even) {
+ 
+    background-color: #f8f8f8;
+}
+ 
+ 
+.btn-editar {
+ 
+    background-color: #079cff;
+ 
+    color: black;
+ 
+    margin-right: 5px;
+}
+ 
+ 
+.btn-eliminar {
+ 
+    background-color: #f4a3ab;
+ 
+    color: white;
+}

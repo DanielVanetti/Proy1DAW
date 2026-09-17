@@ -15,6 +15,8 @@ function inicializarArchivo() {
 
     if (!fs.existsSync(ARCHIVO_LOG)) {
 
+        fs.mkdirSync(path.dirname(ARCHIVO_LOG), { recursive: true });
+
         fs.writeFileSync(ARCHIVO_LOG, "");
 
     }
