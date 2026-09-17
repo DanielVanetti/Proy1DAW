@@ -1,20 +1,53 @@
 const express = require("express");
-const path = require("path");
-
+ 
 const router = express.Router();
-
-const FiguraMongoController = require("../controllers/figuraMongoController");
-
-router.get("/figuras-mongo/pagina", (req, res) => {
-
-    res.sendFile(path.join(__dirname, "..", "views", "figurasMongo.html"));
-
-});
-
-router.get("/api/figuras-mongo", FiguraMongoController.listar);
-router.get("/api/figuras-mongo/:id", FiguraMongoController.obtenerPorId);
-router.post("/api/figuras-mongo", FiguraMongoController.crear);
-router.put("/api/figuras-mongo/:id", FiguraMongoController.actualizar);
-router.delete("/api/figuras-mongo/:id", FiguraMongoController.eliminar);
-
+ 
+const FiguraMongoController =
+    require("../controllers/FiguraMongoController");
+ 
+ 
+// ======================================================
+// MONGODB + DAO
+//
+// IMPORTANTE:
+// Estas rutas deben estar ANTES de /:id
+// (en app.js este router se registra antes que el de PostgreSQL)
+// ======================================================
+ 
+ 
+// CREAR MONGODB
+router.post(
+    "/mongo",
+    FiguraMongoController.crearMongo
+);
+ 
+ 
+// CONSULTAR TODOS MONGODB
+router.get(
+    "/mongo",
+    FiguraMongoController.obtenerTodosMongo
+);
+ 
+ 
+// CONSULTAR UNO MONGODB
+router.get(
+    "/mongo/:id",
+    FiguraMongoController.obtenerPorIdMongo
+);
+ 
+ 
+// ACTUALIZAR MONGODB
+router.put(
+    "/mongo/:id",
+    FiguraMongoController.actualizarMongo
+);
+ 
+ 
+// ELIMINAR MONGODB
+router.delete(
+    "/mongo/:id",
+    FiguraMongoController.eliminarMongo
+);
+ 
+ 
 module.exports = router;

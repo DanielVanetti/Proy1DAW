@@ -1,60 +1,92 @@
-/*
-==========================================
-CRUD DE FIGURAS + CARGOS HISTORICOS (Parte 2 - PostgreSQL)
-==========================================
-*/
+// ==========================================
+// FIGURAS PÚBLICAS
+// ==========================================
 
-document.addEventListener("DOMContentLoaded", iniciar);
+const formularioFigura = document.getElementById("formFigura");
 
-function iniciar() {
+const figuraIdInput = document.getElementById("figuraId");
 
-    document.getElementById("btnGuardarFigura").addEventListener("click", guardarFigura);
-    document.getElementById("btnModificarFigura").addEventListener("click", modificarFigura);
-    document.getElementById("btnEliminarFigura").addEventListener("click", eliminarFigura);
-    document.getElementById("btnLimpiarFigura").addEventListener("click", limpiarFigura);
+const nombreCompletoInput = document.getElementById("nombreCompleto");
 
-    document.getElementById("btnGuardarCargo").addEventListener("click", guardarCargo);
-    document.getElementById("btnModificarCargo").addEventListener("click", modificarCargo);
-    document.getElementById("btnEliminarCargo").addEventListener("click", eliminarCargo);
-    document.getElementById("btnLimpiarCargo").addEventListener("click", limpiarCargo);
+const cargoActualInput = document.getElementById("cargoActual");
 
-    listarFiguras();
-    listarCargos();
+const fechaNacimientoInput = document.getElementById("fechaNacimiento");
 
-}
+const nacionalidadInput = document.getElementById("nacionalidad");
 
-function cabeceras() {
+const nivelEducativoInput = document.getElementById("nivelEducativo");
 
-    return {
-        "Content-Type": "application/json",
-        "x-usuario": sessionStorage.getItem("usuario") || "desconocido"
-    };
+const aniosExperienciaInput = document.getElementById("aniosExperiencia");
 
-}
+const biografiaInput = document.getElementById("biografia");
 
-// PENDIENTE: confirmar con el profesor si esta es la tecnica de serializacion vista en clase.
-function archivoABase64(inputFile) {
+const fotoInput = document.getElementById("foto");
 
-    return new Promise((resolve) => {
+const tablaFiguras =
+    document.getElementById("tablaFiguras");
 
-        const archivo = inputFile.files[0];
+const btnCancelarFigura =
+    document.getElementById("btnCancelarFigura");
+
+
+// ==========================================
+// CARGOS HISTÓRICOS
+// ==========================================
+
+const formularioCargo = document.getElementById("formCargo");
+
+const cargoIdInput = document.getElementById("cargoId");
+
+const figuraIdCargoInput = document.getElementById("figuraIdCargo");
+
+const cargoInput = document.getElementById("cargo");
+
+const institucionInput = document.getElementById("institucion");
+
+const fechaInicioInput = document.getElementById("fechaInicio");
+
+const fechaFinInput = document.getElementById("fechaFin");
+
+const logrosInput = document.getElementById("logros");
+
+const motivoSalidaInput = document.getElementById("motivoSalida");
+
+const regionInput = document.getElementById("region");
+
+const imagenEventoInput = document.getElementById("imagenEvento");
+
+const tablaCargos =
+    document.getElementById("tablaCargos");
+
+const btnCancelarCargo =
+    document.getElementById("btnCancelarCargo");
+
+
+// ==========================================
+// AGREGADO: SERIALIZAR IMAGEN (no está en S4)
+// Lee el archivo seleccionado y lo convierte a texto
+// base64 para enviarlo dentro del JSON al servidor
+// ==========================================
+
+function leerImagen(inputArchivo) {
+
+    return new Promise((resolve, reject) => {
+
+        const archivo = inputArchivo.files[0];
 
         if (!archivo) {
 
             resolve(null);
+
             return;
 
         }
 
         const lector = new FileReader();
 
-        lector.onload = () => {
+        lector.onload = () => resolve(lector.result.split(",")[1]);
 
-            const resultado = lector.result;
-            const base64 = resultado.split(",")[1];
-            resolve(base64);
-
-        };
+        lector.onerror = reject;
 
         lector.readAsDataURL(archivo);
 
@@ -62,336 +94,711 @@ function archivoABase64(inputFile) {
 
 }
 
-function mostrarMensaje(texto) {
 
-    document.getElementById("mensaje").innerHTML = texto;
+// ==========================================
+// CONSULTAR FIGURAS PÚBLICAS
+// ==========================================
 
-}
+async function cargarFiguras() {
 
-// ================= FIGURAS PUBLICAS =================
+    try {
 
-async function obtenerFormularioFigura() {
+        const respuesta =
+            await fetch("/api/figuras");
 
-    return {
-        nombreCompleto: document.getElementById("nombreCompleto").value.trim(),
-        cargoActual: document.getElementById("cargoActual").value.trim(),
-        fechaNacimiento: document.getElementById("fechaNacimiento").value,
-        nacionalidad: document.getElementById("nacionalidad").value.trim(),
-        nivelEducativo: document.getElementById("nivelEducativo").value.trim(),
-        aniosExperiencia: Number(document.getElementById("aniosExperiencia").value) || 0,
-        biografia: document.getElementById("biografia").value.trim(),
-        fotoBase64: await archivoABase64(document.getElementById("foto"))
-    };
+        const figuras =
+            await respuesta.json();
 
-}
+        tablaFiguras.innerHTML = "";
 
-async function guardarFigura() {
+        figuras.forEach(figura => {
 
-    const figura = await obtenerFormularioFigura();
+            const fila =
+                document.createElement("tr");
 
-    const respuesta = await fetch("/api/figuras-pg", {
-        method: "POST",
-        headers: cabeceras(),
-        body: JSON.stringify(figura)
-    });
+            // AGREGADO: la foto llega serializada en base64 y se muestra en un <img>
+            // CAMBIO: el botón Editar solo envía el id (son 8 campos)
 
-    const datos = await respuesta.json();
+            fila.innerHTML = `
 
-    mostrarMensaje(datos.mensaje);
-    limpiarFigura();
-    listarFiguras();
+                <td>${figura.id}</td>
 
-}
+                <td>${figura.nombre_completo}</td>
 
-async function modificarFigura() {
+                <td>${figura.cargo_actual}</td>
 
-    const id = document.getElementById("figuraId").value;
+                <td>${figura.fecha_nacimiento}</td>
 
-    if (!id) {
+                <td>${figura.nacionalidad}</td>
 
-        mostrarMensaje("Seleccione una figura de la tabla para modificar.");
-        return;
+                <td>${figura.nivel_educativo}</td>
 
-    }
+                <td>${figura.anios_experiencia}</td>
 
-    const figura = await obtenerFormularioFigura();
+                <td>${figura.biografia}</td>
 
-    const respuesta = await fetch("/api/figuras-pg/" + id, {
-        method: "PUT",
-        headers: cabeceras(),
-        body: JSON.stringify(figura)
-    });
+                <td>
+                    ${figura.foto ? `<img src="data:image/png;base64,${figura.foto}" width="60">` : "Sin foto"}
+                </td>
 
-    const datos = await respuesta.json();
+                <td>
 
-    mostrarMensaje(datos.mensaje);
-    limpiarFigura();
-    listarFiguras();
-    listarCargos();
+                    <button
+                        class="btn-editar"
+                        onclick="editarFigura(
+                            ${figura.id}
+                        )">
 
-}
+                        Editar
 
-async function eliminarFigura() {
+                    </button>
 
-    const id = document.getElementById("figuraId").value;
 
-    if (!id) {
+                    <button
+                        class="btn-eliminar"
+                        onclick="eliminarFigura(
+                            ${figura.id}
+                        )">
 
-        mostrarMensaje("Seleccione una figura de la tabla para eliminar.");
-        return;
+                        Eliminar
 
-    }
+                    </button>
 
-    const respuesta = await fetch("/api/figuras-pg/" + id, {
-        method: "DELETE",
-        headers: cabeceras()
-    });
+                </td>
 
-    const datos = await respuesta.json();
+            `;
 
-    mostrarMensaje(datos.mensaje);
-    limpiarFigura();
-    listarFiguras();
-    listarCargos();
+            tablaFiguras.appendChild(fila);
 
-}
+        });
 
-function limpiarFigura() {
+    } catch (error) {
 
-    document.getElementById("figuraId").value = "";
-    document.getElementById("nombreCompleto").value = "";
-    document.getElementById("cargoActual").value = "";
-    document.getElementById("fechaNacimiento").value = "";
-    document.getElementById("nacionalidad").value = "";
-    document.getElementById("nivelEducativo").value = "";
-    document.getElementById("aniosExperiencia").value = "";
-    document.getElementById("biografia").value = "";
-    document.getElementById("foto").value = "";
-
-}
-
-function editarFigura(figura) {
-
-    document.getElementById("figuraId").value = figura.id;
-    document.getElementById("nombreCompleto").value = figura.nombreCompleto;
-    document.getElementById("cargoActual").value = figura.cargoActual;
-    document.getElementById("fechaNacimiento").value = (figura.fechaNacimiento || "").toString().substring(0, 10);
-    document.getElementById("nacionalidad").value = figura.nacionalidad;
-    document.getElementById("nivelEducativo").value = figura.nivelEducativo;
-    document.getElementById("aniosExperiencia").value = figura.aniosExperiencia;
-    document.getElementById("biografia").value = figura.biografia;
-
-}
-
-let figurasCache = [];
-
-async function listarFiguras() {
-
-    const respuesta = await fetch("/api/figuras-pg");
-
-    figurasCache = await respuesta.json();
-
-    const tbody = document.querySelector("#tablaFiguras tbody");
-
-    tbody.innerHTML = "";
-
-    const select = document.getElementById("cargoFiguraId");
-    select.innerHTML = "";
-
-    figurasCache.forEach(figura => {
-
-        const imgHtml = figura.fotoBase64
-            ? `<img class="miniatura" src="data:image/png;base64,${figura.fotoBase64}">`
-            : "(sin imagen)";
-
-        const fila = document.createElement("tr");
-
-        fila.innerHTML =
-            "<td>" + figura.id + "</td>" +
-            "<td>" + figura.nombreCompleto + "</td>" +
-            "<td>" + figura.cargoActual + "</td>" +
-            "<td>" + figura.nacionalidad + "</td>" +
-            "<td>" + figura.aniosExperiencia + "</td>" +
-            "<td>" + imgHtml + "</td>" +
-            "<td><button onclick='window.__seleccionarFigura(" + figura.id + ")'>Seleccionar</button></td>";
-
-        tbody.appendChild(fila);
-
-        const opcion = document.createElement("option");
-        opcion.value = figura.id;
-        opcion.textContent = figura.nombreCompleto;
-        select.appendChild(opcion);
-
-    });
-
-}
-
-window.__seleccionarFigura = function (id) {
-
-    const figura = figurasCache.find(f => f.id === id);
-
-    if (figura) {
-
-        editarFigura(figura);
+        console.error(
+            "Error al cargar figuras:",
+            error
+        );
 
     }
 
-};
-
-// ================= CARGOS HISTORICOS =================
-
-async function obtenerFormularioCargo() {
-
-    return {
-        figuraId: Number(document.getElementById("cargoFiguraId").value),
-        cargo: document.getElementById("cargo").value.trim(),
-        institucion: document.getElementById("institucion").value.trim(),
-        fechaInicio: document.getElementById("fechaInicio").value,
-        fechaFin: document.getElementById("fechaFin").value || null,
-        logros: document.getElementById("logros").value.trim(),
-        motivoSalida: document.getElementById("motivoSalida").value.trim(),
-        region: document.getElementById("region").value.trim(),
-        imagenEventoBase64: await archivoABase64(document.getElementById("imagenEvento"))
-    };
-
 }
 
-async function guardarCargo() {
 
-    const cargo = await obtenerFormularioCargo();
+// ==========================================
+// CREAR O ACTUALIZAR FIGURA PÚBLICA
+// ==========================================
 
-    const respuesta = await fetch("/api/cargos-pg", {
-        method: "POST",
-        headers: cabeceras(),
-        body: JSON.stringify(cargo)
-    });
+formularioFigura.addEventListener(
+    "submit",
+    async function (event) {
 
-    const datos = await respuesta.json();
+        event.preventDefault();
 
-    mostrarMensaje(datos.mensaje);
-    limpiarCargo();
-    listarCargos();
 
-}
+        const id = figuraIdInput.value;
 
-async function modificarCargo() {
 
-    const id = document.getElementById("cargoId").value;
+        const datos = {
 
-    if (!id) {
+            nombre_completo: nombreCompletoInput.value,
 
-        mostrarMensaje("Seleccione un cargo de la tabla para modificar.");
-        return;
+            cargo_actual: cargoActualInput.value,
+
+            fecha_nacimiento: fechaNacimientoInput.value,
+
+            nacionalidad: nacionalidadInput.value,
+
+            nivel_educativo: nivelEducativoInput.value,
+
+            anios_experiencia: aniosExperienciaInput.value,
+
+            biografia: biografiaInput.value,
+
+            // AGREGADO: imagen serializada en base64
+            foto: await leerImagen(fotoInput)
+
+        };
+
+
+        try {
+
+            let respuesta;
+
+
+            if (id === "") {
+
+                // CREAR
+
+                respuesta = await fetch(
+                    "/api/figuras",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify(datos)
+                    }
+                );
+
+            } else {
+
+                // ACTUALIZAR
+
+                respuesta = await fetch(
+                    `/api/figuras/${id}`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify(datos)
+                    }
+                );
+
+            }
+
+
+            if (!respuesta.ok) {
+
+                throw new Error(
+                    "Error en la operación"
+                );
+
+            }
+
+
+            limpiarFormularioFigura();
+
+            cargarFiguras();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "No fue posible realizar la operación"
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// EDITAR FIGURA PÚBLICA
+// CAMBIO: en S4 los datos se pasaban en el onclick;
+// como son 8 campos se consultan con GET /api/figuras/:id
+// ==========================================
+
+async function editarFigura(id) {
+
+    try {
+
+        const respuesta =
+            await fetch(`/api/figuras/${id}`);
+
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                "Error al consultar"
+            );
+
+        }
+
+
+        const figura =
+            await respuesta.json();
+
+
+        figuraIdInput.value = figura.id;
+
+        nombreCompletoInput.value = figura.nombre_completo;
+
+        cargoActualInput.value = figura.cargo_actual;
+
+        fechaNacimientoInput.value = figura.fecha_nacimiento;
+
+        nacionalidadInput.value = figura.nacionalidad;
+
+        nivelEducativoInput.value = figura.nivel_educativo;
+
+        aniosExperienciaInput.value = figura.anios_experiencia;
+
+        biografiaInput.value = figura.biografia;
+
+        nombreCompletoInput.focus();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No fue posible consultar la figura"
+        );
 
     }
 
-    const cargo = await obtenerFormularioCargo();
-
-    const respuesta = await fetch("/api/cargos-pg/" + id, {
-        method: "PUT",
-        headers: cabeceras(),
-        body: JSON.stringify(cargo)
-    });
-
-    const datos = await respuesta.json();
-
-    mostrarMensaje(datos.mensaje);
-    limpiarCargo();
-    listarCargos();
-
 }
 
-async function eliminarCargo() {
 
-    const id = document.getElementById("cargoId").value;
+// ==========================================
+// ELIMINAR FIGURA PÚBLICA
+// ==========================================
 
-    if (!id) {
+async function eliminarFigura(id) {
 
-        mostrarMensaje("Seleccione un cargo de la tabla para eliminar.");
-        return;
+    const confirmar =
+        confirm(
+            "¿Desea eliminar esta figura pública?"
+        );
 
-    }
 
-    const respuesta = await fetch("/api/cargos-pg/" + id, {
-        method: "DELETE",
-        headers: cabeceras()
-    });
-
-    const datos = await respuesta.json();
-
-    mostrarMensaje(datos.mensaje);
-    limpiarCargo();
-    listarCargos();
-
-}
-
-function limpiarCargo() {
-
-    document.getElementById("cargoId").value = "";
-    document.getElementById("cargo").value = "";
-    document.getElementById("institucion").value = "";
-    document.getElementById("fechaInicio").value = "";
-    document.getElementById("fechaFin").value = "";
-    document.getElementById("logros").value = "";
-    document.getElementById("motivoSalida").value = "";
-    document.getElementById("region").value = "";
-    document.getElementById("imagenEvento").value = "";
-
-}
-
-let cargosCache = [];
-
-async function listarCargos() {
-
-    const respuesta = await fetch("/api/cargos-pg");
-
-    cargosCache = await respuesta.json();
-
-    const tbody = document.querySelector("#tablaCargos tbody");
-
-    tbody.innerHTML = "";
-
-    cargosCache.forEach(cargo => {
-
-        const imgHtml = cargo.imagenEventoBase64
-            ? `<img class="miniatura" src="data:image/png;base64,${cargo.imagenEventoBase64}">`
-            : "(sin imagen)";
-
-        const fila = document.createElement("tr");
-
-        fila.innerHTML =
-            "<td>" + cargo.id + "</td>" +
-            "<td>" + cargo.figuraNombre + "</td>" +
-            "<td>" + cargo.cargo + "</td>" +
-            "<td>" + cargo.institucion + "</td>" +
-            "<td>" + cargo.region + "</td>" +
-            "<td>" + imgHtml + "</td>" +
-            "<td><button onclick='window.__seleccionarCargo(" + cargo.id + ")'>Seleccionar</button></td>";
-
-        tbody.appendChild(fila);
-
-    });
-
-}
-
-window.__seleccionarCargo = function (id) {
-
-    const cargo = cargosCache.find(c => c.id === id);
-
-    if (!cargo) {
+    if (!confirmar) {
 
         return;
 
     }
 
-    document.getElementById("cargoId").value = cargo.id;
-    document.getElementById("cargoFiguraId").value = cargo.figuraId;
-    document.getElementById("cargo").value = cargo.cargo;
-    document.getElementById("institucion").value = cargo.institucion;
-    document.getElementById("fechaInicio").value = (cargo.fechaInicio || "").toString().substring(0, 10);
-    document.getElementById("fechaFin").value = (cargo.fechaFin || "").toString().substring(0, 10);
-    document.getElementById("logros").value = cargo.logros;
-    document.getElementById("motivoSalida").value = cargo.motivoSalida || "";
-    document.getElementById("region").value = cargo.region;
 
-};
+    try {
+
+        const respuesta =
+            await fetch(
+                `/api/figuras/${id}`,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                "Error al eliminar"
+            );
+
+        }
+
+
+        cargarFiguras();
+
+        // AGREGADO: los cargos de la figura se eliminan en cascada
+        cargarCargos();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No fue posible eliminar la figura"
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// CANCELAR / LIMPIAR FIGURA PÚBLICA
+// ==========================================
+
+btnCancelarFigura.addEventListener(
+    "click",
+    limpiarFormularioFigura
+);
+
+
+function limpiarFormularioFigura() {
+
+    figuraIdInput.value = "";
+
+    nombreCompletoInput.value = "";
+
+    cargoActualInput.value = "";
+
+    fechaNacimientoInput.value = "";
+
+    nacionalidadInput.value = "";
+
+    nivelEducativoInput.value = "";
+
+    aniosExperienciaInput.value = "";
+
+    biografiaInput.value = "";
+
+    fotoInput.value = "";
+
+}
+
+
+// ==========================================
+// CONSULTAR CARGOS HISTÓRICOS
+// ==========================================
+
+async function cargarCargos() {
+
+    try {
+
+        const respuesta =
+            await fetch("/api/cargos");
+
+        const cargos =
+            await respuesta.json();
+
+        tablaCargos.innerHTML = "";
+
+        cargos.forEach(cargo => {
+
+            const fila =
+                document.createElement("tr");
+
+            // AGREGADO: figura_nombre y figura_cargo_actual vienen de la CARGA EAGER (JOIN)
+            // AGREGADO: la imagen llega serializada en base64 y se muestra en un <img>
+            // CAMBIO: el botón Editar solo envía el id (son 8 campos)
+
+            fila.innerHTML = `
+
+                <td>${cargo.id}</td>
+
+                <td>${cargo.figura_id} - ${cargo.figura_nombre} (${cargo.figura_cargo_actual})</td>
+
+                <td>${cargo.cargo}</td>
+
+                <td>${cargo.institucion}</td>
+
+                <td>${cargo.fecha_inicio}</td>
+
+                <td>${cargo.fecha_fin || "Actual"}</td>
+
+                <td>${cargo.logros}</td>
+
+                <td>${cargo.motivo_salida}</td>
+
+                <td>${cargo.region}</td>
+
+                <td>
+                    ${cargo.imagen_evento ? `<img src="data:image/png;base64,${cargo.imagen_evento}" width="60">` : "Sin imagen"}
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn-editar"
+                        onclick="editarCargo(
+                            ${cargo.id}
+                        )">
+
+                        Editar
+
+                    </button>
+
+
+                    <button
+                        class="btn-eliminar"
+                        onclick="eliminarCargo(
+                            ${cargo.id}
+                        )">
+
+                        Eliminar
+
+                    </button>
+
+                </td>
+
+            `;
+
+            tablaCargos.appendChild(fila);
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Error al cargar cargos:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// CREAR O ACTUALIZAR CARGO HISTÓRICO
+// ==========================================
+
+formularioCargo.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        const id = cargoIdInput.value;
+
+
+        const datos = {
+
+            figura_id: figuraIdCargoInput.value,
+
+            cargo: cargoInput.value,
+
+            institucion: institucionInput.value,
+
+            fecha_inicio: fechaInicioInput.value,
+
+            fecha_fin: fechaFinInput.value,
+
+            logros: logrosInput.value,
+
+            motivo_salida: motivoSalidaInput.value,
+
+            region: regionInput.value,
+
+            // AGREGADO: imagen serializada en base64
+            imagen_evento: await leerImagen(imagenEventoInput)
+
+        };
+
+
+        try {
+
+            let respuesta;
+
+
+            if (id === "") {
+
+                // CREAR
+
+                respuesta = await fetch(
+                    "/api/cargos",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify(datos)
+                    }
+                );
+
+            } else {
+
+                // ACTUALIZAR
+
+                respuesta = await fetch(
+                    `/api/cargos/${id}`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify(datos)
+                    }
+                );
+
+            }
+
+
+            if (!respuesta.ok) {
+
+                throw new Error(
+                    "Error en la operación"
+                );
+
+            }
+
+
+            limpiarFormularioCargo();
+
+            cargarCargos();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "No fue posible realizar la operación"
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// EDITAR CARGO HISTÓRICO
+// CAMBIO: en S4 los datos se pasaban en el onclick;
+// como son 8 campos se consultan con GET /api/cargos/:id
+// ==========================================
+
+async function editarCargo(id) {
+
+    try {
+
+        const respuesta =
+            await fetch(`/api/cargos/${id}`);
+
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                "Error al consultar"
+            );
+
+        }
+
+
+        const cargo =
+            await respuesta.json();
+
+
+        cargoIdInput.value = cargo.id;
+
+        figuraIdCargoInput.value = cargo.figura_id;
+
+        cargoInput.value = cargo.cargo;
+
+        institucionInput.value = cargo.institucion;
+
+        fechaInicioInput.value = cargo.fecha_inicio;
+
+        fechaFinInput.value = cargo.fecha_fin || "";
+
+        logrosInput.value = cargo.logros;
+
+        motivoSalidaInput.value = cargo.motivo_salida;
+
+        regionInput.value = cargo.region;
+
+        cargoInput.focus();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No fue posible consultar el cargo"
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// ELIMINAR CARGO HISTÓRICO
+// ==========================================
+
+async function eliminarCargo(id) {
+
+    const confirmar =
+        confirm(
+            "¿Desea eliminar este cargo histórico?"
+        );
+
+
+    if (!confirmar) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const respuesta =
+            await fetch(
+                `/api/cargos/${id}`,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                "Error al eliminar"
+            );
+
+        }
+
+
+        cargarCargos();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No fue posible eliminar el cargo"
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// CANCELAR / LIMPIAR CARGO HISTÓRICO
+// ==========================================
+
+btnCancelarCargo.addEventListener(
+    "click",
+    limpiarFormularioCargo
+);
+
+
+function limpiarFormularioCargo() {
+
+    cargoIdInput.value = "";
+
+    figuraIdCargoInput.value = "";
+
+    cargoInput.value = "";
+
+    institucionInput.value = "";
+
+    fechaInicioInput.value = "";
+
+    fechaFinInput.value = "";
+
+    logrosInput.value = "";
+
+    motivoSalidaInput.value = "";
+
+    regionInput.value = "";
+
+    imagenEventoInput.value = "";
+
+}
+
+
+// ==========================================
+// CARGAR AL INICIAR
+// ==========================================
+
+cargarFiguras();
+
+cargarCargos();

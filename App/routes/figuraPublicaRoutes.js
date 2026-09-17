@@ -1,23 +1,107 @@
 const express = require("express");
-
+ 
 const router = express.Router();
-
-const FiguraPublicaController = require("../controllers/figuraPublicaController");
-
+ 
+const FiguraPublicaController =
+require("../controllers/figuraPublicaController");
+ 
+ 
 const path = require("path");
-
-router.get("/figuras/pagina", (req, res) => {
-
-    res.sendFile(path.join(__dirname, "..", "views", "figuras.html"));
-
-});
-
-router.get("/figuras", FiguraPublicaController.listar);
-
-router.post("/figuras", FiguraPublicaController.guardar);
-
-router.put("/figuras", FiguraPublicaController.modificar);
-
-router.delete("/figuras/:codigo", FiguraPublicaController.eliminar);
-
+ 
+ 
+/*
+==================================
+Mostrar página CRUD
+==================================
+*/
+ 
+router.get(
+    "/figuras/pagina",
+    (req,res)=>{
+ 
+        res.sendFile(
+ 
+            path.join(
+ 
+                __dirname,
+ 
+                "..",
+ 
+                "views",
+ 
+                "figuras.html"
+ 
+            )
+ 
+        );
+ 
+    }
+);
+ 
+ 
+ 
+/*
+==================================
+Consultar figuras públicas
+==================================
+*/
+ 
+router.get(
+ 
+    "/figuras",
+ 
+    FiguraPublicaController.listar
+ 
+);
+ 
+ 
+ 
+/*
+==================================
+Crear figura pública
+==================================
+*/
+ 
+router.post(
+ 
+    "/figuras",
+ 
+    FiguraPublicaController.guardar
+ 
+);
+ 
+ 
+ 
+/*
+==================================
+Modificar figura pública
+==================================
+*/
+ 
+router.put(
+ 
+    "/figuras",
+ 
+    FiguraPublicaController.modificar
+ 
+);
+ 
+ 
+ 
+/*
+==================================
+Eliminar figura pública
+==================================
+*/
+ 
+router.delete(
+ 
+    "/figuras/:codigo",
+ 
+    FiguraPublicaController.eliminar
+ 
+);
+ 
+ 
+ 
 module.exports = router;

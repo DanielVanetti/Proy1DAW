@@ -1,65 +1,62 @@
-/**
- * ==========================================
- * Servicio de Partidos (Parte 3 - MongoDB)
- * ==========================================
- */
-
-const PartidoMongoDAO = require("../dao/mongo/partidoMongoDAO");
-
-function listar() {
-
-    return PartidoMongoDAO.listar();
-
-}
-
-function obtenerPorId(id) {
-
-    return PartidoMongoDAO.obtenerPorId(id);
-
-}
-
-function crear(datos) {
-
-    if (!datos.nombre || !datos.siglas || !datos.ideologia) {
-
-        throw new Error("Nombre, siglas e ideología son obligatorios.");
-
+const PartidoMongoDAO =
+    require("../dao/PartidoMongoDAO");
+ 
+ 
+const mongoDAO =
+    new PartidoMongoDAO();
+ 
+ 
+class PartidoMongoService {
+ 
+ 
+ 
+    // ==================================================
+    // MONGODB + DAO
+    // ==================================================
+ 
+ 
+    async crearMongo(partido) {
+ 
+        return await mongoDAO.crear(
+            partido
+        );
     }
-
-    return PartidoMongoDAO.crear(datos);
-
-}
-
-async function actualizar(id, datos) {
-
-    const actualizado = await PartidoMongoDAO.actualizar(id, datos);
-
-    if (!actualizado) {
-
-        throw new Error("Partido no encontrado.");
-
+ 
+ 
+    async obtenerTodosMongo() {
+ 
+        return await mongoDAO.obtenerTodos();
     }
-
-    return actualizado;
-
-}
-
-async function eliminar(id) {
-
-    const eliminado = await PartidoMongoDAO.eliminar(id);
-
-    if (!eliminado) {
-
-        throw new Error("Partido no encontrado.");
-
+ 
+ 
+    async obtenerPorIdMongo(id) {
+ 
+        return await mongoDAO.obtenerPorId(
+            id
+        );
     }
-
+ 
+ 
+    async actualizarMongo(
+        id,
+        partido
+    ) {
+ 
+        return await mongoDAO.actualizar(
+            id,
+            partido
+        );
+    }
+ 
+ 
+    async eliminarMongo(id) {
+ 
+        return await mongoDAO.eliminar(
+            id
+        );
+    }
+ 
 }
-
-module.exports = {
-    listar,
-    obtenerPorId,
-    crear,
-    actualizar,
-    eliminar
-};
+ 
+ 
+module.exports = PartidoMongoService;

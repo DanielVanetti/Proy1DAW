@@ -1,44 +1,97 @@
 /**
  * ==========================================
- * Logger de acciones de la aplicación
- * Formato exigido: Fecha - Hora / "Accion Realizada" / Usuario
- * Mismo patron de manejo de archivos .txt que los DAO de Semana 2 (fs + path)
+ * Logger de Acciones
  * ==========================================
+ *
+ * AGREGADO: este archivo no existe en PROYECTOESTUDIANTES, S4 ni S5.
+ * Requerimiento del proyecto: registrar TODAS las acciones de la
+ * aplicación en un archivo ".txt" con el formato:
+ *
+ * Fecha - Hora / "Acción Realizada" / Usuario
+ *
+ * Usa el mismo manejo de archivos (fs + path) de estudianteDAO.js
  */
-
+ 
 const fs = require("fs");
 const path = require("path");
-
-const ARCHIVO_LOG = path.join(__dirname, "..", "logs", "acciones.txt");
-
+ 
+// Ruta del archivo de log
+ 
+const ARCHIVO = path.join(
+    __dirname,
+    "..",
+    "logs",
+    "acciones.txt"
+);
+ 
+// Usuario que inició sesión (se asigna en authController)
+ 
+let usuarioActual = "desconocido";
+ 
+/*=========================================
+  Crear archivo si no existe
+=========================================*/
+ 
 function inicializarArchivo() {
-
-    if (!fs.existsSync(ARCHIVO_LOG)) {
-
-        fs.mkdirSync(path.dirname(ARCHIVO_LOG), { recursive: true });
-
-        fs.writeFileSync(ARCHIVO_LOG, "");
-
+ 
+    if (!fs.existsSync(ARCHIVO)) {
+ 
+        // Crea la carpeta logs si no existe
+ 
+        fs.mkdirSync(
+            path.dirname(ARCHIVO),
+            { recursive: true }
+        );
+ 
+        fs.writeFileSync(ARCHIVO, "");
+ 
     }
-
+ 
 }
-
-function registrarAccion(accion, usuario) {
-
+ 
+/*=========================================
+  Asignar usuario activo
+=========================================*/
+ 
+function asignarUsuario(usuario) {
+ 
+    usuarioActual = usuario || "desconocido";
+ 
+}
+ 
+/*=========================================
+  Registrar acción
+=========================================*/
+ 
+function registrar(accion, usuario) {
+ 
     inicializarArchivo();
-
+ 
     const ahora = new Date();
-
-    const fechaHora =
-        ahora.toLocaleDateString("es-CR") + " " + ahora.toLocaleTimeString("es-CR");
-
+ 
+    const fecha = ahora.toLocaleDateString("es-CR");
+ 
+    const hora = ahora.toLocaleTimeString("es-CR");
+ 
     const linea =
-        fechaHora + " / \"" + accion + "\" / " + (usuario || "desconocido") + "\n";
-
-    fs.appendFileSync(ARCHIVO_LOG, linea, "utf8");
-
+        `${fecha} - ${hora} / "${accion}" / ${usuario || usuarioActual}\n`;
+ 
+    fs.appendFileSync(
+        ARCHIVO,
+        linea,
+        "utf8"
+    );
+ 
 }
-
+ 
+/*=========================================
+  Exportar funciones
+=========================================*/
+ 
 module.exports = {
-    registrarAccion
+ 
+    asignarUsuario,
+ 
+    registrar
+ 
 };

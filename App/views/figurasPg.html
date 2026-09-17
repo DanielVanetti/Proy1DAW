@@ -1,186 +1,329 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CRUD Figuras y Cargos (PostgreSQL)</title>
+    <title>CRUD Figuras y Cargos Históricos</title>
 
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilosS4.css">
+
+    <!-- AGREGADO: estilos del menú lateral -->
+
+    <link rel="stylesheet" href="/css/sidebar.css">
 
 </head>
 
 <body>
 
+    <!-- AGREGADO: menú lateral (requerimiento del proyecto) -->
+
     <div class="layout">
 
-        <nav class="menu-lateral">
+    <nav class="menu-lateral">
 
-            <h2>Política y<br>Figuras Públicas</h2>
-            <p id="usuarioActivo" class="usuario-activo"></p>
-            <hr>
-            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
-            <a href="/partidos/pagina">Partidos Políticos</a>
-            <a href="/figuras/pagina">Figuras Públicas</a>
-            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
-            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
-            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
-            <p class="menu-seccion">Parte 3 - MongoDB</p>
-            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
-            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
-            <hr>
-            <button id="btnSalir">Cerrar sesión</button>
+        <h3>Política y Figuras Públicas</h3>
 
-        </nav>
+        <p>Parte 1 - Archivos .txt</p>
 
-        <main class="contenido">
+        <a href="/partidos/pagina">Partidos Políticos</a>
 
-            <div class="contenedor">
+        <a href="/figuras/pagina">Figuras Públicas</a>
 
-                <h1>FIGURAS PÚBLICAS Y CARGOS HISTÓRICOS</h1>
-                <h2>Parte 2 - Semana 4 (PostgreSQL, BDPostgreSQL)</h2>
-                <p><em>Carga Eager: la tabla de cargos históricos se consulta con un único JOIN que trae, de una sola vez, el nombre de la figura relacionada (ver <code>dao/postgres/cargoHistoricoPgDAO.js</code>).</em></p>
+        <p>Parte 2 - PostgreSQL</p>
 
-                <hr>
+        <a href="/partidos-pg">Partidos y Propuestas</a>
 
-                <!-- ========== TABLA 1: FIGURAS PUBLICAS ========== -->
+        <a href="/figuras-pg">Figuras y Cargos</a>
 
-                <h2>Tabla 1: Figuras Públicas</h2>
+        <p>Parte 3 - MongoDB</p>
 
-                <div class="formulario">
+        <a href="/partidos-mongo">Partidos (60 documentos)</a>
 
-                    <input type="hidden" id="figuraId">
+        <a href="/figuras-mongo">Figuras (120 documentos)</a>
 
-                    <label>Nombre completo</label>
-                    <input type="text" id="nombreCompleto">
+        <a href="/logout" class="salir">Cerrar sesión</a>
 
-                    <label>Cargo actual</label>
-                    <input type="text" id="cargoActual">
+    </nav>
 
-                    <label>Fecha de nacimiento</label>
-                    <input type="date" id="fechaNacimiento">
+    <main class="contenido">
 
-                    <label>Nacionalidad</label>
-                    <input type="text" id="nacionalidad">
+    <div class="contenedor">
 
-                    <label>Nivel educativo</label>
-                    <input type="text" id="nivelEducativo">
+        <!--         <h1>Semana 4 - PostGreSQL Base de Datos Relacionales \n - CRUD de Figuras y Cargos \n 2026 </h1>-->
+        <h1>
+            <span style="display: block;">Semana 4 - PostGreSQL Base de Datos Relacionales</span>
+            <span style="display: block;">CRUD de Figuras Públicas y Cargos Históricos</span>
+            <span style="display: block;">2026</span>
+            <span style="display: block;">Grupo 5 - Política y Figuras Públicas</span>
+        </h1>
 
-                    <label>Años de experiencia</label>
-                    <input type="number" id="aniosExperiencia">
+        <!-- =========================================
+             TABLA 1: FIGURAS PÚBLICAS
+        ========================================== -->
 
-                    <label>Biografía</label>
-                    <textarea id="biografia"></textarea>
+        <section class="formulario">
 
-                    <label>Foto (imagen binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
-                    <input type="file" id="foto" accept="image/*">
+            <h2>Datos de la figura pública</h2>
 
-                </div>
+            <form id="formFigura">
 
-                <div class="botones">
+                <input type="hidden" id="figuraId">
 
-                    <button id="btnGuardarFigura">Guardar</button>
-                    <button id="btnModificarFigura">Modificar</button>
-                    <button id="btnEliminarFigura" class="eliminar">Eliminar</button>
-                    <button id="btnLimpiarFigura" class="limpiar">Limpiar</button>
+                <label for="nombreCompleto">
+                    Nombre completo
+                </label>
 
-                </div>
+                <input type="text" id="nombreCompleto" required>
 
-                <table id="tablaFiguras">
 
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Cargo</th>
-                            <th>Nacionalidad</th>
-                            <th>Experiencia</th>
-                            <th>Foto</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
+                <label for="cargoActual">
+                    Cargo actual
+                </label>
 
-                    <tbody></tbody>
+                <input type="text" id="cargoActual" required>
 
-                </table>
 
-                <hr>
+                <label for="fechaNacimiento">
+                    Fecha de nacimiento
+                </label>
 
-                <!-- ========== TABLA 2: CARGOS HISTORICOS ========== -->
+                <input type="date" id="fechaNacimiento" required>
 
-                <h2>Tabla 2: Cargos Históricos (relacionada por figura_id)</h2>
 
-                <div class="formulario">
+                <label for="nacionalidad">
+                    Nacionalidad
+                </label>
 
-                    <input type="hidden" id="cargoId">
+                <input type="text" id="nacionalidad" required>
 
-                    <label>Figura pública</label>
-                    <select id="cargoFiguraId"></select>
 
-                    <label>Cargo</label>
-                    <input type="text" id="cargo">
+                <label for="nivelEducativo">
+                    Nivel educativo
+                </label>
 
-                    <label>Institución</label>
-                    <input type="text" id="institucion">
+                <input type="text" id="nivelEducativo" required>
 
-                    <label>Fecha de inicio</label>
-                    <input type="date" id="fechaInicio">
 
-                    <label>Fecha de fin</label>
-                    <input type="date" id="fechaFin">
+                <label for="aniosExperiencia">
+                    Años de experiencia
+                </label>
 
-                    <label>Logros</label>
-                    <textarea id="logros"></textarea>
+                <input type="number" id="aniosExperiencia" required>
 
-                    <label>Motivo de salida</label>
-                    <input type="text" id="motivoSalida">
 
-                    <label>Región</label>
-                    <input type="text" id="region">
+                <label for="biografia">
+                    Biografía
+                </label>
 
-                    <label>Imagen del evento (binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
-                    <input type="file" id="imagenEvento" accept="image/*">
+                <input type="text" id="biografia" required>
 
-                </div>
+
+                <!-- AGREGADO: imagen que se guarda como binario (BYTEA)
+                     y viaja serializada en base64 desde la vista -->
+
+                <label for="foto">
+                    Foto
+                </label>
+
+                <input type="file" id="foto" accept="image/*">
+
 
                 <div class="botones">
 
-                    <button id="btnGuardarCargo">Guardar</button>
-                    <button id="btnModificarCargo">Modificar</button>
-                    <button id="btnEliminarCargo" class="eliminar">Eliminar</button>
-                    <button id="btnLimpiarCargo" class="limpiar">Limpiar</button>
+                    <button type="submit">
+                        Guardar
+                    </button>
+
+                    <button type="button" id="btnCancelarFigura">
+                        Cancelar
+                    </button>
 
                 </div>
 
-                <table id="tablaCargos">
+            </form>
 
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Figura (JOIN)</th>
-                            <th>Cargo</th>
-                            <th>Institución</th>
-                            <th>Región</th>
-                            <th>Imagen</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
+        </section>
 
-                    <tbody></tbody>
 
-                </table>
+        <section>
 
-                <div id="mensaje"></div>
+            <h2>Figuras públicas registradas</h2>
 
-            </div>
+            <table>
 
-        </main>
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Nombre completo</th>
+                        <th>Cargo actual</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Nacionalidad</th>
+                        <th>Nivel educativo</th>
+                        <th>Años de experiencia</th>
+                        <th>Biografía</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaFiguras">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- =========================================
+             TABLA 2: CARGOS HISTÓRICOS
+             (relacionada con figuras por figura_id)
+        ========================================== -->
+
+        <section class="formulario">
+
+            <h2>Datos del cargo histórico</h2>
+
+            <form id="formCargo">
+
+                <input type="hidden" id="cargoId">
+
+                <label for="figuraIdCargo">
+                    ID de la figura pública
+                </label>
+
+                <input type="number" id="figuraIdCargo" required>
+
+
+                <label for="cargo">
+                    Cargo
+                </label>
+
+                <input type="text" id="cargo" required>
+
+
+                <label for="institucion">
+                    Institución
+                </label>
+
+                <input type="text" id="institucion" required>
+
+
+                <label for="fechaInicio">
+                    Fecha de inicio
+                </label>
+
+                <input type="date" id="fechaInicio" required>
+
+
+                <label for="fechaFin">
+                    Fecha de fin
+                </label>
+
+                <input type="date" id="fechaFin">
+
+
+                <label for="logros">
+                    Logros
+                </label>
+
+                <input type="text" id="logros" required>
+
+
+                <label for="motivoSalida">
+                    Motivo de salida
+                </label>
+
+                <input type="text" id="motivoSalida">
+
+
+                <label for="region">
+                    Región
+                </label>
+
+                <input type="text" id="region" required>
+
+
+                <!-- AGREGADO: imagen que se guarda como binario (BYTEA)
+                     y viaja serializada en base64 desde la vista -->
+
+                <label for="imagenEvento">
+                    Imagen del evento
+                </label>
+
+                <input type="file" id="imagenEvento" accept="image/*">
+
+
+                <div class="botones">
+
+                    <button type="submit">
+                        Guardar
+                    </button>
+
+                    <button type="button" id="btnCancelarCargo">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <section>
+
+            <h2>Cargos históricos registrados</h2>
+
+            <!-- AGREGADO: la columna "Figura pública" viene de la CARGA EAGER
+                 (INNER JOIN con figuras_pg en cargoPgController.js) -->
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Figura pública</th>
+                        <th>Cargo</th>
+                        <th>Institución</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
+                        <th>Logros</th>
+                        <th>Motivo de salida</th>
+                        <th>Región</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaCargos">
+
+                </tbody>
+
+            </table>
+
+        </section>
 
     </div>
 
-    <script src="/js/menu.js"></script>
+    </main>
+
+    </div>
+
+
     <script src="/js/figurasPg.js"></script>
 
 </body>

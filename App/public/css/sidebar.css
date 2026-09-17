@@ -1,0 +1,131 @@
+/*=========================================
+    AGREGADO: Menú lateral
+    (requerimiento del proyecto, no existe en
+    PROYECTOESTUDIANTES, S4 ni S5)
+=========================================*/
+ 
+.layout{
+ 
+    display:flex;
+ 
+    gap:20px;
+ 
+    align-items:flex-start;
+ 
+}
+ 
+/*=========================================
+    Menú
+=========================================*/
+ 
+.menu-lateral{
+ 
+    width:220px;
+ 
+    min-width:220px;
+ 
+    background:#e0e0e0;
+ 
+    padding:20px;
+ 
+    border-radius:8px;
+ 
+    font-family:Arial, Helvetica, sans-serif;
+ 
+}
+ 
+.menu-lateral h3{
+ 
+    margin:0 0 10px 0;
+ 
+    text-align:center;
+ 
+    color:#333333;
+ 
+}
+ 
+/*=========================================
+    Títulos de cada parte
+=========================================*/
+ 
+.menu-lateral p{
+ 
+    margin:15px 0 5px 0;
+ 
+    font-size:13px;
+ 
+    font-weight:bold;
+ 
+    color:#555555;
+ 
+}
+ 
+/*=========================================
+    Enlaces
+=========================================*/
+ 
+.menu-lateral a{
+ 
+    display:block;
+ 
+    padding:8px;
+ 
+    color:#333333;
+ 
+    text-decoration:none;
+ 
+    border-radius:5px;
+ 
+}
+ 
+.menu-lateral a:hover{
+ 
+    background:#cccccc;
+ 
+}
+ 
+/*=========================================
+    Botón cerrar sesión
+=========================================*/
+ 
+.menu-lateral .salir{
+ 
+    margin-top:20px;
+ 
+    background:#777777;
+ 
+    color:white;
+ 
+    text-align:center;
+ 
+}
+ 
+.menu-lateral .salir:hover{
+ 
+    background:#555555;
+ 
+}
+ 
+/*=========================================
+    Contenido
+=========================================*/
+ 
+.contenido{
+ 
+    flex:1;
+ 
+    min-width:0;
+ 
+    overflow-x:auto;
+ 
+}
+ 
+/* Como el menú ocupa espacio, las tablas con muchas
+   columnas se desplazan de forma horizontal dentro
+   del contenedor de cada semana */
+ 
+.contenido .contenedor{
+ 
+    overflow-x:auto;
+ 
+}

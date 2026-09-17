@@ -1,125 +1,319 @@
-/**
- * ==========================================
- * Controlador de Figuras Publicas (Parte 3 - MongoDB)
- * ==========================================
- */
-
-const FiguraMongoService = require("../services/figuraMongoService");
-const Logger = require("../utils/logger");
-
-function usuarioDe(req) {
-
-    return req.headers["x-usuario"] || "desconocido";
-
-}
-
-async function listar(req, res, next) {
-
-    try {
-
-        const figuras = await FiguraMongoService.listar();
-
-        res.json(figuras);
-
-    }
-    catch (error) {
-
-        next(error);
-
-    }
-
-}
-
-async function obtenerPorId(req, res) {
-
-    try {
-
-        const figura = await FiguraMongoService.obtenerPorId(req.params.id);
-
-        if (!figura) {
-
-            return res.status(404).json({ mensaje: "Figura pública no encontrada." });
-
+const FiguraMongoService =
+    require("../services/FiguraMongoService");
+ 
+// AGREGADO: logger de acciones (requerimiento del proyecto, no está en S5)
+const Logger =
+    require("../utils/logger");
+ 
+ 
+const service =
+    new FiguraMongoService();
+ 
+ 
+class FiguraMongoController {
+ 
+ 
+ 
+    // ==================================================
+    // MONGODB + DAO
+    // ==================================================
+ 
+ 
+    static async crearMongo(
+        req,
+        res
+    ) {
+ 
+        try {
+ 
+            const figura =
+                await service.crearMongo(
+                    req.body
+                );
+ 
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Crear figura pública " + figura._id + " (MongoDB)"
+            );
+ 
+ 
+            res.json({
+ 
+                mensaje:
+                    "MongoDB: figura pública creada",
+ 
+                figura
+ 
+            });
+ 
+ 
+        } catch (error) {
+ 
+            console.error(error);
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Error al crear figura pública en MongoDB: " + error.message
+            );
+ 
+            res.status(500).json({
+ 
+                mensaje:
+                    "Error al crear en MongoDB"
+ 
+            });
         }
-
-        res.json(figura);
-
     }
-    catch (error) {
-
-        res.status(500).json({ mensaje: error.message });
-
+ 
+ 
+ 
+    static async obtenerTodosMongo(
+        req,
+        res
+    ) {
+ 
+        try {
+ 
+            const figuras =
+                await service.obtenerTodosMongo();
+ 
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Consultar todas las figuras públicas, sin imagen - carga lazy (MongoDB)"
+            );
+ 
+ 
+            res.json({
+ 
+                mensaje:
+                    "MongoDB: consulta realizada",
+ 
+                figuras
+ 
+            });
+ 
+ 
+        } catch (error) {
+ 
+            console.error(error);
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Error consultando figuras públicas en MongoDB: " + error.message
+            );
+ 
+            res.status(500).json({
+ 
+                mensaje:
+                    "Error consultando MongoDB"
+ 
+            });
+        }
     }
-
+ 
+ 
+ 
+    static async obtenerPorIdMongo(
+        req,
+        res
+    ) {
+ 
+        try {
+ 
+            const figura =
+                await service.obtenerPorIdMongo(
+                    req.params.id
+                );
+ 
+ 
+            if (!figura) {
+ 
+                // AGREGADO: registro en el log
+                Logger.registrar(
+                    "Figura pública " + req.params.id + " no encontrada (MongoDB)"
+                );
+ 
+                return res.status(404).json({
+ 
+                    mensaje:
+                        "Figura pública no encontrada en MongoDB"
+ 
+                });
+            }
+ 
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Consultar figura pública " + req.params.id + " con imagen - carga lazy (MongoDB)"
+            );
+ 
+ 
+            res.json({
+ 
+                mensaje:
+                    "MongoDB: figura pública encontrada",
+ 
+                figura
+ 
+            });
+ 
+ 
+        } catch (error) {
+ 
+            console.error(error);
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Error consultando figura pública en MongoDB: " + error.message
+            );
+ 
+            res.status(500).json({
+ 
+                mensaje:
+                    "Error consultando MongoDB"
+ 
+            });
+        }
+    }
+ 
+ 
+ 
+    static async actualizarMongo(
+        req,
+        res
+    ) {
+ 
+        try {
+ 
+            const figura =
+                await service.actualizarMongo(
+ 
+                    req.params.id,
+ 
+                    req.body
+ 
+                );
+ 
+ 
+            if (!figura) {
+ 
+                // AGREGADO: registro en el log
+                Logger.registrar(
+                    "Figura pública " + req.params.id + " no encontrada (MongoDB)"
+                );
+ 
+                return res.status(404).json({
+ 
+                    mensaje:
+                        "Figura pública no encontrada en MongoDB"
+ 
+                });
+            }
+ 
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Actualizar figura pública " + req.params.id + " (MongoDB)"
+            );
+ 
+ 
+            res.json({
+ 
+                mensaje:
+                    "MongoDB: figura pública actualizada",
+ 
+                figura
+ 
+            });
+ 
+ 
+        } catch (error) {
+ 
+            console.error(error);
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Error actualizando figura pública en MongoDB: " + error.message
+            );
+ 
+            res.status(500).json({
+ 
+                mensaje:
+                    "Error actualizando MongoDB"
+ 
+            });
+        }
+    }
+ 
+ 
+ 
+    static async eliminarMongo(
+        req,
+        res
+    ) {
+ 
+        try {
+ 
+            const figura =
+                await service.eliminarMongo(
+                    req.params.id
+                );
+ 
+ 
+            if (!figura) {
+ 
+                // AGREGADO: registro en el log
+                Logger.registrar(
+                    "Figura pública " + req.params.id + " no encontrada (MongoDB)"
+                );
+ 
+                return res.status(404).json({
+ 
+                    mensaje:
+                        "Figura pública no encontrada en MongoDB"
+ 
+                });
+            }
+ 
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Eliminar figura pública " + req.params.id + " (MongoDB)"
+            );
+ 
+ 
+            res.json({
+ 
+                mensaje:
+                    "MongoDB: figura pública eliminada",
+ 
+                figura
+ 
+            });
+ 
+ 
+        } catch (error) {
+ 
+            console.error(error);
+ 
+            // AGREGADO: registro en el log
+            Logger.registrar(
+                "Error eliminando figura pública en MongoDB: " + error.message
+            );
+ 
+            res.status(500).json({
+ 
+                mensaje:
+                    "Error eliminando MongoDB"
+ 
+            });
+        }
+    }
+ 
 }
-
-async function crear(req, res) {
-
-    try {
-
-        const figura = await FiguraMongoService.crear(req.body);
-
-        Logger.registrarAccion("Crear figura Mongo " + figura._id, usuarioDe(req));
-
-        res.status(201).json({ mensaje: "Figura pública creada correctamente.", figura });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al crear figura Mongo: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-async function actualizar(req, res) {
-
-    try {
-
-        const figura = await FiguraMongoService.actualizar(req.params.id, req.body);
-
-        Logger.registrarAccion("Actualizar figura Mongo " + req.params.id, usuarioDe(req));
-
-        res.json({ mensaje: "Figura pública actualizada correctamente.", figura });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al actualizar figura Mongo: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-async function eliminar(req, res) {
-
-    try {
-
-        await FiguraMongoService.eliminar(req.params.id);
-
-        Logger.registrarAccion("Eliminar figura Mongo " + req.params.id, usuarioDe(req));
-
-        res.json({ mensaje: "Figura pública eliminada correctamente." });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al eliminar figura Mongo: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-module.exports = {
-    listar,
-    obtenerPorId,
-    crear,
-    actualizar,
-    eliminar
-};
+ 
+ 
+module.exports =
+    FiguraMongoController;

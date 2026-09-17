@@ -1,189 +1,329 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CRUD Partidos y Propuestas (PostgreSQL)</title>
+    <title>CRUD Partidos y Propuestas</title>
 
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilosS4.css">
+
+    <!-- AGREGADO: estilos del menú lateral -->
+
+    <link rel="stylesheet" href="/css/sidebar.css">
 
 </head>
 
 <body>
 
+    <!-- AGREGADO: menú lateral (requerimiento del proyecto) -->
+
     <div class="layout">
 
-        <nav class="menu-lateral">
+    <nav class="menu-lateral">
 
-            <h2>Política y<br>Figuras Públicas</h2>
-            <p id="usuarioActivo" class="usuario-activo"></p>
-            <hr>
-            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
-            <a href="/partidos/pagina">Partidos Políticos</a>
-            <a href="/figuras/pagina">Figuras Públicas</a>
-            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
-            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
-            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
-            <p class="menu-seccion">Parte 3 - MongoDB</p>
-            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
-            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
-            <hr>
-            <button id="btnSalir">Cerrar sesión</button>
+        <h3>Política y Figuras Públicas</h3>
 
-        </nav>
+        <p>Parte 1 - Archivos .txt</p>
 
-        <main class="contenido">
+        <a href="/partidos/pagina">Partidos Políticos</a>
 
-            <div class="contenedor">
+        <a href="/figuras/pagina">Figuras Públicas</a>
 
-                <h1>PARTIDOS Y PROPUESTAS</h1>
-                <h2>Parte 2 - Semana 4 (PostgreSQL, BDPostgreSQL)</h2>
-                <p><em>Carga Eager: la tabla de propuestas se consulta con un único JOIN que trae, de una sola vez, el nombre del partido relacionado (ver <code>dao/postgres/propuestaPgDAO.js</code>).</em></p>
+        <p>Parte 2 - PostgreSQL</p>
 
-                <hr>
+        <a href="/partidos-pg">Partidos y Propuestas</a>
 
-                <!-- ========== TABLA 1: PARTIDOS ========== -->
+        <a href="/figuras-pg">Figuras y Cargos</a>
 
-                <h2>Tabla 1: Partidos</h2>
+        <p>Parte 3 - MongoDB</p>
 
-                <div class="formulario">
+        <a href="/partidos-mongo">Partidos (60 documentos)</a>
 
-                    <input type="hidden" id="partidoId">
+        <a href="/figuras-mongo">Figuras (120 documentos)</a>
 
-                    <label>Nombre</label>
-                    <input type="text" id="nombre">
+        <a href="/logout" class="salir">Cerrar sesión</a>
 
-                    <label>Siglas</label>
-                    <input type="text" id="siglas">
+    </nav>
 
-                    <label>Ideología</label>
-                    <input type="text" id="ideologia">
+    <main class="contenido">
 
-                    <label>Fecha de fundación</label>
-                    <input type="date" id="fechaFundacion">
+    <div class="contenedor">
 
-                    <label>Sede</label>
-                    <input type="text" id="sede">
+        <!--         <h1>Semana 4 - PostGreSQL Base de Datos Relacionales \n - CRUD de Partidos y Propuestas \n 2026 </h1>-->
+        <h1>
+            <span style="display: block;">Semana 4 - PostGreSQL Base de Datos Relacionales</span>
+            <span style="display: block;">CRUD de Partidos Políticos y Propuestas</span>
+            <span style="display: block;">2026</span>
+            <span style="display: block;">Grupo 5 - Política y Figuras Públicas</span>
+        </h1>
 
-                    <label>Sitio web</label>
-                    <input type="text" id="sitioWeb">
+        <!-- =========================================
+             TABLA 1: PARTIDOS
+        ========================================== -->
 
-                    <label>Número de militantes</label>
-                    <input type="number" id="numMilitantes">
+        <section class="formulario">
 
-                    <label>Logo (imagen binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
-                    <input type="file" id="logo" accept="image/*">
+            <h2>Datos del partido</h2>
 
-                </div>
+            <form id="formPartido">
 
-                <div class="botones">
+                <input type="hidden" id="partidoId">
 
-                    <button id="btnGuardarPartido">Guardar</button>
-                    <button id="btnModificarPartido">Modificar</button>
-                    <button id="btnEliminarPartido" class="eliminar">Eliminar</button>
-                    <button id="btnLimpiarPartido" class="limpiar">Limpiar</button>
+                <label for="nombre">
+                    Nombre
+                </label>
 
-                </div>
+                <input type="text" id="nombre" required>
 
-                <table id="tablaPartidos">
 
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Siglas</th>
-                            <th>Ideología</th>
-                            <th>Fundación</th>
-                            <th>Sede</th>
-                            <th>Militantes</th>
-                            <th>Logo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
+                <label for="siglas">
+                    Siglas
+                </label>
 
-                    <tbody></tbody>
+                <input type="text" id="siglas" required>
 
-                </table>
 
-                <hr>
+                <label for="ideologia">
+                    Ideología
+                </label>
 
-                <!-- ========== TABLA 2: PROPUESTAS ========== -->
+                <input type="text" id="ideologia" required>
 
-                <h2>Tabla 2: Propuestas (relacionada por partido_id)</h2>
 
-                <div class="formulario">
+                <label for="fechaFundacion">
+                    Fecha de fundación
+                </label>
 
-                    <input type="hidden" id="propuestaId">
+                <input type="date" id="fechaFundacion" required>
 
-                    <label>Partido</label>
-                    <select id="propuestaPartidoId"></select>
 
-                    <label>Título</label>
-                    <input type="text" id="titulo">
+                <label for="sede">
+                    Sede
+                </label>
 
-                    <label>Área</label>
-                    <input type="text" id="area">
+                <input type="text" id="sede" required>
 
-                    <label>Descripción</label>
-                    <textarea id="descripcion"></textarea>
 
-                    <label>Fecha de presentación</label>
-                    <input type="date" id="fechaPresentacion">
+                <label for="sitioWeb">
+                    Sitio web
+                </label>
 
-                    <label>Estado</label>
-                    <input type="text" id="estado">
+                <input type="text" id="sitioWeb">
 
-                    <label>Presupuesto estimado</label>
-                    <input type="number" step="0.01" id="presupuestoEstimado">
 
-                    <label>Alcance</label>
-                    <input type="text" id="alcance">
+                <label for="numMilitantes">
+                    Número de militantes
+                </label>
 
-                    <label>Imagen (binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
-                    <input type="file" id="imagenPropuesta" accept="image/*">
+                <input type="number" id="numMilitantes" required>
 
-                </div>
+
+                <!-- AGREGADO: imagen que se guarda como binario (BYTEA)
+                     y viaja serializada en base64 desde la vista -->
+
+                <label for="logo">
+                    Logo
+                </label>
+
+                <input type="file" id="logo" accept="image/*">
+
 
                 <div class="botones">
 
-                    <button id="btnGuardarPropuesta">Guardar</button>
-                    <button id="btnModificarPropuesta">Modificar</button>
-                    <button id="btnEliminarPropuesta" class="eliminar">Eliminar</button>
-                    <button id="btnLimpiarPropuesta" class="limpiar">Limpiar</button>
+                    <button type="submit">
+                        Guardar
+                    </button>
+
+                    <button type="button" id="btnCancelarPartido">
+                        Cancelar
+                    </button>
 
                 </div>
 
-                <table id="tablaPropuestas">
+            </form>
 
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Partido (JOIN)</th>
-                            <th>Título</th>
-                            <th>Área</th>
-                            <th>Estado</th>
-                            <th>Presupuesto</th>
-                            <th>Imagen</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
+        </section>
 
-                    <tbody></tbody>
 
-                </table>
+        <section>
 
-                <div id="mensaje"></div>
+            <h2>Partidos registrados</h2>
 
-            </div>
+            <table>
 
-        </main>
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Siglas</th>
+                        <th>Ideología</th>
+                        <th>Fecha de fundación</th>
+                        <th>Sede</th>
+                        <th>Sitio web</th>
+                        <th>Militantes</th>
+                        <th>Logo</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaPartidos">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- =========================================
+             TABLA 2: PROPUESTAS
+             (relacionada con partidos por partido_id)
+        ========================================== -->
+
+        <section class="formulario">
+
+            <h2>Datos de la propuesta</h2>
+
+            <form id="formPropuesta">
+
+                <input type="hidden" id="propuestaId">
+
+                <label for="partidoIdPropuesta">
+                    ID del partido
+                </label>
+
+                <input type="number" id="partidoIdPropuesta" required>
+
+
+                <label for="titulo">
+                    Título
+                </label>
+
+                <input type="text" id="titulo" required>
+
+
+                <label for="area">
+                    Área
+                </label>
+
+                <input type="text" id="area" required>
+
+
+                <label for="descripcion">
+                    Descripción
+                </label>
+
+                <input type="text" id="descripcion" required>
+
+
+                <label for="fechaPresentacion">
+                    Fecha de presentación
+                </label>
+
+                <input type="date" id="fechaPresentacion" required>
+
+
+                <label for="estado">
+                    Estado
+                </label>
+
+                <input type="text" id="estado" required>
+
+
+                <label for="presupuestoEstimado">
+                    Presupuesto estimado
+                </label>
+
+                <input type="number" id="presupuestoEstimado" step="0.01" required>
+
+
+                <label for="alcance">
+                    Alcance
+                </label>
+
+                <input type="text" id="alcance" required>
+
+
+                <!-- AGREGADO: imagen que se guarda como binario (BYTEA)
+                     y viaja serializada en base64 desde la vista -->
+
+                <label for="imagenPropuesta">
+                    Imagen
+                </label>
+
+                <input type="file" id="imagenPropuesta" accept="image/*">
+
+
+                <div class="botones">
+
+                    <button type="submit">
+                        Guardar
+                    </button>
+
+                    <button type="button" id="btnCancelarPropuesta">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <section>
+
+            <h2>Propuestas registradas</h2>
+
+            <!-- AGREGADO: la columna "Partido" viene de la CARGA EAGER
+                 (INNER JOIN con partidos_pg en propuestaPgController.js) -->
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Partido</th>
+                        <th>Título</th>
+                        <th>Área</th>
+                        <th>Descripción</th>
+                        <th>Fecha de presentación</th>
+                        <th>Estado</th>
+                        <th>Presupuesto</th>
+                        <th>Alcance</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaPropuestas">
+
+                </tbody>
+
+            </table>
+
+        </section>
 
     </div>
 
-    <script src="/js/menu.js"></script>
+    </main>
+
+    </div>
+
+
     <script src="/js/partidosPg.js"></script>
 
 </body>

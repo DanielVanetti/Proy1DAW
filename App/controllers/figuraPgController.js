@@ -1,191 +1,108 @@
-/**
- * ==========================================
- * Controlador de Figuras Publicas + Cargos Historicos (Parte 2 - PostgreSQL)
- * ==========================================
- */
+const pool = require("../db/database");
 
-const FiguraPgService = require("../services/figuraPgService");
-const CargoHistoricoPgService = require("../services/cargoHistoricoPgService");
+// AGREGADO: logger de acciones (requerimiento del proyecto, no está en S4)
 const Logger = require("../utils/logger");
 
-function usuarioDe(req) {
+// AGREGADO: serialización de imágenes (requerimiento del proyecto, no está en S4)
+// La columna "foto" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
+// y aquí se convierte a texto base64 para enviarla serializada a la vista.
+const serializarImagen = (figura) => ({
+    ...figura,
+    foto: figura.foto ? figura.foto.toString("base64") : null
+});
 
-    return req.headers["x-usuario"] || "desconocido";
-
-}
-
-// ---------- Figuras Publicas ----------
-
-async function listarFiguras(req, res, next) {
-
+// Obtener todas las figuras
+exports.getAllFiguras = async (req, res) => {
     try {
-
-        const figuras = await FiguraPgService.listar();
-
-        res.json(figuras);
-
+        const result = await pool.query("SELECT * FROM figuras_pg ORDER BY id");
+        Logger.registrar("Consultar figuras públicas (PostgreSQL)"); // AGREGADO: log
+        res.json(result.rows.map(serializarImagen));
+    } catch (err) {
+        console.error(err);
+        Logger.registrar("Error al obtener figuras públicas (PostgreSQL): " + err.message); // AGREGADO: log
+        res.status(500).json({ error: "Error al obtener figuras" });
     }
-    catch (error) {
+};
 
-        next(error);
-
-    }
-
-}
-
-async function crearFigura(req, res) {
-
+// Obtener una figura por ID
+exports.getFiguraById = async (req, res) => {
+    const { id } = req.params;
     try {
-
-        const figura = await FiguraPgService.crear(req.body);
-
-        Logger.registrarAccion("Crear figura PG " + figura.id, usuarioDe(req));
-
-        res.status(201).json({ mensaje: "Figura pública creada correctamente.", figura });
-
+        const result = await pool.query("SELECT * FROM figuras_pg WHERE id = $1", [id]);
+        if (result.rows.length === 0) {
+            Logger.registrar("Figura pública " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
+            return res.status(404).json({ error: "Figura no encontrada" });
+        }
+        Logger.registrar("Consultar figura pública " + id + " (PostgreSQL)"); // AGREGADO: log
+        res.json(serializarImagen(result.rows[0]));
+    } catch (err) {
+        console.error(err);
+        Logger.registrar("Error al obtener figura pública (PostgreSQL): " + err.message); // AGREGADO: log
+        res.status(500).json({ error: "Error al obtener figura" });
     }
-    catch (error) {
+};
 
-        Logger.registrarAccion("Error al crear figura PG: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-async function actualizarFigura(req, res) {
-
+// Crear una nueva figura
+exports.createFigura = async (req, res) => {
+    const { nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto } = req.body;
+    // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
+    const fotoBinaria = foto ? Buffer.from(foto, "base64") : null;
     try {
-
-        const figura = await FiguraPgService.actualizar(req.params.id, req.body);
-
-        Logger.registrarAccion("Actualizar figura PG " + req.params.id, usuarioDe(req));
-
-        res.json({ mensaje: "Figura pública actualizada correctamente.", figura });
-
+        const result = await pool.query(
+            "INSERT INTO figuras_pg (nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+            [nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, fotoBinaria]
+        );
+        Logger.registrar("Crear figura pública " + result.rows[0].id + " (PostgreSQL)"); // AGREGADO: log
+        res.status(201).json(serializarImagen(result.rows[0]));
+    } catch (err) {
+        console.error(err);
+        Logger.registrar("Error al crear figura pública (PostgreSQL): " + err.message); // AGREGADO: log
+        res.status(500).json({ error: "Error al crear figura" });
     }
-    catch (error) {
+};
 
-        Logger.registrarAccion("Error al actualizar figura PG: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-async function eliminarFigura(req, res) {
-
+// Actualizar una figura
+exports.updateFigura = async (req, res) => {
+    const { id } = req.params;
+    const { nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto } = req.body;
+    // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
+    const fotoBinaria = foto ? Buffer.from(foto, "base64") : null;
     try {
-
-        await FiguraPgService.eliminar(req.params.id);
-
-        Logger.registrarAccion("Eliminar figura PG " + req.params.id, usuarioDe(req));
-
-        res.json({ mensaje: "Figura pública eliminada correctamente." });
-
+        // AGREGADO: COALESCE conserva la foto actual si no se selecciona una nueva
+        const result = await pool.query(
+            "UPDATE figuras_pg SET nombre_completo = $1, cargo_actual = $2, fecha_nacimiento = $3, nacionalidad = $4, nivel_educativo = $5, anios_experiencia = $6, biografia = $7, foto = COALESCE($8, foto) WHERE id = $9 RETURNING *",
+            [nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, fotoBinaria, id]
+        );
+        if (result.rows.length === 0) {
+            Logger.registrar("Figura pública " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
+            return res.status(404).json({ error: "Figura no encontrada" });
+        }
+        Logger.registrar("Actualizar figura pública " + id + " (PostgreSQL)"); // AGREGADO: log
+        res.json(serializarImagen(result.rows[0]));
+    } catch (err) {
+        console.error(err);
+        Logger.registrar("Error al actualizar figura pública (PostgreSQL): " + err.message); // AGREGADO: log
+        res.status(500).json({ error: "Error al actualizar figura" });
     }
-    catch (error) {
+};
 
-        Logger.registrarAccion("Error al eliminar figura PG: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-// ---------- Cargos Historicos (relacionados por FK figura_id) ----------
-
-async function listarCargos(req, res, next) {
-
+// Eliminar una figura
+exports.deleteFigura = async (req, res) => {
+    const { id } = req.params;
     try {
-
-        // CARGA EAGER: una sola consulta con JOIN trae el cargo + nombre de la figura.
-        const cargos = await CargoHistoricoPgService.listarConFigura();
-
-        res.json(cargos);
-
+        const result = await pool.query(
+            "DELETE FROM figuras_pg WHERE id = $1 RETURNING *",
+            [id]
+        );
+        if (result.rows.length === 0) {
+            Logger.registrar("Figura pública " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
+            return res.status(404).json({ error: "Figura no encontrada" });
+        }
+        Logger.registrar("Eliminar figura pública " + id + " (PostgreSQL)"); // AGREGADO: log
+        res.json({ message: "Figura eliminada exitosamente" });
+    } catch (err) {
+        console.error(err);
+        Logger.registrar("Error al eliminar figura pública (PostgreSQL): " + err.message); // AGREGADO: log
+        res.status(500).json({ error: "Error al eliminar figura" });
     }
-    catch (error) {
-
-        next(error);
-
-    }
-
-}
-
-async function crearCargo(req, res) {
-
-    try {
-
-        const cargo = await CargoHistoricoPgService.crear(req.body);
-
-        Logger.registrarAccion("Crear cargo histórico PG " + cargo.id, usuarioDe(req));
-
-        res.status(201).json({ mensaje: "Cargo histórico creado correctamente.", cargo });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al crear cargo histórico PG: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-async function actualizarCargo(req, res) {
-
-    try {
-
-        const cargo = await CargoHistoricoPgService.actualizar(req.params.id, req.body);
-
-        Logger.registrarAccion("Actualizar cargo histórico PG " + req.params.id, usuarioDe(req));
-
-        res.json({ mensaje: "Cargo histórico actualizado correctamente.", cargo });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al actualizar cargo histórico PG: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-async function eliminarCargo(req, res) {
-
-    try {
-
-        await CargoHistoricoPgService.eliminar(req.params.id);
-
-        Logger.registrarAccion("Eliminar cargo histórico PG " + req.params.id, usuarioDe(req));
-
-        res.json({ mensaje: "Cargo histórico eliminado correctamente." });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al eliminar cargo histórico PG: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-module.exports = {
-    listarFiguras,
-    crearFigura,
-    actualizarFigura,
-    eliminarFigura,
-    listarCargos,
-    crearCargo,
-    actualizarCargo,
-    eliminarCargo
 };

@@ -1,109 +1,179 @@
 <!DOCTYPE html>
+ 
 <html lang="es">
-
+ 
 <head>
-
+ 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+ 
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+ 
     <title>CRUD de Partidos Políticos</title>
-
-    <link rel="stylesheet" href="/css/estilos.css">
-
+ 
+    <link rel="stylesheet"
+          href="/css/estilosS2.css">
+ 
+    <!-- AGREGADO: estilos del menú lateral -->
+ 
+    <link rel="stylesheet"
+          href="/css/sidebar.css">
+ 
 </head>
-
+ 
 <body>
-
+ 
+    <!-- AGREGADO: menú lateral (requerimiento del proyecto) -->
+ 
     <div class="layout">
-
-        <nav class="menu-lateral">
-
-            <h2>Política y<br>Figuras Públicas</h2>
-            <p id="usuarioActivo" class="usuario-activo"></p>
-            <hr>
-            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
-            <a href="/partidos/pagina">Partidos Políticos</a>
-            <a href="/figuras/pagina">Figuras Públicas</a>
-            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
-            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
-            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
-            <p class="menu-seccion">Parte 3 - MongoDB</p>
-            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
-            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
-            <hr>
-            <button id="btnSalir">Cerrar sesión</button>
-
-        </nav>
-
-        <main class="contenido">
-
-            <div class="contenedor">
-
-                <h1>CRUD DE PARTIDOS POLÍTICOS</h1>
-                <h2>Parte 1 - Semana 2 (archivo .txt)</h2>
-
-                <hr>
-
-                <div class="formulario">
-
-                    <label>Código</label>
-                    <input type="text" id="codigo">
-
-                    <label>Nombre</label>
-                    <input type="text" id="nombre">
-
-                    <label>Siglas</label>
-                    <input type="text" id="siglas">
-
-                    <label>Ideología</label>
-                    <input type="text" id="ideologia">
-
-                    <label>Fecha de fundación</label>
-                    <input type="date" id="fechaFundacion">
-
-                </div>
-
-                <div class="botones">
-
-                    <button id="btnGuardar">Guardar</button>
-                    <button id="btnModificar">Modificar</button>
-                    <button id="btnEliminar" class="eliminar">Eliminar</button>
-                    <button id="btnConsultar">Consultar</button>
-                    <button id="btnLimpiar" class="limpiar">Limpiar</button>
-
-                </div>
-
-                <hr>
-
-                <h2>Lista de partidos</h2>
-
-                <table id="tablaPartidos">
-
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Siglas</th>
-                            <th>Ideología</th>
-                            <th>Fecha fundación</th>
-                        </tr>
-                    </thead>
-
-                    <tbody></tbody>
-
-                </table>
-
-                <div id="mensaje"></div>
-
-            </div>
-
-        </main>
-
+ 
+    <nav class="menu-lateral">
+ 
+        <h3>Política y Figuras Públicas</h3>
+ 
+        <p>Parte 1 - Archivos .txt</p>
+ 
+        <a href="/partidos/pagina">Partidos Políticos</a>
+ 
+        <a href="/figuras/pagina">Figuras Públicas</a>
+ 
+        <p>Parte 2 - PostgreSQL</p>
+ 
+        <a href="/partidos-pg">Partidos y Propuestas</a>
+ 
+        <a href="/figuras-pg">Figuras y Cargos</a>
+ 
+        <p>Parte 3 - MongoDB</p>
+ 
+        <a href="/partidos-mongo">Partidos (60 documentos)</a>
+ 
+        <a href="/figuras-mongo">Figuras (120 documentos)</a>
+ 
+        <a href="/logout" class="salir">Cerrar sesión</a>
+ 
+    </nav>
+ 
+    <main class="contenido">
+ 
+    <div class="contenedor">
+ 
+        <h1>CRUD DE PARTIDOS POLÍTICOS</h1>
+ 
+        <hr>
+ 
+        <label>Código</label>
+ 
+        <input
+            type="text"
+            id="codigo">
+ 
+        <label>Nombre</label>
+ 
+        <input
+            type="text"
+            id="nombre">
+ 
+        <label>Siglas</label>
+ 
+        <input
+            type="text"
+            id="siglas">
+ 
+        <label>Ideología</label>
+ 
+        <input
+            type="text"
+            id="ideologia">
+ 
+        <label>Fecha de fundación</label>
+ 
+        <input
+            type="date"
+            id="fechaFundacion">
+ 
+        <br><br>
+ 
+        <button id="btnGuardar">
+ 
+            Guardar
+ 
+        </button>
+ 
+        <button id="btnModificar">
+ 
+            Modificar
+ 
+        </button>
+ 
+        <button id="btnEliminar">
+ 
+            Eliminar
+ 
+        </button>
+ 
+        <button id="btnConsultar">
+ 
+            Consultar
+ 
+        </button>
+ 
+        <button id="btnLimpiar">
+ 
+            Limpiar
+ 
+        </button>
+ 
+        <button id="btnSalir">
+ 
+            Salir
+ 
+        </button>
+ 
+        <hr>
+ 
+        <h2>Lista de partidos</h2>
+ 
+        <table
+            border="1"
+            width="100%"
+            id="tablaPartidos">
+ 
+            <thead>
+ 
+                <tr>
+ 
+                    <th>Código</th>
+ 
+                    <th>Nombre</th>
+ 
+                    <th>Siglas</th>
+ 
+                    <th>Ideología</th>
+ 
+                    <th>Fecha de fundación</th>
+ 
+                </tr>
+ 
+            </thead>
+ 
+            <tbody>
+ 
+            </tbody>
+ 
+        </table>
+ 
+        <br>
+ 
+        <div id="mensaje"></div>
+ 
     </div>
-
-    <script src="/js/menu.js"></script>
+ 
+    </main>
+ 
+    </div>
+ 
     <script src="/js/partidos.js"></script>
-
+ 
 </body>
-
+ 
 </html>

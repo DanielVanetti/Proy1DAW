@@ -1,144 +1,242 @@
 /**
  * ==========================================
- * Controlador de Figuras Públicas (Parte 1 - .txt)
+ * Controlador de Figuras Públicas
  * ==========================================
  */
-
+ 
 const FiguraPublica = require("../models/figuraPublica");
 const FiguraPublicaService = require("../services/figuraPublicaService");
+ 
+// AGREGADO: logger de acciones (requerimiento del proyecto)
+ 
 const Logger = require("../utils/logger");
-
-function usuarioDe(req) {
-
-    return req.headers["x-usuario"] || "desconocido";
-
-}
-
+ 
+/*=========================================
+  Listar figuras públicas
+=========================================*/
+ 
 function listar(req, res) {
-
+ 
     try {
-
+ 
         const figuras = FiguraPublicaService.listar();
-
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Consultar figuras públicas (.txt)");
+ 
         res.json(figuras);
-
+ 
     }
     catch (error) {
-
-        res.status(500).json({ mensaje: error.message });
-
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Error al consultar figuras públicas (.txt): " + error.message);
+ 
+        res.status(500).json({
+ 
+            mensaje: error.message
+ 
+        });
+ 
     }
-
+ 
 }
-
+ 
+/*=========================================
+  Buscar figura pública
+=========================================*/
+ 
 function buscar(req, res) {
-
+ 
     try {
-
-        const figura = FiguraPublicaService.buscarPorCodigo(req.params.codigo);
-
-        if (!figura) {
-
-            return res.status(404).json({ mensaje: "Figura pública no encontrada." });
-
-        }
-
-        res.json(figura);
-
-    }
-    catch (error) {
-
-        res.status(500).json({ mensaje: error.message });
-
-    }
-
-}
-
-function guardar(req, res) {
-
-    try {
-
-        const figura = new FiguraPublica(
-            req.body.codigo,
-            req.body.nombreCompleto,
-            req.body.cargoActual,
-            req.body.partido,
-            req.body.fechaNacimiento
-        );
-
-        FiguraPublicaService.guardar(figura);
-
-        Logger.registrarAccion("Guardar figura pública " + figura.codigo, usuarioDe(req));
-
-        res.status(201).json({ mensaje: "Figura pública guardada correctamente." });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al guardar figura pública: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-function modificar(req, res) {
-
-    try {
-
-        const figura = new FiguraPublica(
-            req.body.codigo,
-            req.body.nombreCompleto,
-            req.body.cargoActual,
-            req.body.partido,
-            req.body.fechaNacimiento
-        );
-
-        FiguraPublicaService.modificar(figura);
-
-        Logger.registrarAccion("Modificar figura pública " + figura.codigo, usuarioDe(req));
-
-        res.json({ mensaje: "Figura pública modificada correctamente." });
-
-    }
-    catch (error) {
-
-        Logger.registrarAccion("Error al modificar figura pública: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
-    }
-
-}
-
-function eliminar(req, res) {
-
-    try {
-
+ 
         const codigo = req.params.codigo;
-
-        FiguraPublicaService.eliminar(codigo);
-
-        Logger.registrarAccion("Eliminar figura pública " + codigo, usuarioDe(req));
-
-        res.json({ mensaje: "Figura pública eliminada correctamente." });
-
+ 
+        const figura =
+            FiguraPublicaService.buscarPorCodigo(codigo);
+ 
+        if (!figura) {
+ 
+            return res.status(404).json({
+ 
+                mensaje: "Figura pública no encontrada."
+ 
+            });
+ 
+        }
+ 
+        res.json(figura);
+ 
     }
     catch (error) {
-
-        Logger.registrarAccion("Error al eliminar figura pública: " + error.message, usuarioDe(req));
-
-        res.status(400).json({ mensaje: error.message });
-
+ 
+        res.status(500).json({
+ 
+            mensaje: error.message
+ 
+        });
+ 
     }
-
+ 
 }
-
+ 
+/*=========================================
+  Guardar figura pública
+=========================================*/
+ 
+function guardar(req, res) {
+ 
+    try {
+ 
+        const figura = new FiguraPublica(
+ 
+            req.body.codigo,
+ 
+            req.body.nombreCompleto,
+ 
+            req.body.cargoActual,
+ 
+            req.body.partido,
+ 
+            req.body.fechaNacimiento
+ 
+        );
+ 
+        FiguraPublicaService.guardar(figura);
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Guardar figura pública " + figura.codigo + " (.txt)");
+ 
+        res.status(201).json({
+ 
+            mensaje: "Figura pública guardada correctamente."
+ 
+        });
+ 
+    }
+    catch (error) {
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Error al guardar figura pública (.txt): " + error.message);
+ 
+        res.status(400).json({
+ 
+            mensaje: error.message
+ 
+        });
+ 
+    }
+ 
+}
+ 
+/*=========================================
+  Modificar figura pública
+=========================================*/
+ 
+function modificar(req, res) {
+ 
+    try {
+ 
+        const figura = new FiguraPublica(
+ 
+            req.body.codigo,
+ 
+            req.body.nombreCompleto,
+ 
+            req.body.cargoActual,
+ 
+            req.body.partido,
+ 
+            req.body.fechaNacimiento
+ 
+        );
+ 
+        FiguraPublicaService.modificar(figura);
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Modificar figura pública " + figura.codigo + " (.txt)");
+ 
+        res.json({
+ 
+            mensaje: "Figura pública modificada correctamente."
+ 
+        });
+ 
+    }
+    catch (error) {
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Error al modificar figura pública (.txt): " + error.message);
+ 
+        res.status(400).json({
+ 
+            mensaje: error.message
+ 
+        });
+ 
+    }
+ 
+}
+ 
+/*=========================================
+  Eliminar figura pública
+=========================================*/
+ 
+function eliminar(req, res) {
+ 
+    try {
+ 
+        const codigo = req.params.codigo;
+ 
+        FiguraPublicaService.eliminar(codigo);
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Eliminar figura pública " + codigo + " (.txt)");
+ 
+        res.json({
+ 
+            mensaje: "Figura pública eliminada correctamente."
+ 
+        });
+ 
+    }
+    catch (error) {
+ 
+        // AGREGADO: registro en el log
+ 
+        Logger.registrar("Error al eliminar figura pública (.txt): " + error.message);
+ 
+        res.status(400).json({
+ 
+            mensaje: error.message
+ 
+        });
+ 
+    }
+ 
+}
+ 
+/*=========================================
+  Exportar funciones
+=========================================*/
+ 
 module.exports = {
+ 
     listar,
+ 
     buscar,
+ 
     guardar,
+ 
     modificar,
+ 
     eliminar
+ 
 };

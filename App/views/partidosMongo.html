@@ -1,138 +1,371 @@
 <!DOCTYPE html>
+ 
 <html lang="es">
-
+ 
 <head>
-
+ 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CRUD Partidos (MongoDB)</title>
-
-    <link rel="stylesheet" href="/css/estilosS5.css">
-
+ 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+ 
+    <title>
+        CRUD Partidos MongoDB
+    </title>
+ 
+    <link
+        rel="stylesheet"
+        href="/css/estilosS5.css"
+    >
+ 
+    <!-- AGREGADO: estilos del menú lateral -->
+ 
+    <link
+        rel="stylesheet"
+        href="/css/sidebar.css"
+    >
+ 
 </head>
-
+ 
+ 
 <body>
-
-    <div class="layout">
-
-        <nav class="menu-lateral">
-
-            <h2>Política y<br>Figuras Públicas</h2>
-            <p id="usuarioActivo" class="usuario-activo"></p>
-            <hr>
-            <p class="menu-seccion">Parte 1 - Archivos .txt</p>
-            <a href="/partidos/pagina">Partidos Políticos</a>
-            <a href="/figuras/pagina">Figuras Públicas</a>
-            <p class="menu-seccion">Parte 2 - PostgreSQL</p>
-            <a href="/partidos-pg/pagina">Partidos y Propuestas</a>
-            <a href="/figuras-pg/pagina">Figuras y Cargos</a>
-            <p class="menu-seccion">Parte 3 - MongoDB</p>
-            <a href="/partidos-mongo/pagina">Partidos (60 docs)</a>
-            <a href="/figuras-mongo/pagina">Figuras (120 docs)</a>
-            <hr>
-            <button id="btnSalir">Cerrar sesión</button>
-
-        </nav>
-
-        <main class="contenido">
-
-            <div class="contenedor">
-
-                <h1>PARTIDOS POLÍTICOS (MongoDB)</h1>
-                <h2>Parte 3 - Semana 5 (colección CollMongoDB, tipo: "partido", 60 documentos, 15 campos)</h2>
-                <p><em>Carga Lazy: la lista NO trae el campo de imagen (logoBase64); al presionar "Ver / Editar" se hace una segunda consulta (obtenerPorId) que sí trae el documento completo, incluida la imagen (ver <code>dao/mongo/partidoMongoDAO.js</code>).</em></p>
-
-                <hr>
-
-                <div class="formulario">
-
-                    <input type="hidden" id="mongoId">
-
-                    <label>Nombre</label>
-                    <input type="text" id="nombre">
-
-                    <label>Siglas</label>
-                    <input type="text" id="siglas">
-
-                    <label>Ideología</label>
-                    <input type="text" id="ideologia">
-
-                    <label>Fecha de fundación</label>
-                    <input type="date" id="fechaFundacion">
-
-                    <label>Sede</label>
-                    <input type="text" id="sede">
-
-                    <label>Sitio web</label>
-                    <input type="text" id="sitioWeb">
-
-                    <label>Número de militantes</label>
-                    <input type="number" id="numMilitantes">
-
-                    <label>Líder actual</label>
-                    <input type="text" id="liderActual">
-
-                    <label>Colores representativos</label>
-                    <input type="text" id="coloresRepresentativos">
-
-                    <label>Presencia regional</label>
-                    <input type="text" id="presenciaRegional">
-
-                    <label>Redes sociales</label>
-                    <input type="text" id="redesSociales">
-
-                    <label>Número de diputados</label>
-                    <input type="number" id="numeroDiputados">
-
-                    <label>Estado legal</label>
-                    <input type="text" id="estadoLegal">
-
-                    <label>Descripción</label>
-                    <textarea id="descripcion"></textarea>
-
-                    <label>Logo (imagen binaria serializada - PENDIENTE de confirmar técnica con el profesor)</label>
-                    <input type="file" id="logo" accept="image/*">
-                    <img id="logoPreview" class="miniatura" style="display:none">
-
-                </div>
-
-                <div class="botones">
-
-                    <button id="btnGuardar">Guardar</button>
-                    <button id="btnModificar">Modificar</button>
-                    <button id="btnEliminar" class="eliminar">Eliminar</button>
-                    <button id="btnLimpiar" class="limpiar">Limpiar</button>
-                </div>
-
-                <table id="tablaPartidos">
-
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Siglas</th>
-                            <th>Ideología</th>
-                            <th>Líder actual</th>
-                            <th>Diputados</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-
-                    <tbody></tbody>
-
-                </table>
-
-                <div id="mensaje"></div>
-
-            </div>
-
-        </main>
-
+ 
+<!-- AGREGADO: menú lateral (requerimiento del proyecto) -->
+ 
+<div class="layout">
+ 
+<nav class="menu-lateral">
+ 
+    <h3>Política y Figuras Públicas</h3>
+ 
+    <p>Parte 1 - Archivos .txt</p>
+ 
+    <a href="/partidos/pagina">Partidos Políticos</a>
+ 
+    <a href="/figuras/pagina">Figuras Públicas</a>
+ 
+    <p>Parte 2 - PostgreSQL</p>
+ 
+    <a href="/partidos-pg">Partidos y Propuestas</a>
+ 
+    <a href="/figuras-pg">Figuras y Cargos</a>
+ 
+    <p>Parte 3 - MongoDB</p>
+ 
+    <a href="/partidos-mongo">Partidos (60 documentos)</a>
+ 
+    <a href="/figuras-mongo">Figuras (120 documentos)</a>
+ 
+    <a href="/logout" class="salir">Cerrar sesión</a>
+ 
+</nav>
+ 
+<main class="contenido">
+ 
+<div class="contenedor">
+ 
+ 
+    <h1>
+        CRUD Partidos Políticos
+    </h1>
+ 
+ 
+    <p class="descripcion">
+ 
+        MongoDB + DAO
+        -
+        Colección CollMongoDB (60 documentos)
+        -
+        Grupo 5 - Política y Figuras Públicas
+ 
+    </p>
+ 
+ 
+ 
+    <!-- =========================================
+         FORMULARIO
+    ========================================== -->
+ 
+    <div class="formulario">
+ 
+        <label>ID</label>
+ 
+        <input
+            type="text"
+            id="id"
+            placeholder="ObjectId de MongoDB"
+        >
+ 
+ 
+        <label>Nombre</label>
+ 
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre"
+        >
+ 
+ 
+        <label>Siglas</label>
+ 
+        <input
+            type="text"
+            id="siglas"
+            placeholder="Siglas"
+        >
+ 
+ 
+        <label>Ideología</label>
+ 
+        <input
+            type="text"
+            id="ideologia"
+            placeholder="Ideología"
+        >
+ 
+ 
+        <label>Fecha de fundación</label>
+ 
+        <input
+            type="date"
+            id="fechaFundacion"
+        >
+ 
+ 
+        <label>Sede</label>
+ 
+        <input
+            type="text"
+            id="sede"
+            placeholder="Sede"
+        >
+ 
+ 
+        <label>Sitio web</label>
+ 
+        <input
+            type="text"
+            id="sitioWeb"
+            placeholder="Sitio web"
+        >
+ 
+ 
+        <label>Militantes</label>
+ 
+        <input
+            type="number"
+            id="numMilitantes"
+            placeholder="Número de militantes"
+        >
+ 
+ 
+        <label>Líder actual</label>
+ 
+        <input
+            type="text"
+            id="liderActual"
+            placeholder="Líder actual"
+        >
+ 
+ 
+        <label>Colores</label>
+ 
+        <input
+            type="text"
+            id="coloresRepresentativos"
+            placeholder="Colores representativos"
+        >
+ 
+ 
+        <label>Presencia regional</label>
+ 
+        <input
+            type="text"
+            id="presenciaRegional"
+            placeholder="Presencia regional"
+        >
+ 
+ 
+        <label>Redes sociales</label>
+ 
+        <input
+            type="text"
+            id="redesSociales"
+            placeholder="Redes sociales"
+        >
+ 
+ 
+        <label>Diputados</label>
+ 
+        <input
+            type="number"
+            id="numeroDiputados"
+            placeholder="Número de diputados"
+        >
+ 
+ 
+        <label>Estado legal</label>
+ 
+        <input
+            type="text"
+            id="estadoLegal"
+            placeholder="Estado legal"
+        >
+ 
+ 
+        <label>Descripción</label>
+ 
+        <input
+            type="text"
+            id="descripcion"
+            placeholder="Descripción"
+        >
+ 
+ 
+        <!-- AGREGADO: imagen serializada en base64 dentro del documento -->
+ 
+        <label>Logo</label>
+ 
+        <input
+            type="file"
+            id="logo"
+            accept="image/*"
+        >
+ 
+ 
+        <label>Vista del logo</label>
+ 
+        <img
+            id="vistaLogo"
+            width="120"
+            alt="Sin logo (use CONSULTAR)"
+        >
+ 
     </div>
-
-    <script src="/js/menu.js"></script>
-    <script src="/js/partidosMongo.js"></script>
-
+ 
+ 
+ 
+    <!-- =========================================
+         MONGODB
+    ========================================== -->
+ 
+    <section class="seccion mongo">
+ 
+        <h2>
+            MongoDB + DAO
+        </h2>
+ 
+ 
+        <div class="botones">
+ 
+            <button
+                onclick="crearMongo()"
+            >
+                CREAR
+            </button>
+ 
+ 
+            <button
+                onclick="consultarMongo()"
+            >
+                CONSULTAR
+            </button>
+ 
+ 
+            <button
+                onclick="actualizarMongo()"
+            >
+                ACTUALIZAR
+            </button>
+ 
+ 
+            <button
+                onclick="eliminarMongo()"
+            >
+                ELIMINAR
+            </button>
+ 
+ 
+            <button
+                onclick="mostrarMongo()"
+            >
+                MOSTRAR TODOS
+            </button>
+ 
+        </div>
+ 
+ 
+        <!-- AGREGADO: CARGA LAZY - la tabla (MOSTRAR TODOS) no trae el logo;
+             el logo solo se carga al CONSULTAR un documento por su ID -->
+ 
+        <table>
+ 
+            <thead>
+ 
+                <tr>
+ 
+                    <th>ID</th>
+ 
+                    <th>Nombre</th>
+ 
+                    <th>Siglas</th>
+ 
+                    <th>Ideología</th>
+ 
+                    <th>Fundación</th>
+ 
+                    <th>Sede</th>
+ 
+                    <th>Sitio web</th>
+ 
+                    <th>Militantes</th>
+ 
+                    <th>Líder actual</th>
+ 
+                    <th>Colores</th>
+ 
+                    <th>Presencia regional</th>
+ 
+                    <th>Redes sociales</th>
+ 
+                    <th>Diputados</th>
+ 
+                    <th>Estado legal</th>
+ 
+                    <th>Descripción</th>
+ 
+                </tr>
+ 
+            </thead>
+ 
+ 
+            <tbody
+                id="tablaMongo"
+            ></tbody>
+ 
+        </table>
+ 
+    </section>
+ 
+ 
+ 
+    <div id="mensaje"></div>
+ 
+ 
+</div>
+ 
+</main>
+ 
+</div>
+ 
+ 
+<script
+    src="/js/partidosMongo.js"
+></script>
+ 
+ 
 </body>
-
+ 
 </html>

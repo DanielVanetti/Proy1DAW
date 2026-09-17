@@ -1,26 +1,28 @@
 const express = require("express");
-const path = require("path");
 
 const router = express.Router();
 
-const FiguraPgController = require("../controllers/figuraPgController");
+const {
+    getAllFiguras,
+    getFiguraById,
+    createFigura,
+    updateFigura,
+    deleteFigura
+} = require("../controllers/figuraPgController");
 
-router.get("/figuras-pg/pagina", (req, res) => {
+// GET - Obtener todos
+router.get("/", getAllFiguras);
 
-    res.sendFile(path.join(__dirname, "..", "views", "figurasPg.html"));
+// GET - Obtener uno por ID
+router.get("/:id", getFiguraById);
 
-});
+// POST - Crear
+router.post("/", createFigura);
 
-// Figuras Publicas
-router.get("/api/figuras-pg", FiguraPgController.listarFiguras);
-router.post("/api/figuras-pg", FiguraPgController.crearFigura);
-router.put("/api/figuras-pg/:id", FiguraPgController.actualizarFigura);
-router.delete("/api/figuras-pg/:id", FiguraPgController.eliminarFigura);
+// PUT - Actualizar
+router.put("/:id", updateFigura);
 
-// Cargos Historicos (relacionados por figura_id)
-router.get("/api/cargos-pg", FiguraPgController.listarCargos);
-router.post("/api/cargos-pg", FiguraPgController.crearCargo);
-router.put("/api/cargos-pg/:id", FiguraPgController.actualizarCargo);
-router.delete("/api/cargos-pg/:id", FiguraPgController.eliminarCargo);
+// DELETE - Eliminar
+router.delete("/:id", deleteFigura);
 
 module.exports = router;
