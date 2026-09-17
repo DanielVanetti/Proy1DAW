@@ -19,8 +19,6 @@ class PartidoMongoDAO {
  
         const documento = {
  
-            // AGREGADO: "tipo" separa los 60 partidos de las 120 figuras
-            // porque ambos conjuntos se guardan en la colección CollMongoDB
             tipo: "partido",
  
             nombre: partido.nombre,
@@ -57,7 +55,6 @@ class PartidoMongoDAO {
  
             descripcion: partido.descripcion,
  
-            // AGREGADO: imagen serializada en base64 (no está en S5)
             logoBase64:
                 partido.logoBase64 || null
         };
@@ -89,10 +86,7 @@ class PartidoMongoDAO {
             await conectarMongoDB();
  
  
-        // CARGA LAZY (AGREGADO, no está en S5):
-        // la lista de los 60 documentos NO trae el campo logoBase64
-        // (se excluye con project). La imagen solo se carga cuando se
-        // consulta un documento específico con obtenerPorId (botón CONSULTAR).
+        // CARGA LAZY : aquí se trae solo la lista de documentos sin la imagen
         return await db
             .collection("CollMongoDB")
             .find({
@@ -115,7 +109,7 @@ class PartidoMongoDAO {
             await conectarMongoDB();
  
  
-        // CARGA LAZY (AGREGADO): aquí sí se trae el documento completo con la imagen
+        // CARGA LAZY: aquí sí se trae el documento completo con la imagen
         return await db
             .collection("CollMongoDB")
             .findOne({
@@ -173,8 +167,7 @@ class PartidoMongoDAO {
                 partido.descripcion
         };
  
- 
-        // AGREGADO: la imagen solo se reemplaza si se seleccionó una nueva
+
         if (partido.logoBase64) {
  
             datos.logoBase64 =

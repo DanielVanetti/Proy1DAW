@@ -1,7 +1,7 @@
 const PartidoMongoService =
     require("../services/PartidoMongoService");
  
-// AGREGADO: logger de acciones (requerimiento del proyecto, no está en S5)
+// Logger de acciones
 const Logger =
     require("../utils/logger");
  
@@ -32,7 +32,6 @@ class PartidoMongoController {
                 );
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Crear partido " + partido._id + " (MongoDB)"
             );
@@ -52,7 +51,6 @@ class PartidoMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error al crear partido en MongoDB: " + error.message
             );
@@ -79,7 +77,6 @@ class PartidoMongoController {
                 await service.obtenerTodosMongo();
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Consultar todos los partidos, sin imagen - carga lazy (MongoDB)"
             );
@@ -99,7 +96,6 @@ class PartidoMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error consultando partidos en MongoDB: " + error.message
             );
@@ -130,7 +126,6 @@ class PartidoMongoController {
  
             if (!partido) {
  
-                // AGREGADO: registro en el log
                 Logger.registrar(
                     "Partido " + req.params.id + " no encontrado (MongoDB)"
                 );
@@ -144,7 +139,6 @@ class PartidoMongoController {
             }
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Consultar partido " + req.params.id + " con imagen - carga lazy (MongoDB)"
             );
@@ -164,7 +158,6 @@ class PartidoMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error consultando partido en MongoDB: " + error.message
             );
@@ -199,7 +192,6 @@ class PartidoMongoController {
  
             if (!partido) {
  
-                // AGREGADO: registro en el log
                 Logger.registrar(
                     "Partido " + req.params.id + " no encontrado (MongoDB)"
                 );
@@ -213,7 +205,6 @@ class PartidoMongoController {
             }
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Actualizar partido " + req.params.id + " (MongoDB)"
             );
@@ -233,7 +224,6 @@ class PartidoMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error actualizando partido en MongoDB: " + error.message
             );
@@ -263,8 +253,7 @@ class PartidoMongoController {
  
  
             if (!partido) {
- 
-                // AGREGADO: registro en el log
+
                 Logger.registrar(
                     "Partido " + req.params.id + " no encontrado (MongoDB)"
                 );
@@ -278,7 +267,6 @@ class PartidoMongoController {
             }
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Eliminar partido " + req.params.id + " (MongoDB)"
             );
@@ -298,7 +286,6 @@ class PartidoMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error eliminando partido en MongoDB: " + error.message
             );

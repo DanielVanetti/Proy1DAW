@@ -1,7 +1,7 @@
 const FiguraMongoService =
     require("../services/FiguraMongoService");
  
-// AGREGADO: logger de acciones (requerimiento del proyecto, no está en S5)
+// Logger de acciones
 const Logger =
     require("../utils/logger");
  
@@ -31,8 +31,6 @@ class FiguraMongoController {
                     req.body
                 );
  
- 
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Crear figura pública " + figura._id + " (MongoDB)"
             );
@@ -52,7 +50,6 @@ class FiguraMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error al crear figura pública en MongoDB: " + error.message
             );
@@ -79,9 +76,8 @@ class FiguraMongoController {
                 await service.obtenerTodosMongo();
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
-                "Consultar todas las figuras públicas, sin imagen - carga lazy (MongoDB)"
+                "Consultar todas las figuras públicas"
             );
  
  
@@ -99,7 +95,6 @@ class FiguraMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error consultando figuras públicas en MongoDB: " + error.message
             );
@@ -130,7 +125,6 @@ class FiguraMongoController {
  
             if (!figura) {
  
-                // AGREGADO: registro en el log
                 Logger.registrar(
                     "Figura pública " + req.params.id + " no encontrada (MongoDB)"
                 );
@@ -143,10 +137,8 @@ class FiguraMongoController {
                 });
             }
  
- 
-            // AGREGADO: registro en el log
             Logger.registrar(
-                "Consultar figura pública " + req.params.id + " con imagen - carga lazy (MongoDB)"
+                "Consultar figura pública " + req.params.id
             );
  
  
@@ -164,7 +156,6 @@ class FiguraMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error consultando figura pública en MongoDB: " + error.message
             );
@@ -199,7 +190,6 @@ class FiguraMongoController {
  
             if (!figura) {
  
-                // AGREGADO: registro en el log
                 Logger.registrar(
                     "Figura pública " + req.params.id + " no encontrada (MongoDB)"
                 );
@@ -213,7 +203,6 @@ class FiguraMongoController {
             }
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Actualizar figura pública " + req.params.id + " (MongoDB)"
             );
@@ -233,7 +222,6 @@ class FiguraMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error actualizando figura pública en MongoDB: " + error.message
             );
@@ -264,7 +252,6 @@ class FiguraMongoController {
  
             if (!figura) {
  
-                // AGREGADO: registro en el log
                 Logger.registrar(
                     "Figura pública " + req.params.id + " no encontrada (MongoDB)"
                 );
@@ -278,7 +265,6 @@ class FiguraMongoController {
             }
  
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Eliminar figura pública " + req.params.id + " (MongoDB)"
             );
@@ -298,7 +284,6 @@ class FiguraMongoController {
  
             console.error(error);
  
-            // AGREGADO: registro en el log
             Logger.registrar(
                 "Error eliminando figura pública en MongoDB: " + error.message
             );

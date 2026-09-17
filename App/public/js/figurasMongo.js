@@ -156,7 +156,7 @@ function mostrarMensaje(texto) {
  
  
 // ==================================================
-// AGREGADO: SERIALIZAR IMAGEN (no está en S5)
+// SERIALIZAR IMAGEN (no está en S5)
 // ==================================================
  
  

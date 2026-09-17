@@ -11,7 +11,6 @@ const FiguraMongoController =
 //
 // IMPORTANTE:
 // Estas rutas deben estar ANTES de /:id
-// (en app.js este router se registra antes que el de PostgreSQL)
 // ======================================================
  
  
