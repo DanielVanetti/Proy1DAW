@@ -3,26 +3,26 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    getAllPartidos,
-    getPartidoById,
-    createPartido,
-    updatePartido,
-    deletePartido
+    obtenerPartidos,
+    obtenerPartidoPorId,
+    crearPartido,
+    actualizarPartido,
+    eliminarPartido
 } = require("../controllers/partidoPgController");
 
 // GET - Obtener todos
-router.get("/", getAllPartidos);
+router.get("/", obtenerPartidos);
 
 // GET - Obtener uno por ID
-router.get("/:id", getPartidoById);
+router.get("/:id", obtenerPartidoPorId);
 
 // POST - Crear
-router.post("/", createPartido);
+router.post("/", crearPartido);
 
 // PUT - Actualizar
-router.put("/:id", updatePartido);
+router.put("/:id", actualizarPartido);
 
 // DELETE - Eliminar
-router.delete("/:id", deletePartido);
+router.delete("/:id", eliminarPartido);
 
 module.exports = router;

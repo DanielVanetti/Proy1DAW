@@ -12,7 +12,7 @@ const serializarImagen = (figura) => ({
 });
 
 // Obtener todas las figuras
-exports.getAllFiguras = async (req, res) => {
+const obtenerFiguras = async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM figuras_pg ORDER BY id");
         Logger.registrar("Consultar figuras públicas (PostgreSQL)"); // AGREGADO: log
@@ -20,30 +20,30 @@ exports.getAllFiguras = async (req, res) => {
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al obtener figuras públicas (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al obtener figuras" });
+        res.status(500).json({ mensaje: "Error al obtener figuras" });
     }
 };
 
 // Obtener una figura por ID
-exports.getFiguraById = async (req, res) => {
+const obtenerFiguraPorId = async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query("SELECT * FROM figuras_pg WHERE id = $1", [id]);
         if (result.rows.length === 0) {
             Logger.registrar("Figura pública " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Figura no encontrada" });
+            return res.status(404).json({ mensaje: "Figura no encontrada" });
         }
         Logger.registrar("Consultar figura pública " + id + " (PostgreSQL)"); // AGREGADO: log
         res.json(serializarImagen(result.rows[0]));
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al obtener figura pública (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al obtener figura" });
+        res.status(500).json({ mensaje: "Error al obtener figura" });
     }
 };
 
 // Crear una nueva figura
-exports.createFigura = async (req, res) => {
+const crearFigura = async (req, res) => {
     const { nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto } = req.body;
     // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
     const fotoBinaria = foto ? Buffer.from(foto, "base64") : null;
@@ -57,12 +57,12 @@ exports.createFigura = async (req, res) => {
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al crear figura pública (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al crear figura" });
+        res.status(500).json({ mensaje: "Error al crear figura" });
     }
 };
 
 // Actualizar una figura
-exports.updateFigura = async (req, res) => {
+const actualizarFigura = async (req, res) => {
     const { id } = req.params;
     const { nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto } = req.body;
     // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
@@ -75,19 +75,19 @@ exports.updateFigura = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Figura pública " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Figura no encontrada" });
+            return res.status(404).json({ mensaje: "Figura no encontrada" });
         }
         Logger.registrar("Actualizar figura pública " + id + " (PostgreSQL)"); // AGREGADO: log
         res.json(serializarImagen(result.rows[0]));
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al actualizar figura pública (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al actualizar figura" });
+        res.status(500).json({ mensaje: "Error al actualizar figura" });
     }
 };
 
 // Eliminar una figura
-exports.deleteFigura = async (req, res) => {
+const eliminarFigura = async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query(
@@ -96,13 +96,22 @@ exports.deleteFigura = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Figura pública " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Figura no encontrada" });
+            return res.status(404).json({ mensaje: "Figura no encontrada" });
         }
         Logger.registrar("Eliminar figura pública " + id + " (PostgreSQL)"); // AGREGADO: log
-        res.json({ message: "Figura eliminada exitosamente" });
+        res.json({ mensaje: "Figura eliminada correctamente" });
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al eliminar figura pública (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al eliminar figura" });
+        res.status(500).json({ mensaje: "Error al eliminar figura" });
     }
+};
+
+
+module.exports = {
+    obtenerFiguras,
+    obtenerFiguraPorId,
+    crearFigura,
+    actualizarFigura,
+    eliminarFigura
 };

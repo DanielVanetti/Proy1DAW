@@ -16,7 +16,7 @@ const serializarImagen = (propuesta) => ({
 // con UNA sola consulta (INNER JOIN) se traen las propuestas junto con los
 // datos del partido al que pertenecen (llave foránea partido_id), en lugar
 // de hacer una consulta aparte para buscar el partido de cada propuesta.
-exports.getAllPropuestas = async (req, res) => {
+const obtenerPropuestas = async (req, res) => {
     try {
         const result = await pool.query(
             "SELECT pr.*, pa.nombre AS partido_nombre, pa.siglas AS partido_siglas FROM propuestas_pg pr INNER JOIN partidos_pg pa ON pa.id = pr.partido_id ORDER BY pr.id"
@@ -26,13 +26,13 @@ exports.getAllPropuestas = async (req, res) => {
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al obtener propuestas (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al obtener propuestas" });
+        res.status(500).json({ mensaje: "Error al obtener propuestas" });
     }
 };
 
 // Obtener una propuesta por ID
 // CARGA EAGER (AGREGADO): la propuesta se trae junto con su partido en la misma consulta
-exports.getPropuestaById = async (req, res) => {
+const obtenerPropuestaPorId = async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query(
@@ -41,19 +41,19 @@ exports.getPropuestaById = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Propuesta no encontrada" });
+            return res.status(404).json({ mensaje: "Propuesta no encontrada" });
         }
         Logger.registrar("Consultar propuesta " + id + " (PostgreSQL)"); // AGREGADO: log
         res.json(serializarImagen(result.rows[0]));
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al obtener propuesta (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al obtener propuesta" });
+        res.status(500).json({ mensaje: "Error al obtener propuesta" });
     }
 };
 
 // Crear una nueva propuesta
-exports.createPropuesta = async (req, res) => {
+const crearPropuesta = async (req, res) => {
     const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
     // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
     const imagenBinaria = imagen ? Buffer.from(imagen, "base64") : null;
@@ -67,12 +67,12 @@ exports.createPropuesta = async (req, res) => {
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al crear propuesta (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al crear propuesta" });
+        res.status(500).json({ mensaje: "Error al crear propuesta" });
     }
 };
 
 // Actualizar una propuesta
-exports.updatePropuesta = async (req, res) => {
+const actualizarPropuesta = async (req, res) => {
     const { id } = req.params;
     const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
     // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
@@ -85,19 +85,19 @@ exports.updatePropuesta = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Propuesta no encontrada" });
+            return res.status(404).json({ mensaje: "Propuesta no encontrada" });
         }
         Logger.registrar("Actualizar propuesta " + id + " (PostgreSQL)"); // AGREGADO: log
         res.json(serializarImagen(result.rows[0]));
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al actualizar propuesta (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al actualizar propuesta" });
+        res.status(500).json({ mensaje: "Error al actualizar propuesta" });
     }
 };
 
 // Eliminar una propuesta
-exports.deletePropuesta = async (req, res) => {
+const eliminarPropuesta = async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query(
@@ -106,13 +106,22 @@ exports.deletePropuesta = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Propuesta no encontrada" });
+            return res.status(404).json({ mensaje: "Propuesta no encontrada" });
         }
         Logger.registrar("Eliminar propuesta " + id + " (PostgreSQL)"); // AGREGADO: log
-        res.json({ message: "Propuesta eliminada exitosamente" });
+        res.json({ mensaje: "Propuesta eliminada correctamente" });
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al eliminar propuesta (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al eliminar propuesta" });
+        res.status(500).json({ mensaje: "Error al eliminar propuesta" });
     }
+};
+
+
+module.exports = {
+    obtenerPropuestas,
+    obtenerPropuestaPorId,
+    crearPropuesta,
+    actualizarPropuesta,
+    eliminarPropuesta
 };

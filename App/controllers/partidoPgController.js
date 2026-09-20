@@ -12,7 +12,7 @@ const serializarImagen = (partido) => ({
 });
 
 // Obtener todos los partidos
-exports.getAllPartidos = async (req, res) => {
+const obtenerPartidos = async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM partidos_pg ORDER BY id");
         Logger.registrar("Consultar partidos (PostgreSQL)"); // AGREGADO: log
@@ -20,30 +20,30 @@ exports.getAllPartidos = async (req, res) => {
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al obtener partidos (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al obtener partidos" });
+        res.status(500).json({ mensaje: "Error al obtener partidos" });
     }
 };
 
 // Obtener un partido por ID
-exports.getPartidoById = async (req, res) => {
+const obtenerPartidoPorId = async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query("SELECT * FROM partidos_pg WHERE id = $1", [id]);
         if (result.rows.length === 0) {
             Logger.registrar("Partido " + id + " no encontrado (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Partido no encontrado" });
+            return res.status(404).json({ mensaje: "Partido no encontrado" });
         }
         Logger.registrar("Consultar partido " + id + " (PostgreSQL)"); // AGREGADO: log
         res.json(serializarImagen(result.rows[0]));
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al obtener partido (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al obtener partido" });
+        res.status(500).json({ mensaje: "Error al obtener partido" });
     }
 };
 
 // Crear un nuevo partido
-exports.createPartido = async (req, res) => {
+const crearPartido = async (req, res) => {
     const { nombre, siglas, ideologia, fecha_fundacion, sede, sitio_web, num_militantes, logo } = req.body;
     // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
     const logoBinario = logo ? Buffer.from(logo, "base64") : null;
@@ -57,12 +57,12 @@ exports.createPartido = async (req, res) => {
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al crear partido (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al crear partido" });
+        res.status(500).json({ mensaje: "Error al crear partido" });
     }
 };
 
 // Actualizar un partido
-exports.updatePartido = async (req, res) => {
+const actualizarPartido = async (req, res) => {
     const { id } = req.params;
     const { nombre, siglas, ideologia, fecha_fundacion, sede, sitio_web, num_militantes, logo } = req.body;
     // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
@@ -75,19 +75,19 @@ exports.updatePartido = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Partido " + id + " no encontrado (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Partido no encontrado" });
+            return res.status(404).json({ mensaje: "Partido no encontrado" });
         }
         Logger.registrar("Actualizar partido " + id + " (PostgreSQL)"); // AGREGADO: log
         res.json(serializarImagen(result.rows[0]));
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al actualizar partido (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al actualizar partido" });
+        res.status(500).json({ mensaje: "Error al actualizar partido" });
     }
 };
 
 // Eliminar un partido
-exports.deletePartido = async (req, res) => {
+const eliminarPartido = async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query(
@@ -96,13 +96,22 @@ exports.deletePartido = async (req, res) => {
         );
         if (result.rows.length === 0) {
             Logger.registrar("Partido " + id + " no encontrado (PostgreSQL)"); // AGREGADO: log
-            return res.status(404).json({ error: "Partido no encontrado" });
+            return res.status(404).json({ mensaje: "Partido no encontrado" });
         }
         Logger.registrar("Eliminar partido " + id + " (PostgreSQL)"); // AGREGADO: log
-        res.json({ message: "Partido eliminado exitosamente" });
+        res.json({ mensaje: "Partido eliminado correctamente" });
     } catch (err) {
         console.error(err);
         Logger.registrar("Error al eliminar partido (PostgreSQL): " + err.message); // AGREGADO: log
-        res.status(500).json({ error: "Error al eliminar partido" });
+        res.status(500).json({ mensaje: "Error al eliminar partido" });
     }
+};
+
+
+module.exports = {
+    obtenerPartidos,
+    obtenerPartidoPorId,
+    crearPartido,
+    actualizarPartido,
+    eliminarPartido
 };
