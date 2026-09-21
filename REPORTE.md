@@ -2,8 +2,8 @@
 
 Documento vivo para seguimiento del grupo. Se actualiza conforme avanza el trabajo.
 
-- **Última actualización:** 20 de septiembre de 2026 (segunda revisión)
-- **Commit base:** `b0f18dc` ("quitar comentarios de IA en parte 3")
+- **Última actualización:** 21 de septiembre de 2026 (tercera revisión)
+- **Commit base:** `57f53cd` ("Parte 2: alinear controllers y rutas con el codigo de S4-SW")
 - **Contraste:** enunciado `Proyecto-DAW.pdf` + código de referencia de clase (S2, S4-SW, S5-SW)
 
 ## Cómo usar este documento
@@ -189,8 +189,13 @@ profesor cuenta `tipo` como campo.
 
 ### 8. `BAJO` · Quedan 161 comentarios `AGREGADO:` / `CAMBIO:` — *los tres* · `EN CURSO`
 
-Josué ya limpió la Parte 3. Falta la Parte 2 (73 comentarios, concentrados en los 4
-controllers Pg) y la Parte 1 (~20).
+Conteo al 21/09/2026 (archivos `.js` y `.html` de `App/`):
+
+| Parte | Comentarios | Dónde |
+|---|---|---|
+| Parte 2 | 107 | 73 en los 4 controllers Pg, 22 en `partidosPg.js`/`figurasPg.js`, 10 en las 2 vistas, 2 en `db/database.js` |
+| Parte 3 | 11 | Josué ya limpió la mayoría |
+| Parte 1 y archivos compartidos | 43 | `app.js`, login, logger, menú y las vistas de archivos `.txt` |
 
 Estos comentarios marcan **todo lo que se apartó del código de clase**, así que son el
 mapa para la conversación con el profesor. Conviene borrarlos **después** de esa
@@ -222,17 +227,41 @@ No reordenar ese bloque sin avisar al grupo.
 | Cambio | Archivo | Estado |
 |---|---|---|
 | Traídos 4 commits de `origin/main` | — | aplicado |
-| **Parte 2 alineada con el estilo de S4-SW** (hallazgo 1) | 4 controllers + 4 routers Pg | aplicado, sin commit |
-| Eliminado `package-lock.json` vacío de la raíz (el real está en `App/`) | `package-lock.json` | aplicado, sin commit |
-| README: descripción de arquitectura corregida (Parte 2 sin capas, como S4-SW) | `README.md` | aplicado, sin commit |
-| README: tabla de páginas corregida (`/partidos-pg`, no `/partidos-pg/pagina`) | `README.md` | aplicado, sin commit |
-| README: rutas de API corregidas (`/api/partidos`, no `/api/partidos-pg`) | `README.md` | aplicado, sin commit |
-| README: eliminado el paso "crear carpeta de logs" (ya es automático) | `README.md` | aplicado, sin commit |
-| README: estructura de carpetas actualizada | `README.md` | aplicado, sin commit |
+| **Parte 2 alineada con el estilo de S4-SW** (hallazgo 1) | 4 controllers + 4 routers Pg | commit `57f53cd` |
+| Eliminado `package-lock.json` vacío de la raíz (el real está en `App/`) | `package-lock.json` | commit `57f53cd` |
+| README: descripción de arquitectura corregida (Parte 2 sin capas, como S4-SW) | `README.md` | commit `57f53cd` |
+| README: tabla de páginas corregida (`/partidos-pg`, no `/partidos-pg/pagina`) | `README.md` | commit `57f53cd` |
+| README: rutas de API corregidas (`/api/partidos`, no `/api/partidos-pg`) | `README.md` | commit `57f53cd` |
+| README: eliminado el paso "crear carpeta de logs" (ya es automático) | `README.md` | commit `57f53cd` |
+| README: estructura de carpetas actualizada | `README.md` | commit `57f53cd` |
 | Corrección de mayúsculas en requires de Mongo | 4 archivos de Parte 3 | **revertido** — lo aplica Josué (hallazgo 3) |
 
 **Ningún archivo de código de la Parte 1 ni de la Parte 3 fue modificado.** Los únicos
 archivos compartidos que se tocaron son `README.md` (documentación, describe las tres
 partes) y este reporte.
 
-Nada está commiteado todavía.
+Todo lo anterior quedó en el commit `57f53cd` y se subió a `origin/main` el 21/09/2026.
+
+---
+
+## Revisión del 21/09/2026 — Parte 2 contra S4-SW
+
+Se volvió a comparar la Parte 2 con `SEMANA 3/S4-SW` después del commit `57f53cd`:
+
+- Los 4 controllers y los 4 routers siguen el formato de `productoController.js` y
+  `productoRoutes.js`: mismos nombres de funciones, `module.exports` al final y
+  `{ mensaje }` en todas las respuestas de error.
+- Los 20 endpoints cargan y cada uno apunta a la función correcta.
+- `node --check` pasa en todos los controllers, las rutas y `app.js`.
+- `App/.env` no está versionado (solo `.env.example`).
+
+Quedan diferencias menores de estilo con S4-SW, de riesgo bajo y opcionales:
+
+| S4-SW | Parte 2 |
+|---|---|
+| `resultado` / `error` | `result` / `err` |
+| `const { id } = req.params` dentro del `try` | antes del `try` |
+| columnas explícitas en `SELECT` y `RETURNING id` | `SELECT *` y `RETURNING *` |
+| líneas en blanco entre bloques | formato compacto |
+
+El hallazgo 3 (requires con mayúsculas en la Parte 3) sigue `ABIERTO`.
