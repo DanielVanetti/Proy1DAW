@@ -21,7 +21,7 @@ const Logger = require("../utils/logger");
 function mostrarLogin(req, res) {
  
     res.sendFile(
-        path.join(__dirname, "..", "views", "login.html")
+        path.join(__dirname, "..", "views", "login.html")  //carpeta donde este el archivo
     );
  
 }
@@ -102,43 +102,7 @@ function iniciarSesion(req,res){
     }
  
 }
-/* function iniciarSesion(req, res) {
- 
-    try {
- 
-        const usuario = req.body.usuario;
- 
-        const password = req.body.password;
- 
-        AuthService.autenticar(
-            usuario,
-            password
-        );
- 
-        res.sendFile(
-            path.join(
-                __dirname,
-                "..",
-                "views",
-                "menu.html"
-            )
-        );
- 
-    }
-    catch (error) {
- 
-        res.status(401).send(
- 
-            "<h2>Usuario o contraseña incorrectos.</h2>" +
-            "<br>" +
-            "<a href='/'>Volver al Login</a>"
- 
-        );
- 
-    }
- 
-} */
- 
+
 /*=========================================
   Mostrar menú principal
   AGREGADO: menú lateral que se muestra

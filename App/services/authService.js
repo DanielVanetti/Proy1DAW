@@ -31,37 +31,6 @@ function autenticar(usuario,password){
     return encontrado;
  
 }
-/* function autenticar(usuario, password) {
- 
-    if (!usuario || usuario.trim() === "") {
- 
-        throw new Error("Debe ingresar el usuario.");
- 
-    }
- 
-    if (!password || password.trim() === "") {
- 
-        throw new Error("Debe ingresar la contraseña.");
- 
-    }
- 
-    const usuarioEncontrado =
-        UsuarioDAO.validarCredenciales(
-            usuario.trim(),
-            password.trim()
-        );
- 
-    if (!usuarioEncontrado) {
- 
-        throw new Error(
-            "Usuario o contraseña incorrectos."
-        );
- 
-    }
- 
-    return usuarioEncontrado;
- 
-} */
  
 /*=========================================
   Buscar usuario
@@ -69,14 +38,14 @@ function autenticar(usuario,password){
  
 function buscarPorUsuario(usuario) {
  
-    if (!usuario || usuario.trim() === "") {
+    if (!usuario || usuario.trim() === "") {// verifica que el usuario no sea nulo o vacío
  
         return null;
  
     }
  
     return UsuarioDAO.buscarPorUsuario(
-        usuario.trim()
+        usuario.trim()//elimina los espacios al inicio y al final
     );
  
 }
@@ -94,11 +63,7 @@ function listar() {
 /*=========================================
   Exportar funciones
 =========================================*/
-/* module.exports={
- 
-    autenticar
- 
-}; */
+
 module.exports = {
  
     autenticar,
