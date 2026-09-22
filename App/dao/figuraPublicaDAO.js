@@ -56,9 +56,8 @@ function leerArchivo() {
         .split("\n")
         .map(linea => {
  
-            // CAMBIO: se agrega trim() porque el último campo es texto
-            // (en estudiantes era Number y el salto de línea no afectaba)
- 
+            // trim() porque el último campo es texto y puede traer el salto de línea
+
             const datos = linea.trim().split(";");
  
             return new FiguraPublica(

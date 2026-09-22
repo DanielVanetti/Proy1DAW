@@ -42,9 +42,6 @@ function guardar(figura) {
  
     }
  
-    // CAMBIO: se quitaron las validaciones del promedio
-    // (eran propias del CRUD de estudiantes)
- 
     const existente =
         FiguraPublicaDAO.buscarPorCodigo(figura.codigo);
  

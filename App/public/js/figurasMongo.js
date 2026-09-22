@@ -240,8 +240,8 @@ async function crearMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
- 
+    // Imagen serializada en base64
+
     figura.fotoBase64 =
         await leerImagen();
  
@@ -468,8 +468,7 @@ async function consultarMongo() {
         datos.figura.afiliaciones;
  
  
-    // CARGA LAZY (AGREGADO): la foto solo llega al consultar
-    // un documento específico, no en MOSTRAR TODOS
+    // CARGA LAZY: la foto solo llega al consultar un documento específico
  
     mostrarImagen(
         datos.figura.fotoBase64
@@ -505,8 +504,8 @@ async function actualizarMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
- 
+    // Imagen serializada en base64
+
     figura.fotoBase64 =
         await leerImagen();
  
@@ -619,7 +618,7 @@ async function mostrarMongo() {
     tabla.innerHTML = "";
  
  
-    // CARGA LAZY (AGREGADO): estos documentos llegan sin fotoBase64
+    // CARGA LAZY: estos documentos llegan sin fotoBase64
  
     datos.figuras.forEach(
         figura => {

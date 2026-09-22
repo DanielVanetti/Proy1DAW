@@ -7,8 +7,6 @@
 const FiguraPublica = require("../models/figuraPublica");
 const FiguraPublicaService = require("../services/figuraPublicaService");
  
-// AGREGADO: logger de acciones (requerimiento del proyecto)
- 
 const Logger = require("../utils/logger");
  
 /*=========================================
@@ -21,16 +19,12 @@ function listar(req, res) {
  
         const figuras = FiguraPublicaService.listar();
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Consultar figuras públicas (.txt)");
  
         res.json(figuras);
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al consultar figuras públicas (.txt): " + error.message);
  
@@ -106,8 +100,6 @@ function guardar(req, res) {
  
         FiguraPublicaService.guardar(figura);
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Guardar figura pública " + figura.codigo + " (.txt)");
  
         res.status(201).json({
@@ -118,8 +110,6 @@ function guardar(req, res) {
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al guardar figura pública (.txt): " + error.message);
  
@@ -157,8 +147,6 @@ function modificar(req, res) {
  
         FiguraPublicaService.modificar(figura);
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Modificar figura pública " + figura.codigo + " (.txt)");
  
         res.json({
@@ -169,8 +157,6 @@ function modificar(req, res) {
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al modificar figura pública (.txt): " + error.message);
  
@@ -196,8 +182,6 @@ function eliminar(req, res) {
  
         FiguraPublicaService.eliminar(codigo);
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Eliminar figura pública " + codigo + " (.txt)");
  
         res.json({
@@ -208,8 +192,6 @@ function eliminar(req, res) {
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al eliminar figura pública (.txt): " + error.message);
  

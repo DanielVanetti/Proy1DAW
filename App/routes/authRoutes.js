@@ -40,7 +40,6 @@ router.post(
 /*=========================================
   GET
   Mostrar Menú
-  AGREGADO: menú principal (requerimiento del proyecto)
 =========================================*/
  
 router.get(

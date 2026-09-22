@@ -106,7 +106,7 @@ function mostrarMensaje(texto) {
  
  
 // ==================================================
-// AGREGADO: SERIALIZAR IMAGEN (no está en S5)
+// SERIALIZAR IMAGEN
 // ==================================================
  
  
@@ -190,8 +190,8 @@ async function crearMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
- 
+    // Imagen serializada en base64
+
     partido.logoBase64 =
         await leerImagen();
  
@@ -358,8 +358,7 @@ async function consultarMongo() {
         datos.partido.descripcion;
  
  
-    // CARGA LAZY (AGREGADO): el logo solo llega al consultar
-    // un documento específico, no en MOSTRAR TODOS
+    // CARGA LAZY: el logo solo llega al consultar un documento específico
  
     mostrarImagen(
         datos.partido.logoBase64
@@ -395,8 +394,8 @@ async function actualizarMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
- 
+    // Imagen serializada en base64
+
     partido.logoBase64 =
         await leerImagen();
  
@@ -509,7 +508,7 @@ async function mostrarMongo() {
     tabla.innerHTML = "";
  
  
-    // CARGA LAZY (AGREGADO): estos documentos llegan sin logoBase64
+    // CARGA LAZY: estos documentos llegan sin logoBase64
  
     datos.partidos.forEach(
         partido => {

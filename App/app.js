@@ -2,8 +2,6 @@ const express = require("express");
  
 const path = require("path");
  
-// AGREGADO: variables del archivo .env (visto en S5)
- 
 require("dotenv").config();
  
 const app = express();
@@ -16,8 +14,7 @@ Middleware
 */
  
  
-// CAMBIO: se aumenta el límite del JSON porque las imágenes
-// viajan serializadas en base64 dentro del cuerpo de la petición
+// El límite se aumenta porque las imágenes viajan serializadas en base64
  
 app.use(express.json({
     limit:"10mb"
@@ -66,10 +63,9 @@ app.use("/",figuraPublicaRoutes);
  
 /*
 =================================
-AGREGADO: Rutas - Parte 3 (Semana 5 - MongoDB)
- 
-IMPORTANTE (igual que en S5):
-las rutas /mongo deben registrarse ANTES
+Rutas - Parte 3 (Semana 5 - MongoDB)
+
+IMPORTANTE: las rutas /mongo deben registrarse ANTES
 que las rutas /:id de PostgreSQL
 =================================
 */
@@ -89,7 +85,7 @@ app.use("/api/figuras",figuraMongoRoutes);
  
 /*
 =================================
-AGREGADO: Rutas - Parte 2 (Semana 4 - PostgreSQL)
+Rutas - Parte 2 (Semana 4 - PostgreSQL)
 =================================
 */
  
@@ -120,8 +116,7 @@ app.use("/api/cargos",cargoPgRoutes);
  
 /*
 =================================
-AGREGADO: Páginas de la Parte 2 y Parte 3
-(igual que "Pagina principal" de S4 y S5)
+Páginas de la Parte 2 y Parte 3
 =================================
 */
  
@@ -152,9 +147,6 @@ Ruta para páginas inexistentes
 =================================
 */
  
-// CAMBIO: este manejo de error estaba en la versión comentada
-// del app.js de PROYECTOESTUDIANTES; se activa para la Parte 4
- 
 app.use((req, res) => {
  
     res.status(404).send("Error 404 - Página no encontrada");
@@ -167,9 +159,6 @@ app.use((req, res) => {
 Servidor
 =================================
 */
- 
-// CAMBIO: el puerto se toma del .env como en S4 y S5
-// (en PROYECTOESTUDIANTES estaba fijo en 2000)
  
 const PORT = process.env.PORT || 3000;
  
