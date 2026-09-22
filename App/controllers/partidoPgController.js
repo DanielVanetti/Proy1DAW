@@ -4,10 +4,19 @@ const Logger = require("../utils/logger");
 
 // La columna "logo" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
 // y aquí se convierte a texto base64 para enviarla serializada a la vista.
-const serializarImagen = (partido) => ({
-    ...partido,
-    logo: partido.logo ? partido.logo.toString("base64") : null
-});
+const serializarImagen = (partido) => {
+
+    let logo = null;
+
+    if (partido.logo) {
+        logo = partido.logo.toString("base64");
+    }
+
+    return {
+        ...partido,
+        logo: logo
+    };
+};
 
 // Obtener todos los partidos
 const obtenerPartidos = async (req, res) => {
@@ -78,7 +87,11 @@ const crearPartido = async (req, res) => {
         const { nombre, siglas, ideologia, fecha_fundacion, sede, sitio_web, num_militantes, logo } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const logoBinario = logo ? Buffer.from(logo, "base64") : null;
+        let logoBinario = null;
+
+        if (logo) {
+            logoBinario = Buffer.from(logo, "base64");
+        }
 
         const resultado = await pool.query(
             "INSERT INTO partidos_pg (nombre, siglas, ideologia, fecha_fundacion, sede, sitio_web, num_militantes, logo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
@@ -111,7 +124,11 @@ const actualizarPartido = async (req, res) => {
         const { nombre, siglas, ideologia, fecha_fundacion, sede, sitio_web, num_militantes, logo } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const logoBinario = logo ? Buffer.from(logo, "base64") : null;
+        let logoBinario = null;
+
+        if (logo) {
+            logoBinario = Buffer.from(logo, "base64");
+        }
 
         // COALESCE conserva el logo actual si no se selecciona uno nuevo
         const resultado = await pool.query(

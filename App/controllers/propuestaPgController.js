@@ -4,15 +4,22 @@ const Logger = require("../utils/logger");
 
 // La columna "imagen" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
 // y aquí se convierte a texto base64 para enviarla serializada a la vista.
-const serializarImagen = (propuesta) => ({
-    ...propuesta,
-    imagen: propuesta.imagen ? propuesta.imagen.toString("base64") : null
-});
+const serializarImagen = (propuesta) => {
+
+    let imagen = null;
+
+    if (propuesta.imagen) {
+        imagen = propuesta.imagen.toString("base64");
+    }
+
+    return {
+        ...propuesta,
+        imagen: imagen
+    };
+};
 
 // Obtener todas las propuestas
-// CARGA EAGER: una sola consulta con INNER JOIN trae las propuestas junto
-// con los datos del partido al que pertenecen (llave foránea partido_id),
-// en lugar de hacer una consulta aparte para buscar el partido de cada una.
+// CARGA EAGER: INNER JOIN trae cada propuesta junto con su partido
 const obtenerPropuestas = async (req, res) => {
     try {
         const resultado = await pool.query(
@@ -35,7 +42,7 @@ const obtenerPropuestas = async (req, res) => {
 
 
 // Obtener una propuesta por ID
-// CARGA EAGER: la propuesta se trae junto con su partido en la misma consulta
+// CARGA EAGER: trae la propuesta junto con su partido
 const obtenerPropuestaPorId = async (req, res) => {
 
     try {
@@ -82,7 +89,11 @@ const crearPropuesta = async (req, res) => {
         const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const imagenBinaria = imagen ? Buffer.from(imagen, "base64") : null;
+        let imagenBinaria = null;
+
+        if (imagen) {
+            imagenBinaria = Buffer.from(imagen, "base64");
+        }
 
         const resultado = await pool.query(
             "INSERT INTO propuestas_pg (partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
@@ -115,7 +126,11 @@ const actualizarPropuesta = async (req, res) => {
         const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const imagenBinaria = imagen ? Buffer.from(imagen, "base64") : null;
+        let imagenBinaria = null;
+
+        if (imagen) {
+            imagenBinaria = Buffer.from(imagen, "base64");
+        }
 
         // COALESCE conserva la imagen actual si no se selecciona una nueva
         const resultado = await pool.query(

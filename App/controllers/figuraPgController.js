@@ -4,10 +4,19 @@ const Logger = require("../utils/logger");
 
 // La columna "foto" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
 // y aquí se convierte a texto base64 para enviarla serializada a la vista.
-const serializarImagen = (figura) => ({
-    ...figura,
-    foto: figura.foto ? figura.foto.toString("base64") : null
-});
+const serializarImagen = (figura) => {
+
+    let foto = null;
+
+    if (figura.foto) {
+        foto = figura.foto.toString("base64");
+    }
+
+    return {
+        ...figura,
+        foto: foto
+    };
+};
 
 // Obtener todas las figuras
 const obtenerFiguras = async (req, res) => {
@@ -78,7 +87,11 @@ const crearFigura = async (req, res) => {
         const { nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const fotoBinaria = foto ? Buffer.from(foto, "base64") : null;
+        let fotoBinaria = null;
+
+        if (foto) {
+            fotoBinaria = Buffer.from(foto, "base64");
+        }
 
         const resultado = await pool.query(
             "INSERT INTO figuras_pg (nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
@@ -111,7 +124,11 @@ const actualizarFigura = async (req, res) => {
         const { nombre_completo, cargo_actual, fecha_nacimiento, nacionalidad, nivel_educativo, anios_experiencia, biografia, foto } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const fotoBinaria = foto ? Buffer.from(foto, "base64") : null;
+        let fotoBinaria = null;
+
+        if (foto) {
+            fotoBinaria = Buffer.from(foto, "base64");
+        }
 
         // COALESCE conserva la foto actual si no se selecciona una nueva
         const resultado = await pool.query(

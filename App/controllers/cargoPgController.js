@@ -4,15 +4,22 @@ const Logger = require("../utils/logger");
 
 // La columna "imagen_evento" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
 // y aquí se convierte a texto base64 para enviarla serializada a la vista.
-const serializarImagen = (cargo) => ({
-    ...cargo,
-    imagen_evento: cargo.imagen_evento ? cargo.imagen_evento.toString("base64") : null
-});
+const serializarImagen = (cargo) => {
+
+    let imagenEvento = null;
+
+    if (cargo.imagen_evento) {
+        imagenEvento = cargo.imagen_evento.toString("base64");
+    }
+
+    return {
+        ...cargo,
+        imagen_evento: imagenEvento
+    };
+};
 
 // Obtener todos los cargos históricos
-// CARGA EAGER: una sola consulta con INNER JOIN trae los cargos históricos
-// junto con los datos de la figura pública a la que pertenecen (llave
-// foránea figura_id), en lugar de hacer una consulta aparte para cada uno.
+// CARGA EAGER: INNER JOIN trae cada cargo junto con su figura
 const obtenerCargos = async (req, res) => {
     try {
         const resultado = await pool.query(
@@ -35,7 +42,7 @@ const obtenerCargos = async (req, res) => {
 
 
 // Obtener un cargo histórico por ID
-// CARGA EAGER: el cargo se trae junto con su figura en la misma consulta
+// CARGA EAGER: trae el cargo junto con su figura
 const obtenerCargoPorId = async (req, res) => {
 
     try {
@@ -82,7 +89,11 @@ const crearCargo = async (req, res) => {
         const { figura_id, cargo, institucion, fecha_inicio, fecha_fin, logros, motivo_salida, region, imagen_evento } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const imagenBinaria = imagen_evento ? Buffer.from(imagen_evento, "base64") : null;
+        let imagenBinaria = null;
+
+        if (imagen_evento) {
+            imagenBinaria = Buffer.from(imagen_evento, "base64");
+        }
 
         // fecha_fin puede quedar vacía (cargo que aún se ejerce)
         const resultado = await pool.query(
@@ -116,7 +127,11 @@ const actualizarCargo = async (req, res) => {
         const { figura_id, cargo, institucion, fecha_inicio, fecha_fin, logros, motivo_salida, region, imagen_evento } = req.body;
 
         // La imagen llega en base64 y se convierte a binario (BYTEA)
-        const imagenBinaria = imagen_evento ? Buffer.from(imagen_evento, "base64") : null;
+        let imagenBinaria = null;
+
+        if (imagen_evento) {
+            imagenBinaria = Buffer.from(imagen_evento, "base64");
+        }
 
         // COALESCE conserva la imagen actual si no se selecciona una nueva
         const resultado = await pool.query(

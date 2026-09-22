@@ -119,6 +119,12 @@ async function cargarPartidos() {
             // El logo llega serializado en base64 y se muestra en un <img>
             // El botón Editar solo envía el id, porque son 8 campos
 
+            let celdaLogo = "Sin logo";
+
+            if (partido.logo) {
+                celdaLogo = `<img src="data:image/png;base64,${partido.logo}" width="60">`;
+            }
+
             fila.innerHTML = `
 
                 <td>${partido.id}</td>
@@ -138,7 +144,7 @@ async function cargarPartidos() {
                 <td>${partido.num_militantes}</td>
 
                 <td>
-                    ${partido.logo ? `<img src="data:image/png;base64,${partido.logo}" width="60">` : "Sin logo"}
+                    ${celdaLogo}
                 </td>
 
                 <td>
@@ -466,6 +472,12 @@ async function cargarPropuestas() {
             // La imagen llega serializada en base64 y se muestra en un <img>
             // El botón Editar solo envía el id, porque son 8 campos
 
+            let celdaImagen = "Sin imagen";
+
+            if (propuesta.imagen) {
+                celdaImagen = `<img src="data:image/png;base64,${propuesta.imagen}" width="60">`;
+            }
+
             fila.innerHTML = `
 
                 <td>${propuesta.id}</td>
@@ -487,7 +499,7 @@ async function cargarPropuestas() {
                 <td>${propuesta.alcance}</td>
 
                 <td>
-                    ${propuesta.imagen ? `<img src="data:image/png;base64,${propuesta.imagen}" width="60">` : "Sin imagen"}
+                    ${celdaImagen}
                 </td>
 
                 <td>

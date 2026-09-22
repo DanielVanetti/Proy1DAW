@@ -119,6 +119,12 @@ async function cargarFiguras() {
             // La foto llega serializada en base64 y se muestra en un <img>
             // El botón Editar solo envía el id, porque son 8 campos
 
+            let celdaFoto = "Sin foto";
+
+            if (figura.foto) {
+                celdaFoto = `<img src="data:image/png;base64,${figura.foto}" width="60">`;
+            }
+
             fila.innerHTML = `
 
                 <td>${figura.id}</td>
@@ -138,7 +144,7 @@ async function cargarFiguras() {
                 <td>${figura.biografia}</td>
 
                 <td>
-                    ${figura.foto ? `<img src="data:image/png;base64,${figura.foto}" width="60">` : "Sin foto"}
+                    ${celdaFoto}
                 </td>
 
                 <td>
@@ -466,6 +472,12 @@ async function cargarCargos() {
             // La imagen llega serializada en base64 y se muestra en un <img>
             // El botón Editar solo envía el id, porque son 8 campos
 
+            let celdaImagenEvento = "Sin imagen";
+
+            if (cargo.imagen_evento) {
+                celdaImagenEvento = `<img src="data:image/png;base64,${cargo.imagen_evento}" width="60">`;
+            }
+
             fila.innerHTML = `
 
                 <td>${cargo.id}</td>
@@ -487,7 +499,7 @@ async function cargarCargos() {
                 <td>${cargo.region}</td>
 
                 <td>
-                    ${cargo.imagen_evento ? `<img src="data:image/png;base64,${cargo.imagen_evento}" width="60">` : "Sin imagen"}
+                    ${celdaImagenEvento}
                 </td>
 
                 <td>
