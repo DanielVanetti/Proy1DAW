@@ -1,9 +1,7 @@
 const pool = require("../db/database");
 
-// AGREGADO: logger de acciones (requerimiento del proyecto, no está en S4)
 const Logger = require("../utils/logger");
 
-// AGREGADO: serialización de imágenes (requerimiento del proyecto, no está en S4)
 // La columna "imagen" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
 // y aquí se convierte a texto base64 para enviarla serializada a la vista.
 const serializarImagen = (propuesta) => ({
@@ -12,23 +10,22 @@ const serializarImagen = (propuesta) => ({
 });
 
 // Obtener todas las propuestas
-// CARGA EAGER (AGREGADO, no está en S4):
-// con UNA sola consulta (INNER JOIN) se traen las propuestas junto con los
-// datos del partido al que pertenecen (llave foránea partido_id), en lugar
-// de hacer una consulta aparte para buscar el partido de cada propuesta.
+// CARGA EAGER: una sola consulta con INNER JOIN trae las propuestas junto
+// con los datos del partido al que pertenecen (llave foránea partido_id),
+// en lugar de hacer una consulta aparte para buscar el partido de cada una.
 const obtenerPropuestas = async (req, res) => {
     try {
         const resultado = await pool.query(
             "SELECT pr.*, pa.nombre AS partido_nombre, pa.siglas AS partido_siglas FROM propuestas_pg pr INNER JOIN partidos_pg pa ON pa.id = pr.partido_id ORDER BY pr.id"
         );
 
-        Logger.registrar("Consultar propuestas con JOIN a partidos (PostgreSQL)"); // AGREGADO: log
+        Logger.registrar("Consultar propuestas con JOIN a partidos (PostgreSQL)");
 
         res.json(resultado.rows.map(serializarImagen));
 
     } catch (error) {
         console.error(error);
-        Logger.registrar("Error al obtener propuestas (PostgreSQL): " + error.message); // AGREGADO: log
+        Logger.registrar("Error al obtener propuestas (PostgreSQL): " + error.message);
         res.status(500).json({
             mensaje: "Error al obtener las propuestas"
         });
@@ -38,7 +35,7 @@ const obtenerPropuestas = async (req, res) => {
 
 
 // Obtener una propuesta por ID
-// CARGA EAGER (AGREGADO): la propuesta se trae junto con su partido en la misma consulta
+// CARGA EAGER: la propuesta se trae junto con su partido en la misma consulta
 const obtenerPropuestaPorId = async (req, res) => {
 
     try {
@@ -52,7 +49,7 @@ const obtenerPropuestaPorId = async (req, res) => {
 
         if (resultado.rows.length === 0) {
 
-            Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
+            Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)");
 
             return res.status(404).json({
                 mensaje: "Propuesta no encontrada"
@@ -60,7 +57,7 @@ const obtenerPropuestaPorId = async (req, res) => {
 
         }
 
-        Logger.registrar("Consultar propuesta " + id + " (PostgreSQL)"); // AGREGADO: log
+        Logger.registrar("Consultar propuesta " + id + " (PostgreSQL)");
 
         res.json(serializarImagen(resultado.rows[0]));
 
@@ -68,7 +65,7 @@ const obtenerPropuestaPorId = async (req, res) => {
 
         console.error(error);
 
-        Logger.registrar("Error al obtener propuesta (PostgreSQL): " + error.message); // AGREGADO: log
+        Logger.registrar("Error al obtener propuesta (PostgreSQL): " + error.message);
 
         res.status(500).json({
             mensaje: "Error al obtener la propuesta"
@@ -84,7 +81,7 @@ const crearPropuesta = async (req, res) => {
 
         const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
 
-        // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
+        // La imagen llega en base64 y se convierte a binario (BYTEA)
         const imagenBinaria = imagen ? Buffer.from(imagen, "base64") : null;
 
         const resultado = await pool.query(
@@ -92,7 +89,7 @@ const crearPropuesta = async (req, res) => {
             [partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagenBinaria]
         );
 
-        Logger.registrar("Crear propuesta " + resultado.rows[0].id + " (PostgreSQL)"); // AGREGADO: log
+        Logger.registrar("Crear propuesta " + resultado.rows[0].id + " (PostgreSQL)");
 
         res.status(201).json(serializarImagen(resultado.rows[0]));
 
@@ -100,7 +97,7 @@ const crearPropuesta = async (req, res) => {
 
         console.error(error);
 
-        Logger.registrar("Error al crear propuesta (PostgreSQL): " + error.message); // AGREGADO: log
+        Logger.registrar("Error al crear propuesta (PostgreSQL): " + error.message);
 
         res.status(500).json({
             mensaje: "Error al crear la propuesta"
@@ -117,10 +114,10 @@ const actualizarPropuesta = async (req, res) => {
         const { id } = req.params;
         const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
 
-        // AGREGADO: la imagen llega serializada en base64 y se guarda como binario (BYTEA)
+        // La imagen llega en base64 y se convierte a binario (BYTEA)
         const imagenBinaria = imagen ? Buffer.from(imagen, "base64") : null;
 
-        // AGREGADO: COALESCE conserva la imagen actual si no se selecciona una nueva
+        // COALESCE conserva la imagen actual si no se selecciona una nueva
         const resultado = await pool.query(
             "UPDATE propuestas_pg SET partido_id = $1, titulo = $2, area = $3, descripcion = $4, fecha_presentacion = $5, estado = $6, presupuesto_estimado = $7, alcance = $8, imagen = COALESCE($9, imagen) WHERE id = $10 RETURNING *",
             [partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagenBinaria, id]
@@ -128,7 +125,7 @@ const actualizarPropuesta = async (req, res) => {
 
         if (resultado.rows.length === 0) {
 
-            Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
+            Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)");
 
             return res.status(404).json({
                 mensaje: "Propuesta no encontrada"
@@ -136,7 +133,7 @@ const actualizarPropuesta = async (req, res) => {
 
         }
 
-        Logger.registrar("Actualizar propuesta " + id + " (PostgreSQL)"); // AGREGADO: log
+        Logger.registrar("Actualizar propuesta " + id + " (PostgreSQL)");
 
         res.json(serializarImagen(resultado.rows[0]));
 
@@ -144,7 +141,7 @@ const actualizarPropuesta = async (req, res) => {
 
         console.error(error);
 
-        Logger.registrar("Error al actualizar propuesta (PostgreSQL): " + error.message); // AGREGADO: log
+        Logger.registrar("Error al actualizar propuesta (PostgreSQL): " + error.message);
 
         res.status(500).json({
             mensaje: "Error al actualizar la propuesta"
@@ -167,7 +164,7 @@ const eliminarPropuesta = async (req, res) => {
 
         if (resultado.rows.length === 0) {
 
-            Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)"); // AGREGADO: log
+            Logger.registrar("Propuesta " + id + " no encontrada (PostgreSQL)");
 
             return res.status(404).json({
                 mensaje: "Propuesta no encontrada"
@@ -175,7 +172,7 @@ const eliminarPropuesta = async (req, res) => {
 
         }
 
-        Logger.registrar("Eliminar propuesta " + id + " (PostgreSQL)"); // AGREGADO: log
+        Logger.registrar("Eliminar propuesta " + id + " (PostgreSQL)");
 
         res.json({
             mensaje: "Propuesta eliminada correctamente"
@@ -185,7 +182,7 @@ const eliminarPropuesta = async (req, res) => {
 
         console.error(error);
 
-        Logger.registrar("Error al eliminar propuesta (PostgreSQL): " + error.message); // AGREGADO: log
+        Logger.registrar("Error al eliminar propuesta (PostgreSQL): " + error.message);
 
         res.status(500).json({
             mensaje: "Error al eliminar la propuesta"

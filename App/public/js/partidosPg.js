@@ -63,7 +63,7 @@ const btnCancelarPropuesta =
 
 
 // ==========================================
-// AGREGADO: SERIALIZAR IMAGEN (no está en S4)
+// SERIALIZAR IMAGEN
 // Lee el archivo seleccionado y lo convierte a texto
 // base64 para enviarlo dentro del JSON al servidor
 // ==========================================
@@ -116,8 +116,8 @@ async function cargarPartidos() {
             const fila =
                 document.createElement("tr");
 
-            // AGREGADO: el logo llega serializado en base64 y se muestra en un <img>
-            // CAMBIO: el botón Editar solo envía el id (son 8 campos)
+            // El logo llega serializado en base64 y se muestra en un <img>
+            // El botón Editar solo envía el id, porque son 8 campos
 
             fila.innerHTML = `
 
@@ -214,7 +214,7 @@ formularioPartido.addEventListener(
 
             num_militantes: numMilitantesInput.value,
 
-            // AGREGADO: imagen serializada en base64
+            // Imagen serializada en base64
             logo: await leerImagen(logoInput)
 
         };
@@ -294,8 +294,7 @@ formularioPartido.addEventListener(
 
 // ==========================================
 // EDITAR PARTIDO
-// CAMBIO: en S4 los datos se pasaban en el onclick;
-// como son 8 campos se consultan con GET /api/partidos/:id
+// Como son 8 campos, se consultan con GET /api/partidos/:id
 // ==========================================
 
 async function editarPartido(id) {
@@ -392,7 +391,7 @@ async function eliminarPartido(id) {
 
         cargarPartidos();
 
-        // AGREGADO: las propuestas del partido se eliminan en cascada
+        // Las propuestas del partido se eliminan en cascada
         cargarPropuestas();
 
 
@@ -463,9 +462,9 @@ async function cargarPropuestas() {
             const fila =
                 document.createElement("tr");
 
-            // AGREGADO: partido_nombre y partido_siglas vienen de la CARGA EAGER (JOIN)
-            // AGREGADO: la imagen llega serializada en base64 y se muestra en un <img>
-            // CAMBIO: el botón Editar solo envía el id (son 8 campos)
+            // partido_nombre y partido_siglas vienen de la CARGA EAGER (JOIN)
+            // La imagen llega serializada en base64 y se muestra en un <img>
+            // El botón Editar solo envía el id, porque son 8 campos
 
             fila.innerHTML = `
 
@@ -566,7 +565,7 @@ formularioPropuesta.addEventListener(
 
             alcance: alcanceInput.value,
 
-            // AGREGADO: imagen serializada en base64
+            // Imagen serializada en base64
             imagen: await leerImagen(imagenPropuestaInput)
 
         };
@@ -646,8 +645,7 @@ formularioPropuesta.addEventListener(
 
 // ==========================================
 // EDITAR PROPUESTA
-// CAMBIO: en S4 los datos se pasaban en el onclick;
-// como son 8 campos se consultan con GET /api/propuestas/:id
+// Como son 8 campos, se consultan con GET /api/propuestas/:id
 // ==========================================
 
 async function editarPropuesta(id) {

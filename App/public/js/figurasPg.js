@@ -63,7 +63,7 @@ const btnCancelarCargo =
 
 
 // ==========================================
-// AGREGADO: SERIALIZAR IMAGEN (no está en S4)
+// SERIALIZAR IMAGEN
 // Lee el archivo seleccionado y lo convierte a texto
 // base64 para enviarlo dentro del JSON al servidor
 // ==========================================
@@ -116,8 +116,8 @@ async function cargarFiguras() {
             const fila =
                 document.createElement("tr");
 
-            // AGREGADO: la foto llega serializada en base64 y se muestra en un <img>
-            // CAMBIO: el botón Editar solo envía el id (son 8 campos)
+            // La foto llega serializada en base64 y se muestra en un <img>
+            // El botón Editar solo envía el id, porque son 8 campos
 
             fila.innerHTML = `
 
@@ -214,7 +214,7 @@ formularioFigura.addEventListener(
 
             biografia: biografiaInput.value,
 
-            // AGREGADO: imagen serializada en base64
+            // Imagen serializada en base64
             foto: await leerImagen(fotoInput)
 
         };
@@ -294,8 +294,7 @@ formularioFigura.addEventListener(
 
 // ==========================================
 // EDITAR FIGURA PÚBLICA
-// CAMBIO: en S4 los datos se pasaban en el onclick;
-// como son 8 campos se consultan con GET /api/figuras/:id
+// Como son 8 campos, se consultan con GET /api/figuras/:id
 // ==========================================
 
 async function editarFigura(id) {
@@ -392,7 +391,7 @@ async function eliminarFigura(id) {
 
         cargarFiguras();
 
-        // AGREGADO: los cargos de la figura se eliminan en cascada
+        // Los cargos de la figura se eliminan en cascada
         cargarCargos();
 
 
@@ -463,9 +462,9 @@ async function cargarCargos() {
             const fila =
                 document.createElement("tr");
 
-            // AGREGADO: figura_nombre y figura_cargo_actual vienen de la CARGA EAGER (JOIN)
-            // AGREGADO: la imagen llega serializada en base64 y se muestra en un <img>
-            // CAMBIO: el botón Editar solo envía el id (son 8 campos)
+            // figura_nombre y figura_cargo_actual vienen de la CARGA EAGER (JOIN)
+            // La imagen llega serializada en base64 y se muestra en un <img>
+            // El botón Editar solo envía el id, porque son 8 campos
 
             fila.innerHTML = `
 
@@ -566,7 +565,7 @@ formularioCargo.addEventListener(
 
             region: regionInput.value,
 
-            // AGREGADO: imagen serializada en base64
+            // Imagen serializada en base64
             imagen_evento: await leerImagen(imagenEventoInput)
 
         };
@@ -646,8 +645,7 @@ formularioCargo.addEventListener(
 
 // ==========================================
 // EDITAR CARGO HISTÓRICO
-// CAMBIO: en S4 los datos se pasaban en el onclick;
-// como son 8 campos se consultan con GET /api/cargos/:id
+// Como son 8 campos, se consultan con GET /api/cargos/:id
 // ==========================================
 
 async function editarCargo(id) {
