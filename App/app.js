@@ -2,7 +2,7 @@ const express = require("express");
  
 const path = require("path");
  
-// AGREGADO: variables del archivo .env (visto en S5)
+// Variables del archivo .env (visto en S5)
  
 require("dotenv").config();
  
@@ -66,7 +66,7 @@ app.use("/",figuraPublicaRoutes);
  
 /*
 =================================
-AGREGADO: Rutas - Parte 3 (Semana 5 - MongoDB)
+Rutas - Parte 3 (Semana 5 - MongoDB)
  
 IMPORTANTE (igual que en S5):
 las rutas /mongo deben registrarse ANTES
@@ -89,7 +89,7 @@ app.use("/api/figuras",figuraMongoRoutes);
  
 /*
 =================================
-AGREGADO: Rutas - Parte 2 (Semana 4 - PostgreSQL)
+Rutas - Parte 2 (Semana 4 - PostgreSQL)
 =================================
 */
  
@@ -120,7 +120,7 @@ app.use("/api/cargos",cargoPgRoutes);
  
 /*
 =================================
-AGREGADO: Páginas de la Parte 2 y Parte 3
+Páginas de la Parte 2 y Parte 3
 (igual que "Pagina principal" de S4 y S5)
 =================================
 */

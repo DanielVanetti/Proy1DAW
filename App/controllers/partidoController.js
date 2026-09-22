@@ -7,8 +7,6 @@
 const Partido = require("../models/partido");
 const PartidoService = require("../services/partidoService");
  
-// AGREGADO: logger de acciones (requerimiento del proyecto)
- 
 const Logger = require("../utils/logger");
  
 /*=========================================
@@ -21,16 +19,12 @@ function listar(req, res) {
  
         const partidos = PartidoService.listar();
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Consultar partidos (.txt)");
  
         res.json(partidos);
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al consultar partidos (.txt): " + error.message);
  
@@ -106,8 +100,6 @@ function guardar(req, res) {
  
         PartidoService.guardar(partido);
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Guardar partido " + partido.codigo + " (.txt)");
  
         res.status(201).json({
@@ -118,8 +110,6 @@ function guardar(req, res) {
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al guardar partido (.txt): " + error.message);
  
@@ -157,8 +147,6 @@ function modificar(req, res) {
  
         PartidoService.modificar(partido);
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Modificar partido " + partido.codigo + " (.txt)");
  
         res.json({
@@ -169,8 +157,6 @@ function modificar(req, res) {
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al modificar partido (.txt): " + error.message);
  
@@ -196,8 +182,6 @@ function eliminar(req, res) {
  
         PartidoService.eliminar(codigo);
  
-        // AGREGADO: registro en el log
- 
         Logger.registrar("Eliminar partido " + codigo + " (.txt)");
  
         res.json({
@@ -208,8 +192,6 @@ function eliminar(req, res) {
  
     }
     catch (error) {
- 
-        // AGREGADO: registro en el log
  
         Logger.registrar("Error al eliminar partido (.txt): " + error.message);
  

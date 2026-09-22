@@ -3,7 +3,7 @@
  * Logger de Acciones
  * ==========================================
  *
- * AGREGADO: este archivo no existe en PROYECTOESTUDIANTES, S4 ni S5.
+ * Este archivo no existe en PROYECTOESTUDIANTES, S4 ni S5.
  * Requerimiento del proyecto: registrar TODAS las acciones de la
  * aplicación en un archivo ".txt" con el formato:
  *

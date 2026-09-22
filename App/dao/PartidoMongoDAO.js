@@ -13,10 +13,11 @@ class PartidoMongoDAO {
     // ==========================
  
     async crear(partido) {
- 
+
         const db =
             await conectarMongoDB();
- 
+
+
         const documento = {
  
             tipo: "partido",
@@ -45,33 +46,30 @@ class PartidoMongoDAO {
             presenciaRegional:
                 partido.presenciaRegional,
  
-            redesSociales: partido.redesSociales,
- 
             numeroDiputados: Number(
                 partido.numeroDiputados
             ),
  
-            estadoLegal: partido.estadoLegal,
- 
             descripcion: partido.descripcion,
  
-            logoBase64:
-                partido.logoBase64 || null
+            // El logo llega BINARIO desde el controlador
+            // y se guarda como BinData (igual que BYTEA en la Parte 2)
+            logo: partido.logo || null
         };
- 
- 
+
+
         const resultado =
             await db
                 .collection("CollMongoDB")
                 .insertOne(documento);
- 
- 
+
+
         return {
- 
+
             _id: resultado.insertedId,
- 
+
             ...documento
- 
+
         };
     }
  
@@ -93,7 +91,7 @@ class PartidoMongoDAO {
                 tipo: "partido"
             })
             .project({
-                logoBase64: 0
+                logo: 0
             })
             .toArray();
     }
@@ -110,6 +108,7 @@ class PartidoMongoDAO {
  
  
         // CARGA LAZY: aquí sí se trae el documento completo con la imagen
+        // (el logo sale BINARIO y el controlador lo serializa a base64)
         return await db
             .collection("CollMongoDB")
             .findOne({
@@ -155,23 +154,22 @@ class PartidoMongoDAO {
             presenciaRegional:
                 partido.presenciaRegional,
  
-            redesSociales: partido.redesSociales,
- 
             numeroDiputados: Number(
                 partido.numeroDiputados
             ),
- 
-            estadoLegal: partido.estadoLegal,
  
             descripcion:
                 partido.descripcion
         };
  
 
-        if (partido.logoBase64) {
- 
-            datos.logoBase64 =
-                partido.logoBase64;
+        // El logo solo se reemplaza si se seleccionó una imagen nueva
+        // (equivale al COALESCE de la Parte 2 con PostgreSQL).
+        // Llega BINARIO desde el controlador y se guarda como BinData
+
+        if (partido.logo) {
+
+            datos.logo = partido.logo;
         }
  
  

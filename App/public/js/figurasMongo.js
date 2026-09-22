@@ -104,11 +104,6 @@ function obtenerDatos() {
                 "idiomas"
             ).value,
  
-        premiosReconocimientos:
-            document.getElementById(
-                "premiosReconocimientos"
-            ).value,
- 
         controversias:
             document.getElementById(
                 "controversias"
@@ -127,13 +122,8 @@ function obtenerDatos() {
         numeroSeguidores:
             document.getElementById(
                 "numeroSeguidores"
-            ).value,
- 
-        afiliaciones:
-            document.getElementById(
-                "afiliaciones"
             ).value
- 
+
     };
 }
  
@@ -156,7 +146,7 @@ function mostrarMensaje(texto) {
  
  
 // ==================================================
-// SERIALIZAR IMAGEN (no está en S5)
+// SERIALIZAR IMAGEN
 // ==================================================
  
  
@@ -240,9 +230,9 @@ async function crearMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
+    // Imagen serializada en base64
  
-    figura.fotoBase64 =
+    figura.foto =
         await leerImagen();
  
  
@@ -433,12 +423,6 @@ async function consultarMongo() {
  
  
     document.getElementById(
-        "premiosReconocimientos"
-    ).value =
-        datos.figura.premiosReconocimientos;
- 
- 
-    document.getElementById(
         "controversias"
     ).value =
         datos.figura.controversias;
@@ -462,17 +446,11 @@ async function consultarMongo() {
         datos.figura.numeroSeguidores;
  
  
-    document.getElementById(
-        "afiliaciones"
-    ).value =
-        datos.figura.afiliaciones;
- 
- 
-    // CARGA LAZY (AGREGADO): la foto solo llega al consultar
+    // CARGA LAZY: la foto solo llega al consultar
     // un documento específico, no en MOSTRAR TODOS
  
     mostrarImagen(
-        datos.figura.fotoBase64
+        datos.figura.foto
     );
  
  
@@ -505,9 +483,9 @@ async function actualizarMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
+    // Imagen serializada en base64
  
-    figura.fotoBase64 =
+    figura.foto =
         await leerImagen();
  
  
@@ -619,7 +597,7 @@ async function mostrarMongo() {
     tabla.innerHTML = "";
  
  
-    // CARGA LAZY (AGREGADO): estos documentos llegan sin fotoBase64
+    // CARGA LAZY: estos documentos llegan sin foto
  
     datos.figuras.forEach(
         figura => {
@@ -709,10 +687,6 @@ async function mostrarMongo() {
                 </td>
  
                 <td>
-                    ${figura.premiosReconocimientos}
-                </td>
- 
-                <td>
                     ${figura.controversias}
                 </td>
  
@@ -726,10 +700,6 @@ async function mostrarMongo() {
  
                 <td>
                     ${figura.numeroSeguidores}
-                </td>
- 
-                <td>
-                    ${figura.afiliaciones}
                 </td>
  
             `;

@@ -64,19 +64,9 @@ function obtenerDatos() {
                 "presenciaRegional"
             ).value,
  
-        redesSociales:
-            document.getElementById(
-                "redesSociales"
-            ).value,
- 
         numeroDiputados:
             document.getElementById(
                 "numeroDiputados"
-            ).value,
- 
-        estadoLegal:
-            document.getElementById(
-                "estadoLegal"
             ).value,
  
         descripcion:
@@ -106,7 +96,7 @@ function mostrarMensaje(texto) {
  
  
 // ==================================================
-// AGREGADO: SERIALIZAR IMAGEN (no está en S5)
+// SERIALIZAR IMAGEN
 // ==================================================
  
  
@@ -190,9 +180,9 @@ async function crearMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
+    // Imagen serializada en base64
  
-    partido.logoBase64 =
+    partido.logo =
         await leerImagen();
  
  
@@ -335,21 +325,9 @@ async function consultarMongo() {
  
  
     document.getElementById(
-        "redesSociales"
-    ).value =
-        datos.partido.redesSociales;
- 
- 
-    document.getElementById(
         "numeroDiputados"
     ).value =
         datos.partido.numeroDiputados;
- 
- 
-    document.getElementById(
-        "estadoLegal"
-    ).value =
-        datos.partido.estadoLegal;
  
  
     document.getElementById(
@@ -358,11 +336,11 @@ async function consultarMongo() {
         datos.partido.descripcion;
  
  
-    // CARGA LAZY (AGREGADO): el logo solo llega al consultar
+    // CARGA LAZY: el logo solo llega al consultar
     // un documento específico, no en MOSTRAR TODOS
  
     mostrarImagen(
-        datos.partido.logoBase64
+        datos.partido.logo
     );
  
  
@@ -395,9 +373,9 @@ async function actualizarMongo() {
         obtenerDatos();
  
  
-    // AGREGADO: imagen serializada en base64
+    // Imagen serializada en base64
  
-    partido.logoBase64 =
+    partido.logo =
         await leerImagen();
  
  
@@ -509,7 +487,7 @@ async function mostrarMongo() {
     tabla.innerHTML = "";
  
  
-    // CARGA LAZY (AGREGADO): estos documentos llegan sin logoBase64
+    // CARGA LAZY: estos documentos llegan sin logo
  
     datos.partidos.forEach(
         partido => {
@@ -567,15 +545,7 @@ async function mostrarMongo() {
                 </td>
  
                 <td>
-                    ${partido.redesSociales}
-                </td>
- 
-                <td>
                     ${partido.numeroDiputados}
-                </td>
- 
-                <td>
-                    ${partido.estadoLegal}
                 </td>
  
                 <td>
