@@ -255,13 +255,23 @@ Se volvió a comparar la Parte 2 con `SEMANA 3/S4-SW` después del commit `57f53
 - `node --check` pasa en todos los controllers, las rutas y `app.js`.
 - `App/.env` no está versionado (solo `.env.example`).
 
-Quedan diferencias menores de estilo con S4-SW, de riesgo bajo y opcionales:
+Se aplicaron además los ajustes menores de estilo para que los 4 controllers se vean
+como `productoController.js`:
 
-| S4-SW | Parte 2 |
-|---|---|
-| `resultado` / `error` | `result` / `err` |
-| `const { id } = req.params` dentro del `try` | antes del `try` |
-| columnas explícitas en `SELECT` y `RETURNING id` | `SELECT *` y `RETURNING *` |
-| líneas en blanco entre bloques | formato compacto |
+| S4-SW | Antes | Ahora |
+|---|---|---|
+| `resultado` / `error` | `result` / `err` | `resultado` / `error` ✅ |
+| `req.params` y `req.body` dentro del `try` | antes del `try` | dentro del `try` ✅ |
+| "Error al obtener **los** productos" | "Error al obtener partidos" | "Error al obtener **los** partidos" ✅ |
+| líneas en blanco y `json({...})` en varias líneas | formato compacto | igual que S4 ✅ |
+| columnas explícitas en `SELECT` y `RETURNING id` | `SELECT *` / `RETURNING *` | **se mantiene** a propósito |
+
+Se dejó `SELECT *` porque listar las 9–10 columnas en cada consulta alarga mucho el
+código y si se omite la columna de imagen se rompe la vista. Los 73 comentarios
+`AGREGADO:` de los controllers se conservaron.
+
+Probado contra la base real: CRUD en las 4 tablas, imagen base64 ida y vuelta,
+`COALESCE` conservando la imagen, los dos JOIN, `fecha_fin` vacía → `null`, 404 y 500
+con `{ mensaje }`.
 
 El hallazgo 3 (requires con mayúsculas en la Parte 3) sigue `ABIERTO`.
