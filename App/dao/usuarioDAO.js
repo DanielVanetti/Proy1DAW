@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("fs");//lee y escribe archivos
+const path = require("path");//cosntruir rutas seguras
  
  
 /*
@@ -10,7 +10,7 @@ Ubicación del archivo usuarios.txt
  
 const archivo = path.join(
  
-    __dirname,
+    __dirname, //carpeta donde este el archivo
  
     "..",
  
