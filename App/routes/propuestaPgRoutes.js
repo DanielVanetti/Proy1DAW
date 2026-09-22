@@ -3,26 +3,26 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    getAllPropuestas,
-    getPropuestaById,
-    createPropuesta,
-    updatePropuesta,
-    deletePropuesta
+    obtenerPropuestas,
+    obtenerPropuestaPorId,
+    crearPropuesta,
+    actualizarPropuesta,
+    eliminarPropuesta
 } = require("../controllers/propuestaPgController");
 
 // GET - Obtener todos
-router.get("/", getAllPropuestas);
+router.get("/", obtenerPropuestas);
 
 // GET - Obtener uno por ID
-router.get("/:id", getPropuestaById);
+router.get("/:id", obtenerPropuestaPorId);
 
 // POST - Crear
-router.post("/", createPropuesta);
+router.post("/", crearPropuesta);
 
 // PUT - Actualizar
-router.put("/:id", updatePropuesta);
+router.put("/:id", actualizarPropuesta);
 
 // DELETE - Eliminar
-router.delete("/:id", deletePropuesta);
+router.delete("/:id", eliminarPropuesta);
 
 module.exports = router;

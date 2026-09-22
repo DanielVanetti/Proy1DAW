@@ -3,26 +3,26 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    getAllCargos,
-    getCargoById,
-    createCargo,
-    updateCargo,
-    deleteCargo
+    obtenerCargos,
+    obtenerCargoPorId,
+    crearCargo,
+    actualizarCargo,
+    eliminarCargo
 } = require("../controllers/cargoPgController");
 
 // GET - Obtener todos
-router.get("/", getAllCargos);
+router.get("/", obtenerCargos);
 
 // GET - Obtener uno por ID
-router.get("/:id", getCargoById);
+router.get("/:id", obtenerCargoPorId);
 
 // POST - Crear
-router.post("/", createCargo);
+router.post("/", crearCargo);
 
 // PUT - Actualizar
-router.put("/:id", updateCargo);
+router.put("/:id", actualizarCargo);
 
 // DELETE - Eliminar
-router.delete("/:id", deleteCargo);
+router.delete("/:id", eliminarCargo);
 
 module.exports = router;
