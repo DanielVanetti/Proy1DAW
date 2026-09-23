@@ -1,5 +1,10 @@
 # Pendientes por confirmar con el profesor
 
+> Última actualización: 23 de septiembre de 2026. Los comentarios `AGREGADO:`
+> y `CAMBIO:` que marcaban estos puntos en el código ya se limpiaron (ver
+> `REPORTE-COMENTARIOS.md`), así que este documento es ahora la única
+> referencia escrita de qué se apartó del código de clase.
+
 Este documento resume las decisiones que se tomaron en el código para que la
 aplicación quedara funcional, pero que **no están respaldadas por un ejemplo
 literal visto en clase** (Semana 2, 4 o 5). El enunciado exige usar
@@ -21,16 +26,18 @@ se implementó una técnica **funcional pero propuesta, no confirmada**:
   como parámetro de la consulta parametrizada (mismo estilo de `pool.query`
   de Semana 4). Al leer, se hace `buffer.toString("base64")` para poder
   incluirlo en la respuesta JSON y mostrarlo en un `<img>`.
-- **MongoDB:** se guarda directamente el string base64 en un campo del
-  documento (`logoBase64` / `fotoBase64`), sin binario nativo de Mongo
-  (`Binary`/`BinData`), porque ese tipo tampoco aparece en el código de
-  Semana 5 revisado.
+- **MongoDB:** a diferencia de lo que se pensó al principio, sí se usa el
+  tipo binario nativo de Mongo (`Binary`/`BinData`), de forma equivalente al
+  `BYTEA` de PostgreSQL: el servidor convierte el base64 a binario con
+  `Buffer.from(base64, "base64")` antes de guardarlo en el campo `logo`
+  (partidos) o `foto` (figuras), y al leer hace `buffer.toString("base64")`
+  para devolverlo en el JSON. No existe un campo `logoBase64`/`fotoBase64`
+  con el texto plano, como se pensó en una primera versión de este documento.
 
-**Qué confirmar:** si el profesor mostró una técnica distinta en clase
-(por ejemplo, `Buffer`/`bytea` de otra forma, o el tipo `Binary` de Mongo,
-o el uso de una librería específica), hay que reemplazar esta implementación
-por esa exacta. Los puntos a cambiar están marcados con comentarios
-`AGREGADO: ... imagen ... serializada` en:
+**Qué confirmar:** si el profesor mostró una técnica distinta en clase para
+guardar binarios (por ejemplo, otra forma de usar `Buffer`/`BYTEA`, o el uso
+de una librería específica), hay que reemplazar esta implementación por esa
+exacta. Está implementado en:
 
 - `App/controllers/partidoPgController.js`, `propuestaPgController.js`,
   `figuraPgController.js`, `cargoPgController.js` (conversión base64 ↔ BYTEA)
@@ -72,9 +79,22 @@ detalle de un registro específico (botón "CONSULTAR" con el ObjectId).
 - `App/dao/FiguraMongoDAO.js` → `obtenerTodos()` (sin foto) y `obtenerPorId()` (con foto)
 - `App/public/js/partidosMongo.js` y `figurasMongo.js` → `consultarMongo()` y `mostrarMongo()`
 
-**Qué confirmar:** si el profesor mostró una técnica distinta de "Lazy" en
-MongoDB (por ejemplo, paginación, cursores, o algo con Mongoose que no se
-vio en S5-SW), ajustar esa interpretación.
+Además, se agregó un segundo mecanismo de Carga Lazy: la lista ya no trae
+los 60/120 documentos de una sola vez, sino en tandas de 10 (`skip`/`limit`
+en la consulta a Mongo), con un botón "Ver más" que pide la siguiente
+tanda. Implementado en:
+
+- `App/dao/PartidoMongoDAO.js` y `FiguraMongoDAO.js` → `obtenerTodos(saltar, limite)`
+- `App/public/js/partidosMongo.js` y `figurasMongo.js` → `verMas()` y `cargarMongo()`
+
+**Qué confirmar:** si el profesor no espera paginación (solo la exclusión
+del campo de imagen), se puede quitar el botón "Ver más" y volver a traer
+todos los documentos de una vez sin tocar el resto de la Carga Lazy.
+
+> Bug conocido, sin arreglar todavía: el botón "Ver más" no se oculta en la
+> última página cuando el total es múltiplo exacto de 10 (que es el caso de
+> los 60 partidos y las 120 figuras) — hace falta un clic extra que trae 0
+> resultados para que recién ahí desaparezca. No pierde ni duplica datos.
 
 ## 4. Una sola colección "CollMongoDB" para las 2 vistas de Parte 3
 
@@ -103,18 +123,22 @@ PROYECTOESTUDIANTES. Si el profesor exige protección real de rutas, habría
 que preguntar si se vio algún mecanismo de sesión en clases no incluidas en
 el material revisado.
 
-## 6. Diferencias con el código de clase (marcadas en el código)
+## 6. Diferencias con el código de clase
 
 El código de cada parte se copió de su proyecto de referencia
-(Parte 1 = PROYECTOESTUDIANTES, Parte 2 = S4-SW, Parte 3 = S5-SW) con la
-misma estructura, formato, comentarios, `console.log` y mensajes de error.
-Todo lo que no es exactamente igual está marcado con un comentario:
+(Parte 1 = PROYECTOESTUDIANTES/S2-SW, Parte 2 = S4-SW, Parte 3 = S5-SW) con
+la misma estructura, formato, comentarios, `console.log` y mensajes de
+error. Todo lo que no es exactamente igual a la referencia quedó marcado en
+el código con comentarios `AGREGADO:` / `CAMBIO:` mientras se desarrollaba,
+pero esos comentarios **ya se revisaron y se limpiaron** (quedan cero en las
+3 partes) — este documento es el que queda como mapa de esas diferencias:
 
-- `AGREGADO:` código que no existe en la referencia (log, menú lateral,
-  imágenes serializadas, Carga Eager, Carga Lazy, campo `tipo`).
-- `CAMBIO:` código de la referencia que se tuvo que modificar (por ejemplo,
-  `db/database.js` lee los datos de conexión del `.env`, el login redirige a
-  `/menu`, el botón Editar de S4 consulta por ID porque son 8 campos).
-
-Buscar `AGREGADO:` y `CAMBIO:` en `App/` para revisarlos todos antes de la
-presentación.
+- **Agregado** (no existe en la referencia): el log de acciones, el menú
+  lateral con sidebar, las imágenes serializadas de Parte 2 y 3, la Carga
+  Eager (JOIN) de Parte 2, la Carga Lazy (exclusión de imagen + paginación)
+  de Parte 3, y el campo `tipo` de Mongo.
+- **Cambiado** respecto a la referencia: `db/database.js` lee los datos de
+  conexión del `.env` en vez de tenerlos hardcodeados, el login redirige a
+  `/menu` en vez de ir directo a la vista de la entidad, y el botón Editar
+  de Parte 2 consulta por ID en vez de pasar todos los campos por `onclick`
+  (porque son 8 campos, no 2 como en la referencia).
