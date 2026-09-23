@@ -5,14 +5,20 @@
 =========================================*/
  
 /* Parte 1 (estilosS2.css) y Parte 3 (estilosS5.css) le ponen
-   padding:30px al body; Parte 2 (estilosS4.css) no. Se pareja
-   aquí para que el sidebar quede pegado igual en las 3 partes */
+   padding:30px al body; Parte 2 (estilosS4.css) no, pero su
+   .contenedor tiene margin:40px auto propio. Se pareja aquí
+   arriba de la p con 30px (igual a S2 y S5) y se anula el
+   margin-top propio del .contenedor de cada semana, para que
+   la tarjeta empiece siempre a los mismos 30px sin importar
+   la semana. Los lados y abajo quedan pegados como ya estaban */
 
 body{
 
     margin:0;
 
     padding:0;
+
+    padding-top:30px;
 
 }
 
@@ -160,5 +166,7 @@ body{
 .contenido .contenedor{
 
     overflow-x:auto;
+
+    margin-top:0;
 
 }
