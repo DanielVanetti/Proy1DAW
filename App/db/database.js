@@ -2,8 +2,7 @@ const { Pool, types } = require("pg");
 
 require("dotenv").config();
 
-// Las columnas DATE se devuelven como texto "AAAA-MM-DD"
-// para cargarlas en los <input type="date"> sin cambios de zona horaria
+// Las columnas DATE llegan como texto "AAAA-MM-DD" (evita corrimiento de zona horaria en <input type="date">)
 types.setTypeParser(1082, valor => valor);
 
 const pool = new Pool({

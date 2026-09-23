@@ -63,9 +63,7 @@ const btnCancelarPropuesta =
 
 
 // ==========================================
-// SERIALIZAR IMAGEN
-// Lee el archivo seleccionado y lo convierte a texto
-// base64 para enviarlo dentro del JSON al servidor
+// SERIALIZAR IMAGEN (archivo -> base64 para el JSON)
 // ==========================================
 
 function leerImagen(inputArchivo) {
@@ -116,8 +114,7 @@ async function cargarPartidos() {
             const fila =
                 document.createElement("tr");
 
-            // El logo llega serializado en base64 y se muestra en un <img>
-            // El botón Editar solo envía el id, porque son 8 campos
+            // Logo en base64 para el <img>; Editar solo manda el id (son 8 campos)
 
             let celdaLogo = "Sin logo";
 
@@ -469,8 +466,7 @@ async function cargarPropuestas() {
                 document.createElement("tr");
 
             // partido_nombre y partido_siglas vienen de la CARGA EAGER (JOIN)
-            // La imagen llega serializada en base64 y se muestra en un <img>
-            // El botón Editar solo envía el id, porque son 8 campos
+            // Imagen en base64 para el <img>; Editar solo manda el id (son 8 campos)
 
             let celdaImagen = "Sin imagen";
 

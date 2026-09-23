@@ -2,8 +2,7 @@ const pool = require("../db/database");
 
 const Logger = require("../utils/logger");
 
-// La columna "imagen" es BYTEA: PostgreSQL la devuelve como binario (Buffer)
-// y aquí se convierte a texto base64 para enviarla serializada a la vista.
+// "imagen" es BYTEA (Buffer); se convierte a base64 para enviarla a la vista.
 const serializarImagen = (propuesta) => {
 
     let imagen = null;
@@ -125,14 +124,13 @@ const actualizarPropuesta = async (req, res) => {
         const { id } = req.params;
         const { partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagen } = req.body;
 
-        // La imagen llega en base64 y se convierte a binario (BYTEA)
         let imagenBinaria = null;
 
         if (imagen) {
             imagenBinaria = Buffer.from(imagen, "base64");
         }
 
-        // COALESCE conserva la imagen actual si no se selecciona una nueva
+        // Imagen en base64 -> binario; COALESCE conserva la actual si no se sube una nueva
         const resultado = await pool.query(
             "UPDATE propuestas_pg SET partido_id = $1, titulo = $2, area = $3, descripcion = $4, fecha_presentacion = $5, estado = $6, presupuesto_estimado = $7, alcance = $8, imagen = COALESCE($9, imagen) WHERE id = $10 RETURNING *",
             [partido_id, titulo, area, descripcion, fecha_presentacion, estado, presupuesto_estimado, alcance, imagenBinaria, id]

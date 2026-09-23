@@ -6,8 +6,7 @@ const API =
     "/api/figuras";
  
  
-// CARGA LAZY: los documentos se piden de 10 en 10.
-// saltarMongo: lleva la cuenta de los que ya se cargaron.
+// CARGA LAZY: los documentos se piden de 10 en 10 (saltarMongo lleva la cuenta)
  
 const LIMITE_MONGO = 10;
  
@@ -456,8 +455,7 @@ async function consultarMongo() {
         datos.figura.numeroSeguidores;
  
  
-    // CARGA LAZY: la foto solo llega al consultar
-    // un documento específico, no en MOSTRAR TODOS
+    // CARGA LAZY: la foto solo llega al consultar un documento específico
  
     mostrarImagen(
         datos.figura.foto
@@ -616,7 +614,7 @@ function verMas() {
  
  
  
-// CARGA LAZY: trae solo la siguiente tanda de documentos, saltando los que ya estan en la tabla
+// CARGA LAZY: trae la siguiente tanda, saltando los que ya están cargados
  
 async function cargarMongo(cantidad) {
  

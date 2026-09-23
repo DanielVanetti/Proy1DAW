@@ -6,8 +6,7 @@ const API =
     "/api/partidos";
  
  
-// CARGA LAZY: los documentos se piden de 10 en 10.
-// saltarMongo: lleva la cuenta de los que ya se cargaron.
+// CARGA LAZY: los documentos se piden de 10 en 10 (saltarMongo lleva la cuenta)
  
 const LIMITE_MONGO = 10;
  
@@ -106,7 +105,6 @@ function mostrarMensaje(texto) {
  
  
 // ==================================================
-// SERIALIZAR IMAGEN
 // SERIALIZAR IMAGEN
 // ==================================================
  
@@ -347,8 +345,7 @@ async function consultarMongo() {
         datos.partido.descripcion;
  
  
-    // CARGA LAZY: el logo solo llega al consultar
-    // un documento específico, no en MOSTRAR TODOS
+    // CARGA LAZY: el logo solo llega al consultar un documento específico
  
     mostrarImagen(
         datos.partido.logo
@@ -507,7 +504,7 @@ function verMas() {
  
  
  
-// CARGA LAZY: trae solo la siguiente tanda de documentos, saltando los que ya estan en la tabla
+// CARGA LAZY: trae la siguiente tanda, saltando los que ya están cargados
  
 async function cargarMongo(cantidad) {
  

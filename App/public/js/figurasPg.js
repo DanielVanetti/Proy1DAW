@@ -63,9 +63,7 @@ const btnCancelarCargo =
 
 
 // ==========================================
-// SERIALIZAR IMAGEN
-// Lee el archivo seleccionado y lo convierte a texto
-// base64 para enviarlo dentro del JSON al servidor
+// SERIALIZAR IMAGEN (archivo -> base64 para el JSON)
 // ==========================================
 
 function leerImagen(inputArchivo) {
@@ -116,8 +114,7 @@ async function cargarFiguras() {
             const fila =
                 document.createElement("tr");
 
-            // La foto llega serializada en base64 y se muestra en un <img>
-            // El botón Editar solo envía el id, porque son 8 campos
+            // Foto en base64 para el <img>; Editar solo manda el id (son 8 campos)
 
             let celdaFoto = "Sin foto";
 
@@ -469,8 +466,7 @@ async function cargarCargos() {
                 document.createElement("tr");
 
             // figura_nombre y figura_cargo_actual vienen de la CARGA EAGER (JOIN)
-            // La imagen llega serializada en base64 y se muestra en un <img>
-            // El botón Editar solo envía el id, porque son 8 campos
+            // Imagen en base64 para el <img>; Editar solo manda el id (son 8 campos)
 
             let celdaImagenEvento = "Sin imagen";
 

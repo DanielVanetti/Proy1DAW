@@ -104,10 +104,7 @@ function iniciarSesion(req,res){
 }
 
 /*=========================================
-  Mostrar menú principal
-  menú lateral que se muestra
-  después de una autenticación correcta
-  (requerimiento del proyecto)
+  Mostrar menú principal (requerimiento del proyecto)
 =========================================*/
  
 function mostrarMenu(req, res) {

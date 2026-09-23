@@ -83,7 +83,7 @@ class PartidoMongoDAO {
             await conectarMongoDB();
  
  
-        // CARGA LAZY : aquí se trae solo la lista de documentos sin la imagen y con paginación
+        // CARGA LAZY: lista sin imagen, paginada
         return await db
             .collection("CollMongoDB")
             .find({
