@@ -88,9 +88,8 @@ async function autenticar(evento) {
  
             setTimeout(() => {
  
-                // CAMBIO: después del login se muestra el menú
-                // principal (en PROYECTOESTUDIANTES iba a /estudiantes/pagina)
- 
+                // Después del login se muestra el menú principal
+
                 window.location.href =
                     "/menu";
  

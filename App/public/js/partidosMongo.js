@@ -97,6 +97,7 @@ function mostrarMensaje(texto) {
  
 // ==================================================
 // SERIALIZAR IMAGEN
+// SERIALIZAR IMAGEN
 // ==================================================
  
  

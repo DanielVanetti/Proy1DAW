@@ -42,9 +42,6 @@ function guardar(partido) {
  
     }
  
-    // CAMBIO: se quitaron las validaciones del promedio
-    // (eran propias del CRUD de estudiantes)
- 
     const existente =
         PartidoDAO.buscarPorCodigo(partido.codigo);
  
