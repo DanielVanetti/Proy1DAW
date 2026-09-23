@@ -9,18 +9,12 @@
 
 const fs = require("fs");
 const path = require("path");
-
-// Ruta del archivo de log
-
 const ARCHIVO = path.join(
     __dirname,
     "..",
     "logs",
     "acciones.txt"
 );
-
-// Usuario que inició sesión (se asigna en authController)
-
 let usuarioActual = "desconocido";
 
 /*=========================================
