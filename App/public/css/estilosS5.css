@@ -186,14 +186,25 @@ button:hover {
 }
  
  
+.tabla-scroll {
+
+    overflow-x:
+        auto;
+
+}
+
+
 table {
- 
+
     width:
+        max-content;
+
+    min-width:
         100%;
- 
+
     border-collapse:
         collapse;
- 
+
 }
  
  

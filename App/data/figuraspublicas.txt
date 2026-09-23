@@ -2,3 +2,9 @@ F001;Marcela Vindas Soto;Diputada;Partido Renovación Nacional;1978-05-12
 F002;Rodrigo Salazar Ureña;Alcalde;Alianza Progresista;1970-09-30
 F003;Ana Lucía Mora Chinchilla;Ministra;Frente Unido Democrático;1982-01-27
 F004;Esteban Quesada Rojas;Diputado;Movimiento Cívico Independiente;1985-06-19
+F005;Carlos Alvarado Quesada;ExPresidente;Partido Acción Ciudadana;1982-01-14
+F006;Laura Chinchilla Miranda;ExPresidenta;Partido Liberación Nacional;1959-08-28
+F007;Oscar Arias Sánchez;ExPresidente;Partido Liberación Nacional;1940-09-13
+F008;Luis Guillermo Solís Rivera;ExPresidente;Partido Acción Ciudadana;1958-04-25
+F009;Abel Pacheco de la Espriella;ExPresidente;Partido Unidad Social Cristiana;1933-12-21
+F010;Rafael Ángel Calderón Fournier;ExPresidente;Partido Unidad Social Cristiana;1949-01-14
