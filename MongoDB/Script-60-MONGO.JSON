@@ -11,11 +11,9 @@
     "liderActual": "Marcela Vindas Soto",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@pna0",
     "numeroDiputados": 0,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología centro, fundada en 1985, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -29,11 +27,9 @@
     "liderActual": "Rodrigo Salazar Ureña",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@mna1",
     "numeroDiputados": 1,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología centro-izquierda, fundada en 1986, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -47,11 +43,9 @@
     "liderActual": "Ana Lucía Mora Chinchilla",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@fna2",
     "numeroDiputados": 2,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología centro-derecha, fundada en 1987, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -65,11 +59,9 @@
     "liderActual": "Esteban Quesada Rojas",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@ana3",
     "numeroDiputados": 3,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología socialdemocracia, fundada en 1988, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -83,11 +75,9 @@
     "liderActual": "Gabriela Araya Fonseca",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@cna4",
     "numeroDiputados": 4,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología liberal, fundada en 1989, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -101,11 +91,9 @@
     "liderActual": "Manuel Solano Campos",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@una5",
     "numeroDiputados": 5,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología conservador, fundada en 1990, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -119,11 +107,9 @@
     "liderActual": "Sofía Rojas Méndez",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@ana6",
     "numeroDiputados": 6,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología progresista, fundada en 1991, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -137,11 +123,9 @@
     "liderActual": "Andrés Chacón Vargas",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@bna7",
     "numeroDiputados": 7,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología nacionalista, fundada en 1992, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -155,11 +139,9 @@
     "liderActual": "Laura Jiménez Alfaro",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@ppo8",
     "numeroDiputados": 8,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología ambientalista, fundada en 1993, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -173,11 +155,9 @@
     "liderActual": "Diego Brenes Castro",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@mpo9",
     "numeroDiputados": 9,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología libertario, fundada en 1994, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -191,11 +171,9 @@
     "liderActual": "Carolina Villalobos Sanabria",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@fpo10",
     "numeroDiputados": 10,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología democracia cristiana, fundada en 1995, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -209,11 +187,9 @@
     "liderActual": "Javier Cordero Hidalgo",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@apo11",
     "numeroDiputados": 11,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología socialista, fundada en 1996, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -227,11 +203,9 @@
     "liderActual": "Patricia Herrera Zúñiga",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@cpo12",
     "numeroDiputados": 0,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología centro, fundada en 1997, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -245,11 +219,9 @@
     "liderActual": "Luis Monge Barrantes",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@upo13",
     "numeroDiputados": 1,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología centro-izquierda, fundada en 1998, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -263,11 +235,9 @@
     "liderActual": "Mónica Segura Delgado",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@apo14",
     "numeroDiputados": 2,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología centro-derecha, fundada en 1999, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -281,11 +251,9 @@
     "liderActual": "Fernando Vega Moya",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@bpo15",
     "numeroDiputados": 3,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología socialdemocracia, fundada en 2000, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -299,11 +267,9 @@
     "liderActual": "Daniela Gómez Sequeira",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@ppr16",
     "numeroDiputados": 4,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología liberal, fundada en 2001, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -317,11 +283,9 @@
     "liderActual": "Ricardo Fallas Ramírez",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@mpr17",
     "numeroDiputados": 5,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología conservador, fundada en 2002, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -335,11 +299,9 @@
     "liderActual": "Paola Núñez Ovares",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@fpr18",
     "numeroDiputados": 6,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología progresista, fundada en 2003, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -353,11 +315,9 @@
     "liderActual": "Alejandro Guzmán Marín",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@apr19",
     "numeroDiputados": 7,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología nacionalista, fundada en 2004, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -371,11 +331,9 @@
     "liderActual": "Vanessa Camacho Rivera",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@cpr20",
     "numeroDiputados": 8,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología ambientalista, fundada en 2005, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -389,11 +347,9 @@
     "liderActual": "Óscar Barquero León",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@upr21",
     "numeroDiputados": 9,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología libertario, fundada en 2006, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -407,11 +363,9 @@
     "liderActual": "Katherine Umaña Porras",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@apr22",
     "numeroDiputados": 10,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología democracia cristiana, fundada en 2007, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -425,11 +379,9 @@
     "liderActual": "Sergio Cascante Villegas",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@bpr23",
     "numeroDiputados": 11,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología socialista, fundada en 2008, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -443,11 +395,9 @@
     "liderActual": "Melissa Obando Retana",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@pre24",
     "numeroDiputados": 0,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología centro, fundada en 2009, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -461,11 +411,9 @@
     "liderActual": "Iván Alvarado Picado",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@mre25",
     "numeroDiputados": 1,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología centro-izquierda, fundada en 2010, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -479,11 +427,9 @@
     "liderActual": "Natalia Bermúdez Loría",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@fre26",
     "numeroDiputados": 2,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología centro-derecha, fundada en 2011, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -497,11 +443,9 @@
     "liderActual": "Adrián Carvajal Pérez",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@are27",
     "numeroDiputados": 3,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología socialdemocracia, fundada en 2012, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -515,11 +459,9 @@
     "liderActual": "Cristina Delgado Naranjo",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@cre28",
     "numeroDiputados": 4,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología liberal, fundada en 2013, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -533,11 +475,9 @@
     "liderActual": "Mauricio Esquivel Rosales",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@ure29",
     "numeroDiputados": 5,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología conservador, fundada en 2014, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -551,11 +491,9 @@
     "liderActual": "Marcela Vindas Soto",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@are30",
     "numeroDiputados": 6,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología progresista, fundada en 2015, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -569,11 +507,9 @@
     "liderActual": "Rodrigo Salazar Ureña",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@bre31",
     "numeroDiputados": 7,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología nacionalista, fundada en 2016, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -587,11 +523,9 @@
     "liderActual": "Ana Lucía Mora Chinchilla",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@pde32",
     "numeroDiputados": 8,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología ambientalista, fundada en 2017, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -605,11 +539,9 @@
     "liderActual": "Esteban Quesada Rojas",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@mde33",
     "numeroDiputados": 9,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología libertario, fundada en 2018, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -623,11 +555,9 @@
     "liderActual": "Gabriela Araya Fonseca",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@fde34",
     "numeroDiputados": 10,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología democracia cristiana, fundada en 2019, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -641,11 +571,9 @@
     "liderActual": "Manuel Solano Campos",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@ade35",
     "numeroDiputados": 11,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología socialista, fundada en 1985, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -659,11 +587,9 @@
     "liderActual": "Sofía Rojas Méndez",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@cde36",
     "numeroDiputados": 0,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología centro, fundada en 1986, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -677,11 +603,9 @@
     "liderActual": "Andrés Chacón Vargas",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@ude37",
     "numeroDiputados": 1,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología centro-izquierda, fundada en 1987, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -695,11 +619,9 @@
     "liderActual": "Laura Jiménez Alfaro",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@ade38",
     "numeroDiputados": 2,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología centro-derecha, fundada en 1988, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -713,11 +635,9 @@
     "liderActual": "Diego Brenes Castro",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@bde39",
     "numeroDiputados": 3,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología socialdemocracia, fundada en 1989, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -731,11 +651,9 @@
     "liderActual": "Carolina Villalobos Sanabria",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@pci40",
     "numeroDiputados": 4,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología liberal, fundada en 1990, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -749,11 +667,9 @@
     "liderActual": "Javier Cordero Hidalgo",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@mci41",
     "numeroDiputados": 5,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología conservador, fundada en 1991, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -767,11 +683,9 @@
     "liderActual": "Patricia Herrera Zúñiga",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@fci42",
     "numeroDiputados": 6,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología progresista, fundada en 1992, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -785,11 +699,9 @@
     "liderActual": "Luis Monge Barrantes",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@aci43",
     "numeroDiputados": 7,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología nacionalista, fundada en 1993, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -803,11 +715,9 @@
     "liderActual": "Mónica Segura Delgado",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@cci44",
     "numeroDiputados": 8,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología ambientalista, fundada en 1994, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -821,11 +731,9 @@
     "liderActual": "Fernando Vega Moya",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@uci45",
     "numeroDiputados": 9,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología libertario, fundada en 1995, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -839,11 +747,9 @@
     "liderActual": "Daniela Gómez Sequeira",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@aci46",
     "numeroDiputados": 10,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología democracia cristiana, fundada en 1996, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -857,11 +763,9 @@
     "liderActual": "Ricardo Fallas Ramírez",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@bci47",
     "numeroDiputados": 11,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología socialista, fundada en 1997, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -875,11 +779,9 @@
     "liderActual": "Paola Núñez Ovares",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@pve48",
     "numeroDiputados": 0,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología centro, fundada en 1998, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -893,11 +795,9 @@
     "liderActual": "Alejandro Guzmán Marín",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@mve49",
     "numeroDiputados": 1,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología centro-izquierda, fundada en 1999, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -911,11 +811,9 @@
     "liderActual": "Vanessa Camacho Rivera",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@fve50",
     "numeroDiputados": 2,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología centro-derecha, fundada en 2000, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -929,11 +827,9 @@
     "liderActual": "Óscar Barquero León",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@ave51",
     "numeroDiputados": 3,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología socialdemocracia, fundada en 2001, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -947,11 +843,9 @@
     "liderActual": "Katherine Umaña Porras",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@cve52",
     "numeroDiputados": 4,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología liberal, fundada en 2002, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -965,11 +859,9 @@
     "liderActual": "Sergio Cascante Villegas",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "San José y Cartago",
-    "redesSociales": "@uve53",
     "numeroDiputados": 5,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología conservador, fundada en 2003, con sede en Guanacaste.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -983,11 +875,9 @@
     "liderActual": "Melissa Obando Retana",
     "coloresRepresentativos": "Azul y blanco",
     "presenciaRegional": "Alajuela y Heredia",
-    "redesSociales": "@ave54",
     "numeroDiputados": 6,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología progresista, fundada en 2004, con sede en Puntarenas.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -1001,11 +891,9 @@
     "liderActual": "Iván Alvarado Picado",
     "coloresRepresentativos": "Rojo y blanco",
     "presenciaRegional": "Cartago y Guanacaste",
-    "redesSociales": "@bve55",
     "numeroDiputados": 7,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología nacionalista, fundada en 2005, con sede en Limón.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -1019,11 +907,9 @@
     "liderActual": "Natalia Bermúdez Loría",
     "coloresRepresentativos": "Verde y blanco",
     "presenciaRegional": "Heredia y Puntarenas",
-    "redesSociales": "@pre56",
     "numeroDiputados": 8,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología ambientalista, fundada en 2006, con sede en San José.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -1037,11 +923,9 @@
     "liderActual": "Adrián Carvajal Pérez",
     "coloresRepresentativos": "Amarillo y negro",
     "presenciaRegional": "Guanacaste y Limón",
-    "redesSociales": "@mre57",
     "numeroDiputados": 9,
-    "estadoLegal": "Inscrito ante el TSE",
     "descripcion": "Organización política de ideología libertario, fundada en 2007, con sede en Alajuela.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -1055,11 +939,9 @@
     "liderActual": "Cristina Delgado Naranjo",
     "coloresRepresentativos": "Celeste y blanco",
     "presenciaRegional": "Puntarenas y San José",
-    "redesSociales": "@fre58",
     "numeroDiputados": 10,
-    "estadoLegal": "En proceso de inscripción",
     "descripcion": "Organización política de ideología democracia cristiana, fundada en 2008, con sede en Cartago.",
-    "logoBase64": null
+    "logo": null
   },
   {
     "tipo": "partido",
@@ -1073,10 +955,8 @@
     "liderActual": "Mauricio Esquivel Rosales",
     "coloresRepresentativos": "Naranja y blanco",
     "presenciaRegional": "Limón y Alajuela",
-    "redesSociales": "@are59",
     "numeroDiputados": 11,
-    "estadoLegal": "Inscrito con observaciones",
     "descripcion": "Organización política de ideología socialista, fundada en 2009, con sede en Heredia.",
-    "logoBase64": null
+    "logo": null
   }
 ]

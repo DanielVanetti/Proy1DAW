@@ -8,6 +8,52 @@ const Logger =
  
 const service =
     new PartidoMongoService();
+
+
+// El campo "logo" es binario (BinData): MongoDB lo devuelve como Binary
+// y aquí se convierte a texto base64 para enviarlo serializado a la vista.
+// (mismo patrón usado en la Parte 2 con las columnas BYTEA de PostgreSQL)
+
+const serializarImagen = (partido) => {
+
+    let logo = null;
+
+    if (partido.logo) {
+
+        if (Buffer.isBuffer(partido.logo)) {
+
+            logo = partido.logo.toString("base64");
+
+        } else {
+
+            logo = Buffer.from(partido.logo.buffer).toString("base64");
+        }
+    }
+
+    return {
+        ...partido,
+        logo: logo
+    };
+};
+
+
+// La vista manda la imagen serializada en base64 y aquí se convierte
+// a binario, tal como se hace en la Parte 2 antes del INSERT / UPDATE
+
+const deserializarImagen = (cuerpo) => {
+
+    let logoBinario = null;
+
+    if (cuerpo.logo) {
+
+        logoBinario = Buffer.from(cuerpo.logo, "base64");
+    }
+
+    return {
+        ...cuerpo,
+        logo: logoBinario
+    };
+};
  
  
 class PartidoMongoController {
@@ -28,22 +74,23 @@ class PartidoMongoController {
  
             const partido =
                 await service.crearMongo(
-                    req.body
+                    deserializarImagen(req.body)
                 );
- 
- 
+
+
             Logger.registrar(
                 "Crear partido " + partido._id + " (MongoDB)"
             );
- 
- 
+
+
             res.json({
- 
+
                 mensaje:
                     "MongoDB: partido creado",
- 
-                partido
- 
+
+                partido:
+                    serializarImagen(partido)
+
             });
  
  
@@ -142,15 +189,16 @@ class PartidoMongoController {
             Logger.registrar(
                 "Consultar partido " + req.params.id + " con imagen - carga lazy (MongoDB)"
             );
- 
- 
+
+
             res.json({
- 
+
                 mensaje:
                     "MongoDB: partido encontrado",
- 
-                partido
- 
+
+                partido:
+                    serializarImagen(partido)
+
             });
  
  
@@ -182,11 +230,11 @@ class PartidoMongoController {
  
             const partido =
                 await service.actualizarMongo(
- 
+
                     req.params.id,
- 
-                    req.body
- 
+
+                    deserializarImagen(req.body)
+
                 );
  
  
@@ -211,12 +259,13 @@ class PartidoMongoController {
  
  
             res.json({
- 
+
                 mensaje:
                     "MongoDB: partido actualizado",
- 
-                partido
- 
+
+                partido:
+                    serializarImagen(partido)
+
             });
  
  
@@ -277,7 +326,8 @@ class PartidoMongoController {
                 mensaje:
                     "MongoDB: partido eliminado",
  
-                partido
+                partido:
+                    serializarImagen(partido)
  
             });
  

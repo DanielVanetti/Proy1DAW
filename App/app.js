@@ -64,9 +64,6 @@ app.use("/",figuraPublicaRoutes);
 /*
 =================================
 Rutas - Parte 3 (Semana 5 - MongoDB)
-
-IMPORTANTE: las rutas /mongo deben registrarse ANTES
-que las rutas /:id de PostgreSQL
 =================================
 */
  
@@ -165,93 +162,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>{
  
     console.log(
-        "Servidor iniciado en puerto " + PORT
+        "Servidor iniciado en http://localhost:" + PORT
     );
  
 });
  
- 
- 
- 
- 
- 
-/* // ==========================================
-// Importación de módulos
-// ==========================================
- 
-const express = require("express");
-const path = require("path");
- 
-// ==========================================
-// Crear la aplicación Express
-// ==========================================
- 
-const app = express();
- 
-// ==========================================
-// Configuración
-// ==========================================
- 
-const PORT = 3000;
- 
-// ==========================================
-// Middleware
-// ==========================================
- 
-// Permite recibir datos JSON
- 
-app.use(express.json());
- 
-// Permite recibir datos enviados desde formularios HTML
- 
-app.use(express.urlencoded({ extended: true }));
- 
-// Archivos públicos
-// CSS
-// JavaScript
-// imágenes
- 
-app.use(express.static(path.join(__dirname, "public")));
- 
-// ==========================================
-// Importar rutas
-// ==========================================
- 
-const authRoutes = require("./routes/authRoutes");
-const partidoRoutes = require("./routes/partidoRoutes");
- 
-// ==========================================
-// Registrar rutas
-// ==========================================
- 
-app.use("/", authRoutes);
- 
-app.use("/", partidoRoutes);
- 
-// ==========================================
-// Ruta para páginas inexistentes
-// ==========================================
- 
-app.use((req, res) => {
- 
-    res.status(404).send("Error 404 - Página no encontrada");
- 
-});
- 
-// ==========================================
-// Iniciar servidor
-// ==========================================
- 
-app.listen(PORT, () => {
- 
-    console.log("--------------------------------");
- 
-    console.log("Servidor iniciado correctamente");
- 
-    console.log("Puerto:", PORT);
- 
-    console.log("http://localhost:" + PORT);
- 
-    console.log("--------------------------------");
- 
-}); */

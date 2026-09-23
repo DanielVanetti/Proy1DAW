@@ -8,6 +8,52 @@ const Logger =
  
 const service =
     new FiguraMongoService();
+
+
+// El campo "foto" es binario (BinData): MongoDB lo devuelve como Binary
+// y aquí se convierte a texto base64 para enviarlo serializado a la vista.
+// (mismo patrón usado en la Parte 2 con las columnas BYTEA de PostgreSQL)
+
+const serializarImagen = (figura) => {
+
+    let foto = null;
+
+    if (figura.foto) {
+
+        if (Buffer.isBuffer(figura.foto)) {
+
+            foto = figura.foto.toString("base64");
+
+        } else {
+
+            foto = Buffer.from(figura.foto.buffer).toString("base64");
+        }
+    }
+
+    return {
+        ...figura,
+        foto: foto
+    };
+};
+
+
+// La vista manda la imagen serializada en base64 y aquí se convierte
+// a binario, tal como se hace en la Parte 2 antes del INSERT / UPDATE
+
+const deserializarImagen = (cuerpo) => {
+
+    let fotoBinaria = null;
+
+    if (cuerpo.foto) {
+
+        fotoBinaria = Buffer.from(cuerpo.foto, "base64");
+    }
+
+    return {
+        ...cuerpo,
+        foto: fotoBinaria
+    };
+};
  
  
 class FiguraMongoController {
@@ -28,21 +74,22 @@ class FiguraMongoController {
  
             const figura =
                 await service.crearMongo(
-                    req.body
+                    deserializarImagen(req.body)
                 );
- 
+
             Logger.registrar(
                 "Crear figura pública " + figura._id + " (MongoDB)"
             );
- 
- 
+
+
             res.json({
- 
+
                 mensaje:
                     "MongoDB: figura pública creada",
- 
-                figura
- 
+
+                figura:
+                    serializarImagen(figura)
+
             });
  
  
@@ -146,9 +193,10 @@ class FiguraMongoController {
  
                 mensaje:
                     "MongoDB: figura pública encontrada",
- 
-                figura
- 
+
+                figura:
+                    serializarImagen(figura)
+
             });
  
  
@@ -180,11 +228,11 @@ class FiguraMongoController {
  
             const figura =
                 await service.actualizarMongo(
- 
+
                     req.params.id,
- 
-                    req.body
- 
+
+                    deserializarImagen(req.body)
+
                 );
  
  
@@ -212,9 +260,10 @@ class FiguraMongoController {
  
                 mensaje:
                     "MongoDB: figura pública actualizada",
- 
-                figura
- 
+
+                figura:
+                    serializarImagen(figura)
+
             });
  
  
@@ -275,7 +324,8 @@ class FiguraMongoController {
                 mensaje:
                     "MongoDB: figura pública eliminada",
  
-                figura
+                figura:
+                    serializarImagen(figura)
  
             });
  

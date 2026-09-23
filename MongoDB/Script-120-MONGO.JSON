@@ -19,13 +19,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Partido Nacional, con 3 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura0.example.org",
     "numeroSeguidores": 500,
-    "afiliaciones": "Partido Nacional desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -47,13 +45,11 @@
     "fechaFinCargo": "2023-01-14",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Nacional, con 4 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura1.example.org",
     "numeroSeguidores": 1233,
-    "afiliaciones": "Movimiento Nacional desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -75,13 +71,11 @@
     "fechaFinCargo": "2024-01-27",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Nacional, con 5 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura2.example.org",
     "numeroSeguidores": 1966,
-    "afiliaciones": "Frente Nacional desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -103,13 +97,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Nacional, con 6 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura3.example.org",
     "numeroSeguidores": 2699,
-    "afiliaciones": "Alianza Nacional desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -131,13 +123,11 @@
     "fechaFinCargo": "2022-02-22",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Nacional, con 7 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura4.example.org",
     "numeroSeguidores": 3432,
-    "afiliaciones": "Coalición Nacional desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -159,13 +149,11 @@
     "fechaFinCargo": "2023-03-07",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Nacional, con 8 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura5.example.org",
     "numeroSeguidores": 4165,
-    "afiliaciones": "Unión Nacional desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -187,13 +175,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Nacional, con 9 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura6.example.org",
     "numeroSeguidores": 4898,
-    "afiliaciones": "Agrupación Nacional desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -215,13 +201,11 @@
     "fechaFinCargo": "2025-04-02",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Bloque Nacional, con 10 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura7.example.org",
     "numeroSeguidores": 5631,
-    "afiliaciones": "Bloque Nacional desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -243,13 +227,11 @@
     "fechaFinCargo": "2022-04-15",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Popular, con 11 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura8.example.org",
     "numeroSeguidores": 6364,
-    "afiliaciones": "Partido Popular desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -271,13 +253,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Popular, con 12 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura9.example.org",
     "numeroSeguidores": 7097,
-    "afiliaciones": "Movimiento Popular desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -299,13 +279,11 @@
     "fechaFinCargo": "2024-05-10",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Popular, con 13 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura10.example.org",
     "numeroSeguidores": 7830,
-    "afiliaciones": "Frente Popular desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -327,13 +305,11 @@
     "fechaFinCargo": "2025-05-24",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Popular, con 14 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura11.example.org",
     "numeroSeguidores": 8563,
-    "afiliaciones": "Alianza Popular desde 2016",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -355,13 +331,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Popular, con 15 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura12.example.org",
     "numeroSeguidores": 9296,
-    "afiliaciones": "Coalición Popular desde 2017",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -383,13 +357,11 @@
     "fechaFinCargo": "2023-06-19",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Popular, con 16 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura13.example.org",
     "numeroSeguidores": 10029,
-    "afiliaciones": "Unión Popular desde 2018",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -411,13 +383,11 @@
     "fechaFinCargo": "2024-07-01",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Agrupación Popular, con 17 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura14.example.org",
     "numeroSeguidores": 10762,
-    "afiliaciones": "Agrupación Popular desde 2019",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -439,13 +409,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Popular, con 18 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura15.example.org",
     "numeroSeguidores": 11495,
-    "afiliaciones": "Bloque Popular desde 2020",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -467,13 +435,11 @@
     "fechaFinCargo": "2022-07-28",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Progresista, con 19 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura16.example.org",
     "numeroSeguidores": 12228,
-    "afiliaciones": "Partido Progresista desde 2021",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -495,13 +461,11 @@
     "fechaFinCargo": "2023-08-10",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Progresista, con 20 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura17.example.org",
     "numeroSeguidores": 12961,
-    "afiliaciones": "Movimiento Progresista desde 2022",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -523,13 +487,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Progresista, con 21 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura18.example.org",
     "numeroSeguidores": 13694,
-    "afiliaciones": "Frente Progresista desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -551,13 +513,11 @@
     "fechaFinCargo": "2025-09-05",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Progresista, con 22 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura19.example.org",
     "numeroSeguidores": 14427,
-    "afiliaciones": "Alianza Progresista desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -579,13 +539,11 @@
     "fechaFinCargo": "2022-09-18",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Progresista, con 23 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura20.example.org",
     "numeroSeguidores": 15160,
-    "afiliaciones": "Coalición Progresista desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -607,13 +565,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Unión Progresista, con 24 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura21.example.org",
     "numeroSeguidores": 15893,
-    "afiliaciones": "Unión Progresista desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -635,13 +591,11 @@
     "fechaFinCargo": "2024-10-13",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Progresista, con 25 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura22.example.org",
     "numeroSeguidores": 16626,
-    "afiliaciones": "Agrupación Progresista desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -663,13 +617,11 @@
     "fechaFinCargo": "2025-10-27",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Progresista, con 26 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura23.example.org",
     "numeroSeguidores": 17359,
-    "afiliaciones": "Bloque Progresista desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -691,13 +643,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Renovación, con 27 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura24.example.org",
     "numeroSeguidores": 18092,
-    "afiliaciones": "Partido Renovación desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -719,13 +669,11 @@
     "fechaFinCargo": "2023-11-22",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Renovación, con 28 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura25.example.org",
     "numeroSeguidores": 18825,
-    "afiliaciones": "Movimiento Renovación desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -747,13 +695,11 @@
     "fechaFinCargo": "2024-12-04",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Renovación, con 29 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura26.example.org",
     "numeroSeguidores": 19558,
-    "afiliaciones": "Frente Renovación desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -775,13 +721,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Renovación, con 30 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura27.example.org",
     "numeroSeguidores": 20291,
-    "afiliaciones": "Alianza Renovación desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -803,13 +747,11 @@
     "fechaFinCargo": "2022-12-31",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Coalición Renovación, con 3 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura28.example.org",
     "numeroSeguidores": 21024,
-    "afiliaciones": "Coalición Renovación desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -831,13 +773,11 @@
     "fechaFinCargo": "2024-01-13",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Renovación, con 4 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura29.example.org",
     "numeroSeguidores": 21757,
-    "afiliaciones": "Unión Renovación desde 2016",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -859,13 +799,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Renovación, con 5 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura30.example.org",
     "numeroSeguidores": 22490,
-    "afiliaciones": "Agrupación Renovación desde 2017",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -887,13 +825,11 @@
     "fechaFinCargo": "2026-02-08",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Renovación, con 6 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura31.example.org",
     "numeroSeguidores": 23223,
-    "afiliaciones": "Bloque Renovación desde 2018",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -915,13 +851,11 @@
     "fechaFinCargo": "2023-02-21",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Democrática, con 7 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura32.example.org",
     "numeroSeguidores": 23956,
-    "afiliaciones": "Partido Democrática desde 2019",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -943,13 +877,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Democrática, con 8 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura33.example.org",
     "numeroSeguidores": 24689,
-    "afiliaciones": "Movimiento Democrática desde 2020",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -971,13 +903,11 @@
     "fechaFinCargo": "2025-03-18",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Democrática, con 9 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura34.example.org",
     "numeroSeguidores": 25422,
-    "afiliaciones": "Frente Democrática desde 2021",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -999,13 +929,11 @@
     "fechaFinCargo": "2026-04-01",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Alianza Democrática, con 10 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura35.example.org",
     "numeroSeguidores": 26155,
-    "afiliaciones": "Alianza Democrática desde 2022",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1027,13 +955,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Democrática, con 11 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura36.example.org",
     "numeroSeguidores": 26888,
-    "afiliaciones": "Coalición Democrática desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1055,13 +981,11 @@
     "fechaFinCargo": "2024-04-26",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Democrática, con 12 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura37.example.org",
     "numeroSeguidores": 27621,
-    "afiliaciones": "Unión Democrática desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1083,13 +1007,11 @@
     "fechaFinCargo": "2025-05-09",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Democrática, con 13 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura38.example.org",
     "numeroSeguidores": 28354,
-    "afiliaciones": "Agrupación Democrática desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1111,13 +1033,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Democrática, con 14 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura39.example.org",
     "numeroSeguidores": 29087,
-    "afiliaciones": "Bloque Democrática desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1139,13 +1059,11 @@
     "fechaFinCargo": "2023-06-05",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Ciudadana, con 15 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura40.example.org",
     "numeroSeguidores": 29820,
-    "afiliaciones": "Partido Ciudadana desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1167,13 +1085,11 @@
     "fechaFinCargo": "2024-06-17",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Ciudadana, con 16 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura41.example.org",
     "numeroSeguidores": 30553,
-    "afiliaciones": "Movimiento Ciudadana desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1195,13 +1111,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Frente Ciudadana, con 17 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura42.example.org",
     "numeroSeguidores": 31286,
-    "afiliaciones": "Frente Ciudadana desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1223,13 +1137,11 @@
     "fechaFinCargo": "2026-07-14",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Ciudadana, con 18 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura43.example.org",
     "numeroSeguidores": 32019,
-    "afiliaciones": "Alianza Ciudadana desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1251,13 +1163,11 @@
     "fechaFinCargo": "2023-07-27",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Ciudadana, con 19 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura44.example.org",
     "numeroSeguidores": 32752,
-    "afiliaciones": "Coalición Ciudadana desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1279,13 +1189,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Ciudadana, con 20 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura45.example.org",
     "numeroSeguidores": 33485,
-    "afiliaciones": "Unión Ciudadana desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1307,13 +1215,11 @@
     "fechaFinCargo": "2025-08-21",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Ciudadana, con 21 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura46.example.org",
     "numeroSeguidores": 34218,
-    "afiliaciones": "Agrupación Ciudadana desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1335,13 +1241,11 @@
     "fechaFinCargo": "2026-09-04",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Ciudadana, con 22 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura47.example.org",
     "numeroSeguidores": 34951,
-    "afiliaciones": "Bloque Ciudadana desde 2016",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1363,13 +1267,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Verde, con 23 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura48.example.org",
     "numeroSeguidores": 35684,
-    "afiliaciones": "Partido Verde desde 2017",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1391,13 +1293,11 @@
     "fechaFinCargo": "2024-09-29",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Movimiento Verde, con 24 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura49.example.org",
     "numeroSeguidores": 36417,
-    "afiliaciones": "Movimiento Verde desde 2018",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1419,13 +1319,11 @@
     "fechaFinCargo": "2025-10-12",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Verde, con 25 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura50.example.org",
     "numeroSeguidores": 37150,
-    "afiliaciones": "Frente Verde desde 2019",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1447,13 +1345,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Verde, con 26 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura51.example.org",
     "numeroSeguidores": 37883,
-    "afiliaciones": "Alianza Verde desde 2020",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1475,13 +1371,11 @@
     "fechaFinCargo": "2023-11-08",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Verde, con 27 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura52.example.org",
     "numeroSeguidores": 38616,
-    "afiliaciones": "Coalición Verde desde 2021",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1503,13 +1397,11 @@
     "fechaFinCargo": "2024-11-20",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Verde, con 28 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura53.example.org",
     "numeroSeguidores": 39349,
-    "afiliaciones": "Unión Verde desde 2022",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1531,13 +1423,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Verde, con 29 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura54.example.org",
     "numeroSeguidores": 40082,
-    "afiliaciones": "Agrupación Verde desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1559,13 +1449,11 @@
     "fechaFinCargo": "2026-12-17",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Verde, con 30 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura55.example.org",
     "numeroSeguidores": 40815,
-    "afiliaciones": "Bloque Verde desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1587,13 +1475,11 @@
     "fechaFinCargo": "2023-12-30",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Partido Republicana, con 3 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura56.example.org",
     "numeroSeguidores": 41548,
-    "afiliaciones": "Partido Republicana desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1615,13 +1501,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Republicana, con 4 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura57.example.org",
     "numeroSeguidores": 42281,
-    "afiliaciones": "Movimiento Republicana desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1643,13 +1527,11 @@
     "fechaFinCargo": "2026-01-24",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Republicana, con 5 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura58.example.org",
     "numeroSeguidores": 43014,
-    "afiliaciones": "Frente Republicana desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1671,13 +1553,11 @@
     "fechaFinCargo": "2027-02-07",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Republicana, con 6 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura59.example.org",
     "numeroSeguidores": 43747,
-    "afiliaciones": "Alianza Republicana desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1699,13 +1579,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Nacional, con 7 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura60.example.org",
     "numeroSeguidores": 44480,
-    "afiliaciones": "Partido Nacional desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1727,13 +1605,11 @@
     "fechaFinCargo": "2025-03-04",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Nacional, con 8 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura61.example.org",
     "numeroSeguidores": 45213,
-    "afiliaciones": "Movimiento Nacional desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1755,13 +1631,11 @@
     "fechaFinCargo": "2026-03-17",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Nacional, con 9 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura62.example.org",
     "numeroSeguidores": 45946,
-    "afiliaciones": "Frente Nacional desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1783,13 +1657,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Alianza Nacional, con 10 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura63.example.org",
     "numeroSeguidores": 46679,
-    "afiliaciones": "Alianza Nacional desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1811,13 +1683,11 @@
     "fechaFinCargo": "2024-04-12",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Nacional, con 11 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura64.example.org",
     "numeroSeguidores": 47412,
-    "afiliaciones": "Coalición Nacional desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1839,13 +1709,11 @@
     "fechaFinCargo": "2025-04-25",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Nacional, con 12 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura65.example.org",
     "numeroSeguidores": 48145,
-    "afiliaciones": "Unión Nacional desde 2016",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1867,13 +1735,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Nacional, con 13 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura66.example.org",
     "numeroSeguidores": 48878,
-    "afiliaciones": "Agrupación Nacional desde 2017",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1895,13 +1761,11 @@
     "fechaFinCargo": "2027-05-22",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Nacional, con 14 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura67.example.org",
     "numeroSeguidores": 49611,
-    "afiliaciones": "Bloque Nacional desde 2018",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1923,13 +1787,11 @@
     "fechaFinCargo": "2024-06-03",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Popular, con 15 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura68.example.org",
     "numeroSeguidores": 50344,
-    "afiliaciones": "Partido Popular desde 2019",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1951,13 +1813,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Popular, con 16 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura69.example.org",
     "numeroSeguidores": 51077,
-    "afiliaciones": "Movimiento Popular desde 2020",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -1979,13 +1839,11 @@
     "fechaFinCargo": "2026-06-29",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Frente Popular, con 17 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura70.example.org",
     "numeroSeguidores": 51810,
-    "afiliaciones": "Frente Popular desde 2021",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2007,13 +1865,11 @@
     "fechaFinCargo": "2027-07-13",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Popular, con 18 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura71.example.org",
     "numeroSeguidores": 52543,
-    "afiliaciones": "Alianza Popular desde 2022",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2035,13 +1891,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Popular, con 19 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura72.example.org",
     "numeroSeguidores": 53276,
-    "afiliaciones": "Coalición Popular desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2063,13 +1917,11 @@
     "fechaFinCargo": "2025-08-07",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Popular, con 20 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura73.example.org",
     "numeroSeguidores": 54009,
-    "afiliaciones": "Unión Popular desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2091,13 +1943,11 @@
     "fechaFinCargo": "2026-08-20",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Popular, con 21 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura74.example.org",
     "numeroSeguidores": 54742,
-    "afiliaciones": "Agrupación Popular desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2119,13 +1969,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Popular, con 22 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura75.example.org",
     "numeroSeguidores": 55475,
-    "afiliaciones": "Bloque Popular desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2147,13 +1995,11 @@
     "fechaFinCargo": "2024-09-15",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Progresista, con 23 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura76.example.org",
     "numeroSeguidores": 56208,
-    "afiliaciones": "Partido Progresista desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2175,13 +2021,11 @@
     "fechaFinCargo": "2025-09-28",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Movimiento Progresista, con 24 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura77.example.org",
     "numeroSeguidores": 56941,
-    "afiliaciones": "Movimiento Progresista desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2203,13 +2047,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Progresista, con 25 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura78.example.org",
     "numeroSeguidores": 57674,
-    "afiliaciones": "Frente Progresista desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2231,13 +2073,11 @@
     "fechaFinCargo": "2027-10-25",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Progresista, con 26 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura79.example.org",
     "numeroSeguidores": 58407,
-    "afiliaciones": "Alianza Progresista desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2259,13 +2099,11 @@
     "fechaFinCargo": "2024-11-06",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Progresista, con 27 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura80.example.org",
     "numeroSeguidores": 59140,
-    "afiliaciones": "Coalición Progresista desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2287,13 +2125,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Progresista, con 28 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura81.example.org",
     "numeroSeguidores": 59873,
-    "afiliaciones": "Unión Progresista desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2315,13 +2151,11 @@
     "fechaFinCargo": "2026-12-02",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Progresista, con 29 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura82.example.org",
     "numeroSeguidores": 60606,
-    "afiliaciones": "Agrupación Progresista desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2343,13 +2177,11 @@
     "fechaFinCargo": "2027-12-16",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Progresista, con 30 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura83.example.org",
     "numeroSeguidores": 61339,
-    "afiliaciones": "Bloque Progresista desde 2016",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2371,13 +2203,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Partido Renovación, con 3 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura84.example.org",
     "numeroSeguidores": 62072,
-    "afiliaciones": "Partido Renovación desde 2017",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2399,13 +2229,11 @@
     "fechaFinCargo": "2026-01-10",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Renovación, con 4 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura85.example.org",
     "numeroSeguidores": 62805,
-    "afiliaciones": "Movimiento Renovación desde 2018",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2427,13 +2255,11 @@
     "fechaFinCargo": "2027-01-23",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Renovación, con 5 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura86.example.org",
     "numeroSeguidores": 63538,
-    "afiliaciones": "Frente Renovación desde 2019",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2455,13 +2281,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Renovación, con 6 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura87.example.org",
     "numeroSeguidores": 64271,
-    "afiliaciones": "Alianza Renovación desde 2020",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2483,13 +2307,11 @@
     "fechaFinCargo": "2025-02-18",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Renovación, con 7 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura88.example.org",
     "numeroSeguidores": 65004,
-    "afiliaciones": "Coalición Renovación desde 2021",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2511,13 +2333,11 @@
     "fechaFinCargo": "2026-03-03",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Renovación, con 8 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura89.example.org",
     "numeroSeguidores": 65737,
-    "afiliaciones": "Unión Renovación desde 2022",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2539,13 +2359,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Renovación, con 9 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura90.example.org",
     "numeroSeguidores": 66470,
-    "afiliaciones": "Agrupación Renovación desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2567,13 +2385,11 @@
     "fechaFinCargo": "2028-03-29",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Bloque Renovación, con 10 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura91.example.org",
     "numeroSeguidores": 67203,
-    "afiliaciones": "Bloque Renovación desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2595,13 +2411,11 @@
     "fechaFinCargo": "2025-04-11",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Democrática, con 11 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura92.example.org",
     "numeroSeguidores": 67936,
-    "afiliaciones": "Partido Democrática desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2623,13 +2437,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Democrática, con 12 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura93.example.org",
     "numeroSeguidores": 68669,
-    "afiliaciones": "Movimiento Democrática desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2651,13 +2463,11 @@
     "fechaFinCargo": "2027-05-07",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Democrática, con 13 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura94.example.org",
     "numeroSeguidores": 69402,
-    "afiliaciones": "Frente Democrática desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2679,13 +2489,11 @@
     "fechaFinCargo": "2028-05-20",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Democrática, con 14 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura95.example.org",
     "numeroSeguidores": 70135,
-    "afiliaciones": "Alianza Democrática desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2707,13 +2515,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Democrática, con 15 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura96.example.org",
     "numeroSeguidores": 70868,
-    "afiliaciones": "Coalición Democrática desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2735,13 +2541,11 @@
     "fechaFinCargo": "2026-06-15",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Democrática, con 16 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura97.example.org",
     "numeroSeguidores": 71601,
-    "afiliaciones": "Unión Democrática desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2763,13 +2567,11 @@
     "fechaFinCargo": "2027-06-28",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Agrupación Democrática, con 17 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura98.example.org",
     "numeroSeguidores": 72334,
-    "afiliaciones": "Agrupación Democrática desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2791,13 +2593,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Democrática, con 18 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura99.example.org",
     "numeroSeguidores": 73067,
-    "afiliaciones": "Bloque Democrática desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2819,13 +2619,11 @@
     "fechaFinCargo": "2025-07-24",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Ciudadana, con 19 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura100.example.org",
     "numeroSeguidores": 73800,
-    "afiliaciones": "Partido Ciudadana desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2847,13 +2645,11 @@
     "fechaFinCargo": "2026-08-06",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Ciudadana, con 20 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura101.example.org",
     "numeroSeguidores": 74533,
-    "afiliaciones": "Movimiento Ciudadana desde 2016",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2875,13 +2671,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Ciudadana, con 21 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura102.example.org",
     "numeroSeguidores": 75266,
-    "afiliaciones": "Frente Ciudadana desde 2017",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2903,13 +2697,11 @@
     "fechaFinCargo": "2028-09-01",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Ciudadana, con 22 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura103.example.org",
     "numeroSeguidores": 75999,
-    "afiliaciones": "Alianza Ciudadana desde 2018",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2931,13 +2723,11 @@
     "fechaFinCargo": "2025-09-14",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Coalición Ciudadana, con 23 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura104.example.org",
     "numeroSeguidores": 76732,
-    "afiliaciones": "Coalición Ciudadana desde 2019",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2959,13 +2749,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Unión Ciudadana, con 24 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura105.example.org",
     "numeroSeguidores": 77465,
-    "afiliaciones": "Unión Ciudadana desde 2020",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -2987,13 +2775,11 @@
     "fechaFinCargo": "2027-10-10",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Ciudadana, con 25 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura106.example.org",
     "numeroSeguidores": 78198,
-    "afiliaciones": "Agrupación Ciudadana desde 2021",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3015,13 +2801,11 @@
     "fechaFinCargo": "2028-10-23",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Ciudadana, con 26 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura107.example.org",
     "numeroSeguidores": 78931,
-    "afiliaciones": "Bloque Ciudadana desde 2022",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3043,13 +2827,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Verde, con 27 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura108.example.org",
     "numeroSeguidores": 79664,
-    "afiliaciones": "Partido Verde desde 2005",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3071,13 +2853,11 @@
     "fechaFinCargo": "2026-11-18",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Verde, con 28 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura109.example.org",
     "numeroSeguidores": 80397,
-    "afiliaciones": "Movimiento Verde desde 2006",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3099,13 +2879,11 @@
     "fechaFinCargo": "2027-12-01",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Verde, con 29 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura110.example.org",
     "numeroSeguidores": 81130,
-    "afiliaciones": "Frente Verde desde 2007",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3127,13 +2905,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Alianza Verde, con 30 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura111.example.org",
     "numeroSeguidores": 81863,
-    "afiliaciones": "Alianza Verde desde 2008",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3155,13 +2931,11 @@
     "fechaFinCargo": "2025-12-27",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Coalición Verde, con 3 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura112.example.org",
     "numeroSeguidores": 82596,
-    "afiliaciones": "Coalición Verde desde 2009",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3183,13 +2957,11 @@
     "fechaFinCargo": "2027-01-09",
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Unión Verde, con 4 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura113.example.org",
     "numeroSeguidores": 83329,
-    "afiliaciones": "Unión Verde desde 2010",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3211,13 +2983,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Agrupación Verde, con 5 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura114.example.org",
     "numeroSeguidores": 84062,
-    "afiliaciones": "Agrupación Verde desde 2011",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3239,13 +3009,11 @@
     "fechaFinCargo": "2029-02-04",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Reconocimiento a la gestión pública",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Bloque Verde, con 6 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura115.example.org",
     "numeroSeguidores": 84795,
-    "afiliaciones": "Bloque Verde desde 2012",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3267,13 +3035,11 @@
     "fechaFinCargo": "2026-02-17",
     "estadoCivil": "Soltero/a",
     "idiomas": "Español, Inglés",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Partido Republicana, con 7 años de experiencia en el sector público.",
     "sitioWebOficial": "https://figura116.example.org",
     "numeroSeguidores": 85528,
-    "afiliaciones": "Partido Republicana desde 2013",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3295,13 +3061,11 @@
     "fechaFinCargo": null,
     "estadoCivil": "Casado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Movimiento Republicana, con 8 años de experiencia en el sector municipal.",
     "sitioWebOficial": "https://figura117.example.org",
     "numeroSeguidores": 86261,
-    "afiliaciones": "Movimiento Republicana desde 2014",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3323,13 +3087,11 @@
     "fechaFinCargo": "2028-03-14",
     "estadoCivil": "Divorciado/a",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Ninguna registrada",
     "biografiaCorta": "Figura pública vinculada a Frente Republicana, con 9 años de experiencia en el sector legislativo.",
     "sitioWebOficial": "https://figura118.example.org",
     "numeroSeguidores": 86994,
-    "afiliaciones": "Frente Republicana desde 2015",
-    "fotoBase64": null
+    "foto": null
   },
   {
     "tipo": "figura",
@@ -3351,12 +3113,10 @@
     "fechaFinCargo": "2029-03-28",
     "estadoCivil": "Unión libre",
     "idiomas": "Español",
-    "premiosReconocimientos": "Ninguno registrado",
     "controversias": "Cuestionamientos por uso de fondos de viáticos (en investigación)",
     "biografiaCorta": "Figura pública vinculada a Alianza Republicana, con 10 años de experiencia en el sector ejecutivo.",
     "sitioWebOficial": "https://figura119.example.org",
     "numeroSeguidores": 87727,
-    "afiliaciones": "Alianza Republicana desde 2016",
-    "fotoBase64": null
+    "foto": null
   }
 ]

@@ -13,10 +13,11 @@ class FiguraMongoDAO {
     // ==========================
  
     async crear(figura) {
- 
+
         const db =
             await conectarMongoDB();
- 
+
+
         const documento = {
  
             tipo: "figura",
@@ -64,9 +65,6 @@ class FiguraMongoDAO {
  
             idiomas: figura.idiomas,
  
-            premiosReconocimientos:
-                figura.premiosReconocimientos,
- 
             controversias: figura.controversias,
  
             biografiaCorta: figura.biografiaCorta,
@@ -77,25 +75,24 @@ class FiguraMongoDAO {
                 figura.numeroSeguidores
             ),
  
-            afiliaciones: figura.afiliaciones,
- 
-            fotoBase64:
-                figura.fotoBase64 || null
+            // La foto llega BINARIA desde el controlador
+            // y se guarda como BinData (igual que BYTEA en la Parte 2)
+            foto: figura.foto || null
         };
- 
- 
+
+
         const resultado =
             await db
                 .collection("CollMongoDB")
                 .insertOne(documento);
- 
- 
+
+
         return {
- 
+
             _id: resultado.insertedId,
- 
+
             ...documento
- 
+
         };
     }
  
@@ -118,7 +115,7 @@ class FiguraMongoDAO {
                 tipo: "figura"
             })
             .project({
-                fotoBase64: 0
+                foto: 0
             })
             .toArray();
     }
@@ -135,6 +132,7 @@ class FiguraMongoDAO {
  
  
         // CARGA LAZY: aquí sí se trae el documento completo con la imagen
+        // (la foto sale BINARIA y el controlador la serializa a base64)
         return await db
             .collection("CollMongoDB")
             .findOne({
@@ -199,9 +197,6 @@ class FiguraMongoDAO {
  
             idiomas: figura.idiomas,
  
-            premiosReconocimientos:
-                figura.premiosReconocimientos,
- 
             controversias: figura.controversias,
  
             biografiaCorta: figura.biografiaCorta,
@@ -210,18 +205,17 @@ class FiguraMongoDAO {
  
             numeroSeguidores: Number(
                 figura.numeroSeguidores
-            ),
- 
-            afiliaciones:
-                figura.afiliaciones
+            )
         };
  
  
         // La imagen solo se reemplaza si se seleccionó una nueva
-        if (figura.fotoBase64) {
- 
-            datos.fotoBase64 =
-                figura.fotoBase64;
+        // (equivale al COALESCE de la Parte 2 con PostgreSQL).
+        // Llega BINARIA desde el controlador y se guarda como BinData
+
+        if (figura.foto) {
+
+            datos.foto = figura.foto;
         }
  
  

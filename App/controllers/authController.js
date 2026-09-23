@@ -10,6 +10,8 @@ const path = require("path");
  
 const AuthService = require("../services/authService");
  
+// Logger de acciones (requerimiento del proyecto)
+ 
 const Logger = require("../utils/logger");
  
 /*=========================================
@@ -60,6 +62,8 @@ function iniciarSesion(req,res){
             password
         );
  
+        // Se guarda el usuario activo y se registra en el log
+ 
         Logger.asignarUsuario(usuario);
  
         Logger.registrar(
@@ -77,6 +81,8 @@ function iniciarSesion(req,res){
  
     }
     catch(error){
+ 
+        // Registro del error de autenticación en el log
  
         Logger.registrar(
             "Error de autenticación: " + error.message,
@@ -99,6 +105,9 @@ function iniciarSesion(req,res){
 
 /*=========================================
   Mostrar menú principal
+  menú lateral que se muestra
+  después de una autenticación correcta
+  (requerimiento del proyecto)
 =========================================*/
  
 function mostrarMenu(req, res) {
@@ -114,6 +123,8 @@ function mostrarMenu(req, res) {
 =========================================*/
  
 function cerrarSesion(req, res) {
+ 
+    // Registro del cierre de sesión en el log
  
     Logger.registrar("Cierre de sesión");
  
