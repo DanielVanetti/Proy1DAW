@@ -6,6 +6,16 @@ const API =
     "/api/figuras";
  
  
+// CARGA LAZY: los documentos se piden de 10 en 10.
+// saltarMongo: lleva la cuenta de los que ya se cargaron.
+ 
+const LIMITE_MONGO = 10;
+ 
+let saltarMongo = 0;
+ 
+let documentosMongo = [];
+ 
+ 
 // ==================================================
 // FUNCIONES GENERALES
 // ==================================================
@@ -576,10 +586,44 @@ async function eliminarMongo() {
  
 async function mostrarMongo() {
  
+    // vuelve a cargar la misma cantidad de filas que ya estaba desplegada
+ 
+    let cantidad = saltarMongo;
+ 
+ 
+    if (cantidad < LIMITE_MONGO) {
+ 
+        cantidad = LIMITE_MONGO;
+    }
+ 
+ 
+    saltarMongo = 0;
+ 
+    documentosMongo = [];
+ 
+ 
+    await cargarMongo(cantidad);
+}
+ 
+ 
+ 
+// VER MAS (CARGA LAZY)
+ 
+function verMas() {
+ 
+    cargarMongo(LIMITE_MONGO);
+}
+ 
+ 
+ 
+// CARGA LAZY: trae solo la siguiente tanda de documentos, saltando los que ya estan en la tabla
+ 
+async function cargarMongo(cantidad) {
+ 
     const respuesta =
         await fetch(
  
-            `${API}/mongo`
+            `${API}/mongo?saltar=${saltarMongo}&limite=${cantidad}`
  
         );
  
@@ -587,6 +631,43 @@ async function mostrarMongo() {
     const datos =
         await respuesta.json();
  
+ 
+    // los documentos nuevos se suman a los que ya estaban
+ 
+    documentosMongo =
+        documentosMongo.concat(datos.figuras);
+ 
+ 
+    saltarMongo =
+        saltarMongo + datos.figuras.length;
+ 
+ 
+
+ 
+    const boton =
+        document.getElementById(
+            "botonVerMas"
+        );
+ 
+ 
+    if (datos.figuras.length < cantidad) {
+ 
+        boton.style.display = "none";
+ 
+    } else {
+ 
+        boton.style.display = "inline-block";
+    }
+ 
+ 
+    dibujarMongo();
+}
+ 
+ 
+ 
+// DIBUJAR LA TABLA
+ 
+function dibujarMongo() {
  
     const tabla =
         document.getElementById(
@@ -599,7 +680,7 @@ async function mostrarMongo() {
  
     // CARGA LAZY: estos documentos llegan sin foto
  
-    datos.figuras.forEach(
+    documentosMongo.forEach(
         figura => {
  
             const fila =

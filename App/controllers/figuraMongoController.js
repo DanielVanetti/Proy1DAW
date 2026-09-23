@@ -10,9 +10,7 @@ const service =
     new FiguraMongoService();
 
 
-// El campo "foto" es binario (BinData): MongoDB lo devuelve como Binary
-// y aquí se convierte a texto base64 para enviarlo serializado a la vista.
-// (mismo patrón usado en la Parte 2 con las columnas BYTEA de PostgreSQL)
+// El campo "foto" es binario (BinData) y MongoDB lo devuelve como Binary
 
 const serializarImagen = (figura) => {
 
@@ -37,8 +35,6 @@ const serializarImagen = (figura) => {
 };
 
 
-// La vista manda la imagen serializada en base64 y aquí se convierte
-// a binario, tal como se hace en la Parte 2 antes del INSERT / UPDATE
 
 const deserializarImagen = (cuerpo) => {
 
@@ -119,8 +115,26 @@ class FiguraMongoController {
  
         try {
  
+            // CARGA LAZY: la vista pide los documentos de 10 en 10 con el boton VER MAS
+
+            let saltar = Number(req.query.saltar);
+
+            if (!saltar) {
+
+                saltar = 0;
+            }
+
+
+            let limite = Number(req.query.limite);
+
+            if (!limite) {
+
+                limite = 10;
+            }
+
+
             const figuras =
-                await service.obtenerTodosMongo();
+                await service.obtenerTodosMongo(saltar, limite);
  
  
             Logger.registrar(

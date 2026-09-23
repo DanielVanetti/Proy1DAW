@@ -23,9 +23,9 @@ class FiguraMongoService {
     }
  
  
-    async obtenerTodosMongo() {
+    async obtenerTodosMongo(saltar, limite) {
  
-        return await mongoDAO.obtenerTodos();
+        return await mongoDAO.obtenerTodos(saltar, limite);
     }
  
  

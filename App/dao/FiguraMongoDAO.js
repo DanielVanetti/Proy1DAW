@@ -76,7 +76,6 @@ class FiguraMongoDAO {
             ),
  
             // La foto llega BINARIA desde el controlador
-            // y se guarda como BinData (igual que BYTEA en la Parte 2)
             foto: figura.foto || null
         };
 
@@ -101,13 +100,13 @@ class FiguraMongoDAO {
     // CONSULTAR TODOS
     // ==========================
  
-    async obtenerTodos() {
+    async obtenerTodos(saltar, limite) {
  
         const db =
             await conectarMongoDB();
  
  
-        // CARGA LAZY: aquí se trae solo la lista de documentos sin la imagen
+        // CARGA LAZY: aquí se trae solo la lista de documentos sin la imagen y con paginación
 
         return await db
             .collection("CollMongoDB")
@@ -117,6 +116,8 @@ class FiguraMongoDAO {
             .project({
                 foto: 0
             })
+            .skip(saltar)
+            .limit(limite)
             .toArray();
     }
  
@@ -132,7 +133,6 @@ class FiguraMongoDAO {
  
  
         // CARGA LAZY: aquí sí se trae el documento completo con la imagen
-        // (la foto sale BINARIA y el controlador la serializa a base64)
         return await db
             .collection("CollMongoDB")
             .findOne({
@@ -209,9 +209,7 @@ class FiguraMongoDAO {
         };
  
  
-        // La imagen solo se reemplaza si se seleccionó una nueva
-        // (equivale al COALESCE de la Parte 2 con PostgreSQL).
-        // Llega BINARIA desde el controlador y se guarda como BinData
+
 
         if (figura.foto) {
 

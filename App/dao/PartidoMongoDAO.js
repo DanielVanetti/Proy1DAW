@@ -53,7 +53,6 @@ class PartidoMongoDAO {
             descripcion: partido.descripcion,
  
             // El logo llega BINARIO desde el controlador
-            // y se guarda como BinData (igual que BYTEA en la Parte 2)
             logo: partido.logo || null
         };
 
@@ -78,13 +77,13 @@ class PartidoMongoDAO {
     // CONSULTAR TODOS
     // ==========================
  
-    async obtenerTodos() {
+    async obtenerTodos(saltar, limite) {
  
         const db =
             await conectarMongoDB();
  
  
-        // CARGA LAZY : aquí se trae solo la lista de documentos sin la imagen
+        // CARGA LAZY : aquí se trae solo la lista de documentos sin la imagen y con paginación
         return await db
             .collection("CollMongoDB")
             .find({
@@ -93,6 +92,8 @@ class PartidoMongoDAO {
             .project({
                 logo: 0
             })
+            .skip(saltar)
+            .limit(limite)
             .toArray();
     }
  
@@ -108,7 +109,6 @@ class PartidoMongoDAO {
  
  
         // CARGA LAZY: aquí sí se trae el documento completo con la imagen
-        // (el logo sale BINARIO y el controlador lo serializa a base64)
         return await db
             .collection("CollMongoDB")
             .findOne({
@@ -163,9 +163,6 @@ class PartidoMongoDAO {
         };
  
 
-        // El logo solo se reemplaza si se seleccionó una imagen nueva
-        // (equivale al COALESCE de la Parte 2 con PostgreSQL).
-        // Llega BINARIO desde el controlador y se guarda como BinData
 
         if (partido.logo) {
 
