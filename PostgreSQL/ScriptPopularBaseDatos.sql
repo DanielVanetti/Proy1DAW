@@ -1,10 +1,3 @@
--- ==========================================================
--- Proyecto 1 - EIF509 - Grupo 5 - Politica y Figuras Publicas
--- Datos de ejemplo para BDPostgreSQL
--- (Los campos "logo"/"imagen"/"foto"/"imagen_evento" quedan NULL;
---  se cargan luego de forma binaria/serializada desde la vista)
--- ==========================================================
-
 INSERT INTO partidos_pg (nombre, siglas, ideologia, fecha_fundacion, sede, sitio_web, num_militantes)
 VALUES
 ('Partido Renovacion Nacional', 'PRN', 'Centro', '1998-03-14', 'San Jose', 'https://prn.example.org', 45000),

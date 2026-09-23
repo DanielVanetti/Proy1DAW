@@ -123,6 +123,27 @@ class FiguraMongoDAO {
  
  
     // ==========================
+    // CONTAR
+    // ==========================
+ 
+    async contar() {
+ 
+        const db =
+            await conectarMongoDB();
+ 
+ 
+        // Total de documentos, para que la vista sepa
+        // cuando ya no queda nada por cargar
+ 
+        return await db
+            .collection("CollMongoDB")
+            .countDocuments({
+                tipo: "figura"
+            });
+    }
+ 
+ 
+    // ==========================
     // CONSULTAR UNO
     // ==========================
  
@@ -130,6 +151,15 @@ class FiguraMongoDAO {
  
         const db =
             await conectarMongoDB();
+ 
+ 
+        // Si el ObjectId no es valido se devuelve null y el
+        // controlador responde 404, igual que cuando no existe
+ 
+        if (!ObjectId.isValid(id)) {
+ 
+            return null;
+        }
  
  
         // CARGA LAZY: aquí sí se trae el documento completo con la imagen
@@ -150,6 +180,15 @@ class FiguraMongoDAO {
  
         const db =
             await conectarMongoDB();
+ 
+ 
+        // Si el ObjectId no es valido se devuelve null y el
+        // controlador responde 404, igual que cuando no existe
+ 
+        if (!ObjectId.isValid(id)) {
+ 
+            return null;
+        }
  
  
         const datos = {

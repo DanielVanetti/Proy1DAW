@@ -1,5 +1,5 @@
 const FiguraMongoService =
-    require("../services/FiguraMongoService");
+    require("../services/figuraMongoService");
  
 // Logger de acciones
 const Logger =
@@ -137,6 +137,13 @@ class FiguraMongoController {
                 await service.obtenerTodosMongo(saltar, limite);
  
  
+            // Total de documentos en la coleccion, para que la
+            // vista sepa cuando esconder el boton VER MAS
+ 
+            const total =
+                await service.contarMongo();
+ 
+ 
             Logger.registrar(
                 "Consultar todas las figuras públicas"
             );
@@ -147,7 +154,9 @@ class FiguraMongoController {
                 mensaje:
                     "MongoDB: consulta realizada",
  
-                figuras
+                figuras,
+ 
+                total
  
             });
  

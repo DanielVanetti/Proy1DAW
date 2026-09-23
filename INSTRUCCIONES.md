@@ -1,4 +1,4 @@
-# Cómo ejecutar el proyecto (Grupo 5 - Política y Figuras Públicas)
+# Cómo ejecutar el proyecto (Grupo 6 - Política y Figuras Públicas)
 
 ## 1. Instalar dependencias
 
@@ -51,7 +51,7 @@ Abrir `http://localhost:3000`.
 Definidos en `App/data/usuarios.txt`:
 
 - `admin` / `admin123`
-- `grupo5` / `politica2026`
+- `grupo6` / `politica2026`
 
 ## 7. Antes de entregar
 

@@ -1,13 +1,3 @@
--- ==========================================================
--- Proyecto 1 - EIF509 - Grupo 5 - Politica y Figuras Publicas
--- Base de datos: BDPostgreSQL
--- Parte 2 (Semana 4): 2 vistas, cada una con 2 tablas relacionadas
--- ==========================================================
-
--- Ejecutar primero, conectado como superusuario:
--- CREATE DATABASE "BDPostgreSQL";
--- Luego conectarse a BDPostgreSQL y ejecutar el resto de este script.
-
 -- ---------- Vista A: Partidos y Propuestas ----------
 
 CREATE TABLE partidos_pg (

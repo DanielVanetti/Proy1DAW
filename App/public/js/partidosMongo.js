@@ -14,6 +14,14 @@ let saltarMongo = 0;
  
 let documentosMongo = [];
  
+// total de documentos en la base, lo manda el servidor
+ 
+let totalMongo = 0;
+ 
+// evita que dos clics seguidos pidan la misma tanda
+ 
+let cargandoMongo = false;
+ 
  
 // ==================================================
 // FUNCIONES GENERALES
@@ -479,6 +487,15 @@ async function mostrarMongo() {
     let cantidad = saltarMongo;
  
  
+    // si la tabla tenia todos los documentos, se piden todos otra vez
+    // (asi aparece el documento que se acaba de crear)
+ 
+    if (saltarMongo === totalMongo) {
+ 
+        cantidad = totalMongo + 1;
+    }
+ 
+ 
     if (cantidad < LIMITE_MONGO) {
  
         cantidad = LIMITE_MONGO;
@@ -499,6 +516,12 @@ async function mostrarMongo() {
  
 function verMas() {
  
+    if (cargandoMongo) {
+ 
+        return;
+    }
+ 
+ 
     cargarMongo(LIMITE_MONGO);
 }
  
@@ -507,6 +530,9 @@ function verMas() {
 // CARGA LAZY: trae la siguiente tanda, saltando los que ya están cargados
  
 async function cargarMongo(cantidad) {
+ 
+    cargandoMongo = true;
+ 
  
     const respuesta =
         await fetch(
@@ -530,6 +556,12 @@ async function cargarMongo(cantidad) {
         saltarMongo + datos.partidos.length;
  
  
+    totalMongo = datos.total;
+ 
+ 
+    cargandoMongo = false;
+ 
+ 
  
     const boton =
         document.getElementById(
@@ -537,7 +569,7 @@ async function cargarMongo(cantidad) {
         );
  
  
-    if (datos.partidos.length < cantidad) {
+    if (documentosMongo.length >= totalMongo) {
  
         boton.style.display = "none";
  

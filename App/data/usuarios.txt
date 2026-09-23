@@ -1,5 +1,5 @@
 admin;admin123
-grupo5;politica2026
+grupo6;politica2026
 daniel;vanetti06
 josue;dragonfire17
 alejandro;tamales1

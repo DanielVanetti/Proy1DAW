@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const FiguraMongoController =
-    require("../controllers/FiguraMongoController");
+    require("../controllers/figuraMongoController");
 
 
 // ======================================================

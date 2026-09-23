@@ -29,6 +29,12 @@ class PartidoMongoService {
     }
  
  
+    async contarMongo() {
+ 
+        return await mongoDAO.contar();
+    }
+ 
+ 
     async obtenerPorIdMongo(id) {
  
         return await mongoDAO.obtenerPorId(

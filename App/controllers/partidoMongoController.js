@@ -1,5 +1,5 @@
 const PartidoMongoService =
-    require("../services/PartidoMongoService");
+    require("../services/partidoMongoService");
  
 // Logger de acciones
 const Logger =
@@ -138,6 +138,13 @@ class PartidoMongoController {
                 await service.obtenerTodosMongo(saltar, limite);
  
  
+            // Total de documentos en la coleccion, para que la
+            // vista sepa cuando esconder el boton VER MAS
+ 
+            const total =
+                await service.contarMongo();
+ 
+ 
             Logger.registrar(
                 "Consultar todos los partidos, sin imagen - carga lazy (MongoDB)"
             );
@@ -148,7 +155,9 @@ class PartidoMongoController {
                 mensaje:
                     "MongoDB: consulta realizada",
  
-                partidos
+                partidos,
+ 
+                total
  
             });
  

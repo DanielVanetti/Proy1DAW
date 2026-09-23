@@ -1,6 +1,6 @@
 # Proy1DAW — Partidos Políticos y Figuras Públicas
 
-Proyecto 1 del curso Aplicaciones Basadas en Web (Grupo 5).
+Proyecto 1 del curso Aplicaciones Basadas en Web (Grupo 6).
 
 Aplicación web Node.js + Express con tres fuentes de datos.
 
@@ -104,7 +104,7 @@ Definidos en `App/data/usuarios.txt`:
 | Usuario  | Contraseña      |
 |----------|-----------------|
 | `admin`  | `admin123`      |
-| `grupo5` | `politica2026`  |
+| `grupo6` | `politica2026`  |
 
 ## Páginas
 

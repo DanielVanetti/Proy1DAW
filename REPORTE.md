@@ -1,4 +1,4 @@
-# Reporte de estado — Proyecto 1, Grupo 5 (Política y Figuras Públicas)
+# Reporte de estado — Proyecto 1, Grupo 6 (Política y Figuras Públicas)
 
 Documento vivo para seguimiento del grupo. Se actualiza conforme avanza el trabajo.
 

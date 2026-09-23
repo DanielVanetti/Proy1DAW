@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const PartidoMongoController =
-    require("../controllers/PartidoMongoController");
+    require("../controllers/partidoMongoController");
 
 
 // ======================================================

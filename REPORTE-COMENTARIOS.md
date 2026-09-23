@@ -1,4 +1,4 @@
-# Reporte de comentarios largos/verbosos — Proyecto 1, Grupo 5
+# Reporte de comentarios largos/verbosos — Proyecto 1, Grupo 6
 
 Documento de solo lectura: lista los comentarios que quedaron más largos de lo
 necesario en las 3 partes, para compactarlos igual que se hizo con
