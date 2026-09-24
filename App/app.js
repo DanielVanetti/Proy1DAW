@@ -2,7 +2,7 @@ const express = require("express");
  
 const path = require("path");
  
-require("dotenv").config();
+require("dotenv").config({ quiet: true });
  
 const app = express();
  
